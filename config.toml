@@ -1,0 +1,282 @@
+## REFRENSI: https://trackingapps.org/
+## cloudimage.io from ade.anatasia@gmail.com
+
+baseurl = "https://www.penyadap.web.id/"
+title = "Penyadap.web.id"
+description = "Aplikasi Penyadap HP iPhone, Android, Blackberry untuk pasangan selingkuh."
+copyright = "PENYADAP.WEB.ID. All rights reserved."
+
+enableRobotsTXT = true
+
+debug = 10000
+
+### SETUP
+languageCode = "id"
+theme = "hugo_framework"
+enableEmoji = true
+disableHugoGeneratorInject= true
+canonifyurls = true
+paginate = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = false
+
+[minify]
+    [minify.tdewolff.html]
+      keepQuotes = true
+      keepWhitespace = true
+
+[blackfriday]
+  smartypants = false
+
+
+[related]
+  includeNewer = true
+  threshold = 100
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+[outputs]
+home = ["HTML", "AMP",  "RSS"]
+page = ["HTML", "AMP", "RSS"]
+
+
+[mediaTypes]
+[mediaTypes."application/rss"]
+isPlainText = true
+suffixes = ["xml"]
+
+[outputFormats]
+[outputFormats.RSS]
+mediatype = "application/rss"
+baseName = "index"
+
+
+## VENDOR
+
+
+## TAXTONAMIES
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  label = "label"
+  author = "authors"
+
+## PERMALINK
+
+
+## MENU
+[[menu.main]]
+    name = "Disclaimer"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -110
+    identifier = "disclaimer"
+    url = "/disclaimer/"
+    
+[[menu.main]]
+    name = "Support"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -120
+    identifier= "hubungi-kami"
+    url = "/hubungi-kami/"
+
+[[menu.main]]
+    name = "Pemesanan"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -130
+    identifier= "Download"
+    url = "/download/"
+
+    
+[[menu.footer]]
+    name = "Demo Aplikasi"
+    pre = " |"
+    weight = -201
+    url = "/demo/"
+[[menu.footer]]
+    name = "Jasa Hack"
+    pre = " |"
+    weight = -200
+    url = "/download/"
+[[menu.footer]]
+    name = "Blog"
+    pre = " |"
+    weight = -199
+    url = "/konten/"
+[[menu.footer]]
+    name = "Ketentuan"
+    pre = " |"
+    weight = -198
+    url = "/disclaimer/"
+[[menu.footer]]
+    name = "Privacy Police"
+    pre = ""
+    weight = -197
+    url = "/privacy-police/"
+[[menu.footer]]
+    name = "Contact"
+    pre = ""
+    weight = -196
+    url = "/hubungi-kami/"
+
+
+[[menu.demo]]
+  identifier = "dashboard"
+  name = "Dashboard"
+  url = "/demo/"
+  weight = 1
+  pre = "icon-home"
+[[menu.demo]]
+  identifier = "sms"
+  name = "SMS"
+  url = "/demo/sms/"
+  weight = 2
+  pre = "icon-envelope"
+[[menu.demo]]
+  identifier = "mms"
+  name = "MMS"
+  url = "/demo/mms/"
+  weight = 3
+  pre = "fa fa-file-image-o"
+[[menu.demo]]
+  identifier = "calls"
+  name = "Calls"
+  url = "/#sasdasd"
+  weight = 4
+  pre = "fa fa-phone"
+[[menu.demo]]
+  identifier = "location"
+  name = "Location"
+  url = "#"
+  weight = 5
+  pre = "icon-map"
+[[menu.demo]]
+  identifier = "pictures"
+  name = "Pictures"
+  url = "/demo/pictures/"
+  weight = 6
+  pre = "icon-picture"
+[[menu.demo]]
+  identifier = "apps"
+  name = "Applications"
+  url = "/demo/applications/"
+  weight = 7
+  pre = "icon-game-controller"
+[[menu.demo]]
+  identifier = "calendar"
+  name = "Calendar"
+  url = "/demo/calendar/"
+  weight = 8
+  pre = "fa fa-calendar"
+[[menu.demo]]
+  identifier = "contacts"
+  name = "Contacts"
+  url = "/demo/contact/"
+  weight = 9
+  pre = "icon-notebook"
+[[menu.demo]]
+  identifier = "sites"
+  name = "Site Web"
+  url = "/#"
+  weight = 10
+  pre = "i fa fa-chrome"
+[[menu.demo]]
+  identifier = "screenshot"
+  name = "Screenshot"
+  url = "/demo/screenshot/"
+  weight = 11
+  pre = "fa fa-binoculars"
+[[menu.demo]]
+  identifier = "chatroot"
+  name = "Instan Messaging (ROOT)"
+  url = "#"
+  weight = 12
+  pre = "fi icon-eye"
+[[menu.demo]]
+  identifier = "chat"
+  name = "Instan Messaging"
+  url = "#"
+  weight = 13
+  pre = "i icon-eye"
+[[menu.demo]]
+  identifier = "remote"
+  name = "Remote Control"
+  url = "/demo/remote/"
+  weight = 14
+  pre = "fa fa-cloud"
+[[menu.demo]]
+  identifier = "live"
+  name = "Live Viewing"
+  url = "/demo/live/"
+  weight = 15
+  pre = "fa fa-video-camera"
+[[menu.demo]]
+  identifier = "fileexplorer"
+  name = "File Explorer"
+  url = "/demo/file-explorer/"
+  weight = 16
+  pre = "icon-folder-alt"
+[[menu.demo]]
+  identifier = "restriction"
+  name = "Schedule restriction"
+  url = "/demo/schedule-restriction/"
+  weight = 17
+  pre = "fa fa-lock"
+[[menu.demo]]
+  identifier = "smscmd"
+  name = "SMS Commands"
+  url = "/demo/sms-command/"
+  weight = 18
+  pre = "fa fa-send"
+[[menu.demo]]
+  identifier = "stats"
+  name = "Statistics"
+  url = "/demo/stats/"
+  weight = 19
+  pre = "fa fa-pie-chart"
+[[menu.demo]]
+  identifier = "account"
+  name = "My Account"
+  url = "/demo/account/"
+  weight = 20
+  pre = "i icon-user"
+
+
+[params.features]
+    enable = true
+	
+	
+[params]
+  ## SITE SETTING
+  #
+  siteLogo = "/logo.png"
+  author = "Karnelius Jonny"
+  nomer = "085645161031"
+  nomer_url = "6287774686029"
+  
+  
+  disqus = "pephone"
+  twitter = "@penyadap_id"
+    
+  googleAnalytics = "UA-103506959-1"
+  
+  ## ADSENSE
+  
+  adsensePublisher = "ca-pub-8751263644994394"
+  
+
+  dateformat = "Jan 2, 2006" #Optional
+  googlefonts = "https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" # Optional, Include google fonts.
+  fontfamily = "'Roboto Slab', serif" # Optional, Override body font family.
+  logofontfamily = "Lobster, cursive" # Optional, Override logo font.
+  
+  
