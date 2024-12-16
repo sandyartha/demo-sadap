@@ -1,0 +1,76 @@
+data="""
+
+"""
+
+network="""
+<div class="card mb-5 mt-5">
+   <div class="card-body container">
+<h3>Operator Jaringan Selular</h3>
+<p>Suatu operator telepon seluler ataupun operator nirkabel merupakan industri telepon yang sediakan layanan buat pengguna telepon seluler. Operator membagikan kartu SIM ke pelanggan yang memasukkan ke ponsel buat memperoleh akses ke layanan tersebut. Bersumber pada gunanya kecepatan, jaringan dipecah jadi sebagian ialah GPRS( Gram), EDGE( E), 3G, H ataupun HPSA/ HSDPA, 4G ataupun LTE, serta 5G yang saat ini lagi dibesarkan provider SAMSUNG.
+</p>
+Source / Sumber : <a href="https://id.wikipedia.org/wiki/Operator_jaringan_seluler">https://id.wikipedia.org/wiki/Operator_jaringan_seluler</a>
+</div>
+</div>
+"""
+
+os="""
+<div class="card mb-5 mt-5">
+   <div class="card-body container">
+      <h4>OS Platfrom (Operasi Sistem)</h4>
+
+      <p>Umumnya, sebutan sistem operasi kerap diperuntukan kepada seluruh fitur lunak yang masuk dalam satu paket dengan sistem pc saat sebelum aplikasi- aplikasi fitur lunak terinstal. Sistem operasi merupakan fitur lunak sistem yang bertugas buat melaksanakan kontrol serta manajemen fitur keras dan operasi- operasi dasar sistem, tercantum melaksanakan fitur lunak aplikasi semacam program- program pengolah kata serta peramban website. </p>
+
+      <p>Dalam banyak permasalahan, Sistem Operasi sediakan sesuatu pustaka dari fungsi- fungsi standar, di mana aplikasi lain bisa memanggil fungsi- fungsi itu, sehingga dalam tiap pembuatan program baru, tidak butuh membuat fungsi- fungsi tersebut dari dini. </p>
+
+      <p>Sistem operasi secara universal terdiri dari sebagian bagian: </p>
+
+      <ul>
+         <li>Mekanisme Boot, ialah meletakkan kernel ke dalam memory RAM</li>
+         <li>Kernel, ialah inti dari sebuah sistem operasi</li>
+         <li>Command Interpreter ataupun shell, yang bertugas membaca / read input dari pengguna</li>
+         <li>Pustaka-pustaka, yaitu yang menyediakan kumpulan fungsi dasar dan standar yang dapat dipanggil oleh aplikasi lain</li>
+         <li>Driver untuk berinteraksi dengan hardware eksternal, sekaligus untuk mengendalikannya.</li>
+      </ul>
+
+      Source / Sumber : <a href="https://id.wikipedia.org/wiki/Sistem_operasi">https://id.wikipedia.org/wiki/Sistem_operasi</a>
+   </div>
+</div>
+"""
+
+chipset="""
+<div class="card mb-5 mt-5">
+   <div class="card-body container">
+<h4>Chipset</h4>
+<p>Suatu chipset memusatkan informasi dari CPU ke Chipset. Sebaliknya Chipset dipecah jadi 2 bagian komponen utama ialah, Northbridge serta Southbridge. Northbridge mengendalikan Chace memori, Memori Utama, Host Bis serta Slot PCI perluasan. Sebaliknya Soutbridge mengendalikan ISA Bis, serta menjembatani antara ISA Bis serta PCI Bis, mengendalikan serta mengendalikan I/ O port serta slot Ilham. Chipset pula memastikan kecepatan dari front- side bis, bis memory serta bis grafis, dan kapasitas serta jenis memori yang di dukung motherboard. Tidak hanya itu pula, chipset memusatkan aliran informasi lewat bis PCI, drive Ilham serta port I/ O dan memastikan standar Ilham pula jenis port yang didukung oleh sistem.</p>
+
+ Source / Sumber : <a href="https://id.wikipedia.org/wiki/Chipset">https://id.wikipedia.org/wiki/Chipset</a>
+ </div>
+</div>
+"""
+
+cpu="""
+<div class="card mb-5 mt-5">
+   <div class="card-body container">
+<h4>CPU (Unit Pemroses Sentral)</h4>
+<p>
+CPU berperan semacam kalkulator, cuma saja CPU jauh lebih kokoh energi pemrosesannya. Guna utama dari CPU merupakan melaksanakan pembedahan aritmetika serta logika terhadap informasi yang diambil dari memori ataupun dari data yang dimasukkan lewat sebagian fitur keras, semacam papan tombol, pemindai, tuas kontrol, ataupun tetikus. CPU dikontrol memakai sekumpulan instruksi fitur lunak pc. Fitur lunak tersebut bisa dijalankan oleh CPU dengan membacanya dari media penyimpan, semacam cakram keras, disket, cakram padat, ataupun pita perekam. Instruksi- instruksi tersebut setelah itu ditaruh terlebih dulu pada memori raga( MAA), yang mana tiap instruksi hendak diberi alamat unik yang diucap alamat memori. Berikutnya, CPU bisa mengakses data- data pada MAA dengan memastikan alamat informasi yang dikehendaki. 
+</p>
+
+Source / Sumber : <a href="https://id.wikipedia.org/wiki/Unit_Pemroses_Sentral">https://id.wikipedia.org/wiki/Unit_Pemroses_Sentral</a>
+ </div>
+</div>
+"""
+
+
+gpu="""
+<div class="card mb-5 mt-5">
+   <div class="card-body container">
+<h4>GPU (Unit pemroses grafis)</h4>
+<p>
+Unit pemroses grafis ataupun Graphics processing unit ataupun GPU( ataupun biasa pula diucap visual processing unit ataupun VPU) merupakan suatu prossesor spesial buat buat bagian grafis 3D dari microprocessor. Perlengkapan ini digunakan di sistem benam, telepon genggam, pc individu, workstation, serta konsol permainan. GPU Modern sangat efektif dalam memanipulasi pc grafis serta struktur paralel, buatnya lebih efisien dari guna universal CPU yang digunakan buat bebagai perhitungan alogaritma. Pada pc individu( Komputer), GPU umumnya ada di video card ataupun di motherboard. Lebih dari pc desktop serta notebook memiliki GPU yang terintegrasi, yang umumnya jauh daripada yang terdapat di video card. 
+</p>
+
+Source / Sumber : <a href="https://id.wikipedia.org/wiki/Unit_pemroses_grafis">https://id.wikipedia.org/wiki/Unit_pemroses_grafis</a>
+ </div>
+</div>
+"""

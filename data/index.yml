@@ -1,0 +1,251 @@
+
+
+hero: 
+- title: Bagaimana cara kerjanya?
+  subtitle: >
+   Kendalikan semua data dari perangkat jarak jauh! Melihat, 
+   Melacak, Membaca data perangkat secara online - kapan saja dimana saja.
+  dest: >
+   pNF4MuupTUU
+
+
+intro: 
+- title: Bagaimana cara kerjanya?
+  subtitle: >
+   Kendalikan semua data dari perangkat jarak jauh! Melihat, 
+   Melacak, Membaca data perangkat secara online - kapan saja dimana saja.
+  video: pNF4MuupTUU
+
+step:
+- title: 1. Preparing
+  subtitle: >
+   Semua persiapan diperlukan untuk memulai melakukan penyadapan setup pada handphone sebelum pemasangan.
+
+- title: 2. Installing
+  subtitle: >
+   Download perangkat sadap kemudian pasang pada ponsel. dengan sangat mudah - tidak akan memakan waktu lebih dari 5 menit.
+   
+- title: 3. Monitoring
+  subtitle: >
+   Terakhir masuk ke software penyadap Anda untuk melihat semua informasi dari ponsel target. Ya, itu sesederhana itu!.
+
+
+
+# DAFTAR PESAN TESTIMONIAL DARI PEMBELIAN
+testimonial: 
+- name: Rianto
+  slider: active
+  pesan: >
+    Penyadap ponsel adalah suatu keharusan bagi yang memiliki bisnis. Berkat software sadap ini, 
+    saya bisa memantau beberapa karyawan agar tidak terjadi kecurangan dan informasi rahasia perusahaan. 
+    sangat merekomendasikan perangkat ini. 
+
+- name: Kelvin
+  pesan: >
+    App sadap adalah penyelamat nyata! Sekarang aku bisa tidur dengan nyenyak karena 
+    semuanya ada di bawah kendali saya. Saya tahu apa yang anak-anak saya lakukan, 
+    di mana mereka berada dan apa yang mereka lakukan.
+
+- name: Junilan
+  pesan: >
+   Mengelola ponsel perusahaan dulunya menjadi masalah sampai saya mencoba App penyadap ini. 
+   Sekarang saya tahu di mana pegawai saya berada, dan saja yang mereka menghubungi dan data informasi 
+   mana yang dia dibagikan. 
+
+#- name: Aqil Arif
+#  pesan: >
+#    jhfjfjffhjffjfjfjhfhj65656565
+#    
+#- name: Dimas Pratama
+#  pesan: >
+#    jj888g9877778
+#    
+    
+# LANDING SECTION 9 23. 24.
+landing_9_23:
+- title: Obrolan Chat
+  subtitle: Spy on WhatsApp, Viber, Facebook?
+  id: byChat
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-chat-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>
+   </svg>
+  tile: SADAP WHATSAPP, FACEBOOK, VIBER, SKYPE
+  description: >
+   
+   Aplikasi ini memiliki kemampuan untuk melihat pesan aplikasi chat, 
+   instant messenger dari ponsel dan memberi Anda 
+   keunggulan saat memeriksa data aktivitas apa saja yang sudah dilakukan 
+   pada perangkat mobile pasangan dan anak remaja Anda.
+
+- title: Panggilan Suara
+  subtitle: Record calls & Surroundings 
+  id: byCall
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-telephone-inbound-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM15.854.146a.5.5 0 0 1 0 .708L11.707 5H14.5a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793L15.146.146a.5.5 0 0 1 .708 0z"/>
+   </svg>
+  tile: PEREKAMAN PANGGILAN & SUARA SEKITAR
+  description: >
+   
+   Dengan penyadap handphone Anda dapat merekam semua panggilan telepon atau 
+   suara sekitarnya dengan mudah dan tidak terdeteksi. dengan ini memungkinkan 
+   Anda mengatur waktu Anda jika ingin memulai rekaman panggilan atau 
+   lingkungan sekitar target dan mendownload catatan kapan 
+   saja dari akun web panel online Anda dari software sadap ini.
+   
+- title: Pesan Singkat
+  subtitle: Read sent/received SMS & email? 
+  id: byText
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-envelope-open-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path d="M8.941.435a2 2 0 0 0-1.882 0l-6 3.2A2 2 0 0 0 0 5.4v.313l6.709 3.933L8 8.928l1.291.717L16 5.715V5.4a2 2 0 0 0-1.059-1.765l-6-3.2zM16 6.873l-5.693 3.337L16 13.372v-6.5zm-.059 7.611L8 10.072.059 14.484A2 2 0 0 0 2 16h12a2 2 0 0 0 1.941-1.516zM0 13.373l5.693-3.163L0 6.873v6.5z"/>
+   </svg>
+  tile: Pesan SMS & Email
+  description: >
+   
+   Semua aktivitas pesan singkat sms menjadi bagian data penting dari penyadapan handphone. 
+   Aplikasi ini memungkinkan seseorang untuk mengikuti berbagai aktivitas 
+   di pada perangkat target. Anda dapat memeriksa aktivitas email  
+   dan seluruh aspek terkait pesan singkat.
+   
+- title: Data Logs
+  subtitle: Restrict calls, contacts, & messages
+  id: byLogs
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-hdd-network-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h5.5v3A1.5 1.5 0 0 0 6 11.5H.5a.5.5 0 0 0 0 1H6A1.5 1.5 0 0 0 7.5 14h1a1.5 1.5 0 0 0 1.5-1.5h5.5a.5.5 0 0 0 0-1H10A1.5 1.5 0 0 0 8.5 10V7H14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+   </svg>
+  tile: LIHAT RINCIAN DATA
+  description: >
+   
+   Aplikasi kami sangat banyak dilakukan untuk merekam semua aktivitas log yang 
+   terkait dengan perangkat mobile ditambah kontaknya dan fungsi ponsel lainnya. 
+   Dengan aplikasi ini, Anda bisa mendapatkan akses ke semua data informasi yang dapat 
+   mengungkapkan apa yang akan dilakukan oleh pasangan, anak remaja atau karyawan Anda
+   
+- title: Location Tracking
+  subtitle: Track device location & location history 
+  id: byGps
+  icon: >
+   <svg width="3em" height="3.0625em" viewBox="0 0 16 17" class="bi bi-compass-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.503 7.503 0 0 1 5.538 7.24zm-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"/>
+   </svg>
+  tile: PELACAKAN GPS HP
+  description: >
+   
+   Anda bisa dapat slalu mengecek lokasi perangkat ponsel secara remote dari ponsel target dan 
+   memperoleh informasi terkini tentang keberadaan mereka. data lokasi dikumpulkan melalui 
+   GPS ponselnya. software penyadap juga memberikan data lengkap sejarah lokasi mereka.
+   
+- title: Blokir situs web
+  subtitle: Block websites & social networks
+  id: byBlocked
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-x-octagon-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+   </svg>
+  tile: REMOTE KONTROL PONSEL
+  description: >
+   
+   Perangkat lunak ini memberi Anda kemampuan untuk mengendalikan 
+   semua fungsi utama telepon dari jarak jauh. Selain itu, 
+   Anda juga dapat menghapus atau memblokir aktivitas yang mungkin 
+   tidak Anda perlukan pada ponsel selular target Anda, untuk menangkal / membatasi
+   aktivitas ponsel yang mencakup situs, aplikasi, dan panggilan masuk keluar.
+   
+landing_9_24:    
+- title: 100% tak terlihat dan tidak terdeteksi!
+  icon: fa-shield
+- title: Ribuan lebih dari pelanggan yang puas
+  icon: fa-thumbs-o-up
+- title: Privasi dan keamanan Anda terjamin
+  icon: fa-lock
+- title: Kompatibel dengan iOS & Android
+  icon: fa-mobile
+  
+  
+# LANDING SECTION 9 25. 26.
+landing_9_25:
+- title: Apa itu perangkat sadap ponsel?
+  description: >
+   
+   Perangkat lunak penyadap perekam komunikasi ponsel paling 
+   flexibel yang memungkinkan Anda memata-matai <strong>SEMUA</strong> 
+   aktivitas iPhone & Android. Apps ini super mudah digunakan di 
+   handphone. dengan mulai merekam informasi data ponsel target yang Anda 
+   sadap seperti lacak lokasi yang tepat secara instan. data telepon yang 
+   masuk / keluar dapat dilihat dengan masuk pada panel monitoring, 
+   penggunaan App ini bisa dibuka dari device mana saja, di seluruh 
+   dunia dalam beberapa menit. alat penyadapan ini bekerja 
+   dengan "silent-mode", yang berarti tidak dapat terdeteksi oleh 
+   "target" dari ponsel yang ingin Anda mata-matai.
+
+landing_9_26:    
+- title: 100% tak terlihat dan tidak terdeteksi!
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-shield-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M8 .5c-.662 0-1.77.249-2.813.525a61.11 61.11 0 0 0-2.772.815 1.454 1.454 0 0 0-1.003 1.184c-.573 4.197.756 7.307 2.368 9.365a11.192 11.192 0 0 0 2.417 2.3c.371.256.715.451 1.007.586.27.124.558.225.796.225s.527-.101.796-.225c.292-.135.636-.33 1.007-.586a11.191 11.191 0 0 0 2.418-2.3c1.611-2.058 2.94-5.168 2.367-9.365a1.454 1.454 0 0 0-1.003-1.184 61.09 61.09 0 0 0-2.772-.815C9.77.749 8.663.5 8 .5zm.5 7.415a1.5 1.5 0 1 0-1 0l-.385 1.99a.5.5 0 0 0 .491.595h.788a.5.5 0 0 0 .49-.595L8.5 7.915z"/>
+   </svg>
+- title: Ribuan lebih dari pelanggan yang puas
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+   </svg>
+- title: Privasi dan keamanan Anda terjamin
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-lock-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z"/>
+   <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+   </svg>
+- title: Kompatibel dengan iOS & Android
+  icon: >
+   <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-phone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+   <path fill-rule="evenodd" d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V2zm6 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+   </svg>
+    
+    
+    
+    
+    
+
+# KONTEN TUJUAN & FUNGSIONAL PENYADAP
+tujuan:
+- title: Mengawasi Pergaulan Remaja
+  slider: active
+  url: "/konten/10-aplikasi-sadap-hp-iphone-android/"
+  detail: >
+   <p>
+   Ketika menyangkut keamanan online, media sosial memiliki banyak masalah bagi remaja... 
+   dan ini bisa menjalin pertemanan online dengan orang yang salah. Itulah sebabnya penting bagi 
+   orang tua untuk terlibat dengan penggunaan media sosial remaja<br />
+   </p>
+   <p>
+   Bahkan jika Anda tidak menggunakan media sosial secara aktif, Anda harus berteman di media sosial
+   dengan anak remaja Anda sehingga Anda dapat memeriksa dan melihat posting mereka secara rutin. 
+   Hal ini tidak hanya akan memberi Anda kesempatan untuk melihat apa yang sebenarnya terjadi 
+   dalam pikiran mereka (karena media sosial menimbulkan perilaku agresif pasif pada setiap orang, 
+   dan remaja kemungkinan besar menghadapi masalah dari media sosial mereka) 
+   namun Anda juga dapat mengenali hal yang tidak pantas prilaku online dari setiap posting si anak, seperti 
+   memposting informasi pribadi / atau mengunggah foto yang tidak pantas.
+   </p>
+   
+- title: Membuktikan Kesetiaan Pasangan
+  slide:
+  url: "/konten/19-aplikasi-penyadap-hp-gratis/"
+  detail: >
+   <p>
+   Jika pasangan Anda berprilaku mencurigakan, dia mungkin akan 
+   menyembunyikan rahasia apa yang sebenarnya terjadi. Menurut saya, lebih baik melakukan 
+   investigasi terlebih dahulu untuk mengetahui persisnya yang sudah sudah terjadi 
+   dan mengajukan sebuah pertanyaan jika sudah mempunyai bukti. bila Anda menemukan 
+   dia sedang berselingkuh.<br />
+   </p>
+   <p>
+   Terkadang beberapa langkah mudah bisa mengungkap perselingkuhan pasangan. lagi, 
+   beberapa tipe orang melakukan perselingkuhan dengan sangat cerdik dengan menghapus jejak mereka dengan sangat baik, 
+   entah itu dengan cara mengamankan data dengan dikunci atau dihapus, 
+   semua data rahasia dan sensitif  di ponsel dari selingkuhannya. agar dapat 
+   mengelabuhi Anda biar tidak ketahui,
+   
+   </p>

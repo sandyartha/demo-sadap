@@ -1,0 +1,56 @@
+info:
+- nope: "+6281-293-443-525 (Call Only)"
+  sms: "+6281-293-443-525 (SMS Only)"
+  wa: "+62-O856-4516-1O31 (WhatsApp Only)"
+  email: "E-mail: admin[at]penyadap.web.id"
+  alamat: Jl. K.H. Mas Mansyur, Kebon Melati, Tanah Abang, Jakarta Pusat, 10230
+  
+infolink:
+- name: Home
+  link: /
+- name: About
+  link: /hubungi-kami/
+- name: Hubungi
+  link: /hubungi-kami/
+- name: Sitemap
+  link: "#"
+- name: Feed
+  link: "#"
+  
+- title: Social
+  links:
+    - name: Facebook
+      link:
+      social_icon: Facebook
+      new_window: true
+    - name: Twitter
+      link:
+      social_icon: Twitter
+      new_window: true
+    - name: Google+
+      link:
+      social_icon: Google Plus
+      new_window: true
+    - name: LinkedIn
+      link:
+      social_icon: LinkedIn
+      new_window: true
+
+     
+disclaimer:
+- title: PERATURAN PENGGUNAAN (Terms of Service)
+  detail: >
+   Aplikasi sadap hp diperuntukkan bagi orang tua untuk memantau / 
+   melacak aktivitas gadget anak remaja dan memantau karyawan (perangkat 
+   dari fasilitas perusahaan yang kami izinkan). 
+
+   Kami tidak bertanggung jawab jika menginstall perangkat lunak 
+   sadap ke dalam tablet atau smartphone tidak memiliki izin tertulis 
+   untuk di mata-matai. 
+   
+   Kami tidak bertanggung jawab atas penyalahgunaan perangkat lunak 
+   dan kerusakan yang disebabkan oleh penyalahgunaan.
+
+   Memastikan agar menggunakan perangkat penyadap secara legal 
+   dan etis dengan tetap mematuhi peraturan setempat adalah 
+   tanggung jawab pengguna.

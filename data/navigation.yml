@@ -1,0 +1,9 @@
+links:
+- name: Home
+  link: "/"
+- name: Ketentuan
+  link: "#"
+- name: "☎ +6285725635623"
+  link: "tel:085725635623"
+  highlight: true
+  call: true

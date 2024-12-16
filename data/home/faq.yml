@@ -1,0 +1,183 @@
+faq:
+- title: Frequently Asked Questions
+  description: >
+   Software penyadap ini pada dasarnya sangat mudah digunakan. dalam beberapa menit 
+   Anda akan bisa melakukan instalasi dan mulai menggunakannya. 
+   jika Anda mengalami masalah, atau jika Anda memerlukan penjelasan, 
+   maka kami sudah menyediakan beberapa daftar pertanyaan serta jawaban untuk membantu Anda. berikut referensi 
+   daftar FAQ kami karena memiliki beberapa pertanyaan dasar dan jawaban 
+   atas pertanyaan Anda mengenai perangkat sadap ini.
+   
+   
+   
+
+faqlist:
+#1
+- name: Apa Kegunaan App Sadap Dan Fiturnya?
+  number: 1
+  text: >
+   Aplikasi ini sangat unik, flexibel dan mudah digunakan. 
+   memiliki kompatibilitas dengan perangkat ponsel Android & Apple. 
+   dengan mode siluman sehingga pengguna ponsel yang Anda targetkan 
+   tidak akan mengetahui mengenai kegiatan monitoring pada hpnya. 
+   dan mengirimkan semua data informasi di komputer atau ponsel,
+   asalkan memiliki konektivitas internet.
+  buka: true
+
+#2
+- name: Mengapa Saya Harus Menggunakan Sadap Smartphone Ini?
+  number: 2
+  text: >
+   Bila Anda curiga atau ingin mengawasi untuk mendapatkan informasi tentang bagaimana orang terdekat
+   atau anak remaja Anda, dengan memanfaatkan app penyadap, dan ingin mengetahui tentang aktivitas 
+   mereka dan memantau ponsel dia yang dapat membahayakan bagi keluarga atau bisnis Anda, 
+   maka Anda perlu menggunakan penyadap ini. untuk membantu Anda mendapatkan informasi rahasia 
+   dari ponsel.
+  buka: true
+#3
+- name: Apakah Sadap Ini Dapat Diketahui Target?
+  number: 3
+  text: >
+   Memang, pada perangkat seluler target dia tidak akan mengetahui 
+   tentang monitoring aktivitas dalam pengawasan Anda. Perangkat tidak akan muncul di tampilan 
+   menu ponsel mereka (mode siluman: tergantung pada kondisi ponsel target, beberapa tipe smartphone memerlukan rooting).
+  buka: true
+#4
+- name: Bagaimana Cara Mengetahui Kesesuaian Monitoring dengan Ponsel Yang Ingin Saya Targetkan?
+  number: 4
+  text: >
+   Kami memiliki penjelasan diatas yang sudah disiapkan untuk memastikan ini. 
+   Aplikasi ini telah digunakan oleh ribuan orang sehingga 
+   menjadi bukti bahwa software sadap bekerja dengan sangat baik, dan benar-benar bekerja 
+   pada berbagai platform termasuk iOS dan Android.
+  buka: true
+#5
+- name: Bagaimana Saya Tahu Jika Perangkat Lunak Akan Bekerja Seperti Yang Saya Inginkan?
+  number: 5
+  text: >
+   Lihat testimoni kami dari diatas dari klien yang telah menggunakan perangkat sadap ini. 
+   kami telah membangun reputasi menyeluruh mengenai fungsionalitas app penyadap tersebut.
+   
+#6
+- name: Apakah Penyadap Ini Sesuai Dengan Kebutuhan Saya?
+  number: 6
+  text: >
+   Melalui tanggapan yang diberikan tentang produk sadap ini dan buktikan sendiri 
+   bagaimana klien kami memanfaatkan penyadap smartphone ini. App ini berguna bagi Anda yang ingin 
+   mengawasi anak-anak Anda terlibat dalam kegiatan berbahaya yang dapat dicegah tepat waktu.
+
+#7
+- name: Apakah Perangkat Lunak Anda Dapat Diandalkan?
+  number: 7
+  text: >
+   Setiap tanggapan pelanggan berbeda-beda, semua yang telah menggunakan software sadap 
+   ini benar-benar menikmati dukungan teknis yang kami berikan kepada 
+   mereka.
+
+#8
+- name: Dimana Saya Harus Mendapatkan Bantuan Saat Saya Mengalami Kendala?
+  number: 8
+  text: >
+   Kami selalu merespon dukungan secara online melalui obrolan atau melalui email. 
+   Jika tidak merasa puas, untuk menghubungi kami melalui telpon kapan saja dan kami 
+   menjamin respon secepat mungkin.
+   
+#9
+- name: Jika Saya Mengganti Ponsel Saya Apakah App Tetap Berlaku?
+  number: 9
+  text: >
+   Pasti, asalkan software masih aktif, yang perlu dilakukan adalah 
+   menghubungi tim teknis kami dan Anda akan dibantu dalam proses ini dalam pemindahan ke ponsel lain.
+
+#10
+- name: Target Ganti Ponsel?? Dapatkah Saya Mengubah Perizinan Ke Ponsel Lain?
+  number: 10
+  text: >
+   Tentunya, jika ini terjadi, Anda hanya perlu menghubungi teknisi kami dan akan 
+   membantu Anda beralih ke perangkat target yang baru.
+   
+#11
+- name: Bagaimana Bila Hp Target Tidak Ada Kartu Sim Selular
+  number: 11
+  text: >
+   Tidak masalah bila ponsel target tidak memasang SIMCARD pada ponsel tetap bisa 
+   melakukan peyadapan data WhatsApp dan Panggilan Suara, (catatan: pastikan terget slalu terhubung dengan koneksi internet)
+   
+#12
+- name: Bagaimana Proses Pengirimanya?
+  number: 12
+  text: >
+   Setelah proses pemesanan selesai, 
+   kami akan kirim melalui email setelah itu ikuti panduannya. ini hanya akan 
+   membutuhkan proses dalam beberapa menit saja, 
+   Anda akan mendapatkan perangkat dan dukungan pelanggan yang sangat 
+   respon sebagai gantinya. Lihat lebih lanjut hubungi kami untuk pemesanan perangkat monitoring.
+
+#13
+- name: Bagaimana Metode Pembayarnya?
+  number: 13
+  text: >
+   Anda bebas memilih opsi pembayaran yang paling sesuai untuk Anda. Memilih via bank, atau pulsa.
+   
+#14
+- name: Apakah Icon Perangkat Lunak Akan Terlihat Ketika Selesai Pemasangan?
+  number: 14
+  text: >
+   Tidak, perangkat lunak tidak akan terlihat di manapun dalam dalam tampilan menu ponsel, (beberpa 
+   tipe ponsel memerlukan rooting untuk sembunyikan icon pada menu)
+   
+#15
+- name: Apa Yang Harus Saya Lakukan Setelah Berhasil Melakukan Pemesanan?
+  number: 15
+  text: >
+   Setelah pembayaran berhasil, Anda akan segera menerima email dari kami, 
+   yang akan memberi Anda info tentang rincian akun Anda, prosedur aktivasi dan 
+   pedoman pemasangan. ikuti langkah-langkah dan mulailah memantau perangkat target dalam waktu singkat. 
+   Anda juga akan menerima pemberitahuan fungsi - fungsi fitur sadap. 
+   hanya akan dikirimkan ke email pribadi saja, dengan data tentang pemesanan Anda, 
+   info pemesanan tidak akan kami publikasi di tempat lain atau situs ini.
+  buka: true
+#16
+#- name: 
+#  text: >
+#   
+#
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
+#  
+##17
+#- name: 
+#  text: >
