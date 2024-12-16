@@ -1,0 +1,389 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body form margin-bottom-10">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning" style="text-align: center; margin: 12px;">
+                            Changes will be applied to the "Device Target" phone, when it will be online.
+                        </div>
+
+                        <form action="index.html" class="form-horizontal form-row-seperated">
+                            <div class="form-body">
+                                {{ range .Page.Params.tbody.data.fitur }}
+                                <div class="form-group" style="border-bottom: 0px;">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                    <div class="col-md-4 col-xs-6">
+                                        <select id="timeVerifAll" class="form-control">
+                                            {{ range .list }} {{ with .hour }}
+                                            <option value="{{.}}">{{.}} hours </option>
+                                            {{end}} {{ with .minute }}
+                                            <option value="{{.}}">{{.}} minutes </option>
+                                            {{end}} {{ end }}
+                                        </select>
+                                    </div>
+                                </div>
+                                {{ end }}
+
+                                <div class="row">
+                                    <div class="col-md-12" style="padding-bottom: 10px; margin-left: 12px;">
+                                        <i style="font-size: 10px;">
+                                            <sup>*</sup>When the network is turned off, the data is saved on the phone to be sent later.<br />
+                                            Warning, below 2 hours, the application can consume more battery.
+                                        </i>
+                                    </div>
+                                </div>
+                                <hr />
+
+                                {{ range .Page.Params.tbody.data.fitur_1 }}
+                                <div class="form-group">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+
+                                <div class="form-body">
+                                    {{ range .Page.Params.tbody.data.config_type }}
+                                    <div class="form-group" style="border-bottom: 0px;">
+                                        <div class="col-md-4 col-xs-6">
+                                            {{.name}}
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <select class="form-control" id="configselector">
+                                                {{ range .list }}
+                                                <option value="{{.id}}" id="{{.name | urlize}}">{{.name}} </option>
+                                                {{ end }}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.tbody.data.native }}
+                                    <div class="form-group config {{.id}}" style="border-bottom: 0px; display: block;">
+                                        <div class="col-md-4 col-xs-6">
+                                            {{.name}}
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <select class="form-control">
+                                                {{ if .mic }}
+                                                <option value="mic">MIC</option>
+                                                {{end}} {{ if .voice_call }}
+                                                <option value="voice_call">Voice Call</option>
+                                                {{end}} {{ if .voice_downlink }}
+                                                <option value="voice_downlink">Voice DownLink</option>
+                                                {{end}} {{ if .voice_uplink }}
+                                                <option value="voice_uplink">Voice UpLink</option>
+                                                {{end}} {{ if .voice_communication }}
+                                                <option value="voice_communication">Voice Communication</option>
+                                                {{end}} {{ if .camcorder }}
+                                                <option value="camcorder">Camcorder</option>
+                                                {{end}} {{ if .voice_recognition }}
+                                                <option value="voice_recognition">Voice Recognition</option>
+                                                {{end}} {{ if .mp3 }}
+                                                <option value="mp3">MP3</option>
+                                                {{end}} {{ if .amr }}
+                                                <option value="amr">AMR</option>
+                                                {{end}} {{ if .mav }}
+                                                <option value="mav">MAV</option>
+                                                {{end}} {{ if .mp4 }}
+                                                <option value="mp4">MP4</option>
+                                                {{end}} {{ if .acc }}
+                                                <option value="acc">ACC</option>
+                                                {{end}} {{ if .gp3 }}
+                                                <option value="gp3">3GP</option>
+                                                {{end}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.tbody.data.android_recorder }}
+                                    <div class="form-group config {{.id}}" style="border-bottom: 0px;">
+                                        <div class="col-md-4 col-xs-6">
+                                            {{.name}}
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <select class="form-control">
+                                                {{ if .mic }}
+                                                <option value="mic">MIC</option>
+                                                {{end}} {{ if .voice_call }}
+                                                <option value="voice_call">Voice Call</option>
+                                                {{end}} {{ if .voice_downlink }}
+                                                <option value="voice_downlink">Voice DownLink</option>
+                                                {{end}} {{ if .voice_uplink }}
+                                                <option value="voice_uplink">Voice UpLink</option>
+                                                {{end}} {{ if .voice_communication }}
+                                                <option value="voice_communication">Voice Communication</option>
+                                                {{end}} {{ if .camcorder }}
+                                                <option value="camcorder">Camcorder</option>
+                                                {{end}} {{ if .voice_recognition }}
+                                                <option value="voice_recognition">Voice Recognition</option>
+                                                {{end}} {{ if .mp3 }}
+                                                <option value="mp3">MP3</option>
+                                                {{end}} {{ if .amr }}
+                                                <option value="amr">AMR</option>
+                                                {{end}} {{ if .mav }}
+                                                <option value="mav">MAV</option>
+                                                {{end}} {{ if .mp4 }}
+                                                <option value="mp4">MP4</option>
+                                                {{end}} {{ if .acc }}
+                                                <option value="acc">ACC</option>
+                                                {{end}} {{ if .gp3 }}
+                                                <option value="gp3">3GP</option>
+                                                {{end}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.tbody.data.nativex }}
+                                    <div class="form-group config {{.id}}" style="border-bottom: 0px;">
+                                        <div class="col-md-4 col-xs-6">
+                                            {{.name}}
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <select class="form-control">
+                                                {{ if .mic }}
+                                                <option value="mic">MIC</option>
+                                                {{end}} {{ if .voice_call }}
+                                                <option value="voice_call">Voice Call</option>
+                                                {{end}} {{ if .voice_downlink }}
+                                                <option value="voice_downlink">Voice DownLink</option>
+                                                {{end}} {{ if .voice_uplink }}
+                                                <option value="voice_uplink">Voice UpLink</option>
+                                                {{end}} {{ if .voice_communication }}
+                                                <option value="voice_communication">Voice Communication</option>
+                                                {{end}} {{ if .camcorder }}
+                                                <option value="camcorder">Camcorder</option>
+                                                {{end}} {{ if .voice_recognition }}
+                                                <option value="voice_recognition">Voice Recognition</option>
+                                                {{end}} {{ if .mp3 }}
+                                                <option value="mp3">MP3</option>
+                                                {{end}} {{ if .amr }}
+                                                <option value="amr">AMR</option>
+                                                {{end}} {{ if .mav }}
+                                                <option value="mav">MAV</option>
+                                                {{end}} {{ if .mp4 }}
+                                                <option value="mp4">MP4</option>
+                                                {{end}} {{ if .acc }}
+                                                <option value="acc">ACC</option>
+                                                {{end}} {{ if .gp3 }}
+                                                <option value="gp3">3GP</option>
+                                                {{end}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.tbody.data.media_recorder }}
+                                    <div class="form-group config {{.id}}" style="border-bottom: 0px;">
+                                        <div class="col-md-4 col-xs-6">
+                                            {{.name}}
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <select class="form-control">
+                                                {{ if .mic }}
+                                                <option value="mic">MIC</option>
+                                                {{end}} {{ if .voice_call }}
+                                                <option value="voice_call">Voice Call</option>
+                                                {{end}} {{ if .voice_downlink }}
+                                                <option value="voice_downlink">Voice DownLink</option>
+                                                {{end}} {{ if .voice_uplink }}
+                                                <option value="voice_uplink">Voice UpLink</option>
+                                                {{end}} {{ if .voice_communication }}
+                                                <option value="voice_communication">Voice Communication</option>
+                                                {{end}} {{ if .camcorder }}
+                                                <option value="camcorder">Camcorder</option>
+                                                {{end}} {{ if .voice_recognition }}
+                                                <option value="voice_recognition">Voice Recognition</option>
+                                                {{end}} {{ if .mp3 }}
+                                                <option value="mp3">MP3</option>
+                                                {{end}} {{ if .amr }}
+                                                <option value="amr">AMR</option>
+                                                {{end}} {{ if .mav }}
+                                                <option value="mav">MAV</option>
+                                                {{end}} {{ if .mp4 }}
+                                                <option value="mp4">MP4</option>
+                                                {{end}} {{ if .acc }}
+                                                <option value="acc">ACC</option>
+                                                {{end}} {{ if .gp3 }}
+                                                <option value="gp3">3GP</option>
+                                                {{end}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+
+                                    <div class="row" id="formRecordCallsConfigInfo">
+                                        <div class="col-md-12" style="padding-bottom: 10px; margin-left: 12px;">
+                                            <i style="font-size: 10px;"><sup>*</sup>These settings will be valid only for future calls.</i>
+                                        </div>
+                                    </div>
+
+                                    {{ range .Page.Params.tbody.data.fitur_3 }}
+                                    <div class="form-group">
+                                        <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                        <div class="col-md-8 col-xs-6">
+                                            <div class="toggle-btn active">
+                                                <input type="checkbox" checked class="cb-value info" />
+                                                <span class="round-btn"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.tbody.data.size_limit_call }}
+                                    <div class="form-group" style="border-bottom: 0px;">
+                                        <div class="col-md-4 col-xs-6">
+                                            {{.name}}
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <select class="form-control" id="size_limit_call">
+                                                {{ range .list }}
+                                                <option value="{{.name}}" {{ if .selected }}selected="selected" {{end}}>{{.name}} MB</option>
+                                                {{ end }}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                    <div class="row" id="formRecordCallsConfigInfoBis">
+                                        <div class="col-md-12" style="padding-bottom: 10px; margin-left: 12px;">
+                                            <i style="font-size: 10px;" class="formCallsSize">(If the size is exceeded then the file is sent to WiFi when it is active.)</i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{ range .Page.Params.tbody.data.fitur_2 }}
+                                <div class="form-group">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.tbody.data.send_position }}
+                                <div class="form-group" style="border-bottom: 0px;">
+                                    <div class="col-md-4 col-xs-6">
+                                        {{.name}}
+                                    </div>
+                                    <div class="col-md-4 col-xs-6">
+                                        <select class="form-control" id="size_limit_call">
+                                            {{ range .minute }}
+                                            <option value="{{.}}">{{.}} minutes</option>
+                                            {{ end }} {{ range .hour }}
+                                            <option value="{{.}}">{{.}} hours</option>
+                                            {{ end }}
+                                        </select>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.tbody.data.fitur_6 }}
+                                <div class="form-group">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+
+                                <div class="form-group" style="margin-top: 15px;">
+                                    <label class="col-md-4 col-xs-6">
+                                        <i class="icon-eye" style="margin-right: 8px;"></i>
+                                        Instant messaging (ROOT) <sup>1</sup>
+                                    </label>
+                                    <div class="col-md-8 col-xs-6"></div>
+                                </div>
+                                {{ range .Page.Params.tbody.data.fitur_7 }}
+                                <div class="form-group" style="border-bottom: 0px;">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+
+                                <div class="form-group" style="margin-top: 15px;">
+                                    <label class="col-md-4 col-xs-6">
+                                        <i class="icon-eye" style="margin-right: 8px;"></i>
+                                        Instant messaging <sup>2</sup>
+                                    </label>
+                                    <div class="col-md-8 col-xs-6"></div>
+                                </div>
+
+                                {{ range .Page.Params.tbody.data.fitur_8 }}
+                                <div class="form-group" style="border-bottom: 0px;">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{.name}}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.tbody.data.fitur_9 }}
+                                <div class="form-group">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{- .name -}} {{ with .sup }}<sup>{{.}}</sup>{{ end }}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.tbody.data.fitur_10 }}
+                                <div class="form-group" style="border-bottom: none; padding-bottom: 0px;" {{ with .place_holder }}id="{{.}}"{{end}}>
+                                    <label class="control-label col-md-4 col-xs-5">{{- .name -}}{{ with .sup }}<sup>{{.}}</sup>{{ end }}</label>
+                                    <div class="col-md-4 col-xs-7">
+                                        <input class="form-control" type="text" id="{{.name | urlize }}" value="{{.place_holder}}" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12" style="padding-bottom: 10px; margin-left: 12px; border-bottom: 1px solid #efefef;">
+                                        <button class="btn green btn-xs action info" id="{{.name | urlize }}-Button" type="button">Save</button>
+                                    </div>
+                                </div>
+                                {{end}} {{ range .Page.Params.tbody.data.fitur_11 }}
+                                <div class="form-group">
+                                    <div class="col-md-4 col-xs-6">{{ if .pre}}<i class="{{.pre}}" style="margin-right: 8px;"></i>{{end}}{{- .name -}} {{ with .sup }}<sup>{{.}}</sup>{{ end }}</div>
+                                    <div class="col-md-8 col-xs-6">
+                                        <div class="toggle-btn active">
+                                            <input type="checkbox" checked class="cb-value info" />
+                                            <span class="round-btn"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="col-md-12 margin-top-10">
+                                <span style="font-size: 12px;" class="font-black">
+                                    <sup>1</sup>The phone must be <a target="_blank" href="/">rooted</a> to use these features.
+                                </span>
+                                <br />
+                                <span style="font-size: 12px;" class="font-black">
+                                    <sup>2</sup><a target="_blank" href="/">Access to notifications</a> and
+                                    <a target="_blank" href="#">accessibility</a> must be enabled on the phone.
+                                </span>
+                                <br />
+                                <span style="font-size: 12px;" class="font-black"><sup>3</sup>The pictures can be found on the Remote Control page.</span>
+                                <br />
+                                <span style="font-size: 12px;" class="font-black">
+                                    <sup>4</sup>More information about the application password <a target="_blank" href="/">here.</a>
+                                </span>
+                                <br />
+                                <span style="font-size: 12px;" class="font-black"><sup>5</sup>The quick navigation allows to load pages faster. It removes the ability to backup your data.</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

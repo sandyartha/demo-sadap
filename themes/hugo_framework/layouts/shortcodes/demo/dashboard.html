@@ -1,0 +1,117 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-screen-smartphone font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp sbold">Device Target </span>
+                    <span class="caption-helper">
+                        <br />
+                        <span id="setLastOnline">{{ time.Now | time.Format "Jan/02/2006 3:04:00" }}</span>
+                    </span>
+                </div>
+                <div class="actions">
+                    <button data-toggle="modal" data-target="#checkSetting" type="button" style="margin-right: 12px;" class="btn btn-outline btn-sm btn-circle yellow-gold">
+                         <i id="settingsCheckBTN" class="fa fa-info"></i>
+                    </button>
+                    <button onClick="window.location.reload()" class="btn btn-outline btn-sm btn-circle red">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tiles">
+                    <div class="tile bg-grey-salsa">
+                        <div class="tile-body">
+                            <i class="fa fa-signal"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name">Online status</div>
+                            <div class="number" id="setEtatTel"><i class="fa fa-check"></i></div>
+                        </div>
+                    </div>
+                    <div class="tile bg-red-intense">
+                        <div class="tile-body" id="setLevelBat">
+                            <i class="fa fa-battery"></i>
+                        </div>
+                        <div class="tile-object">
+                            <div class="name">Battery</div>
+                            <div class="number" id="setLevel">50 %</div>
+                        </div>
+                    </div>
+                    <div id="locationOpenMap" class="tile double bg-blue-madison">
+                        <div class="tile-body">
+                            <i style="float: left; margin-right: 10px; margin-top: 0px;" class="fa fa-map-o"></i>
+                            <h4>Location</h4>
+                            <p class="number" style="padding-top: 5px;" id="setGPS">Jl. KH Agus Salim, Sabang, Menteng Jakarta Pusat</p>
+                        </div>
+                        <div id="lastTimeLocation" class="tile-object">
+                            <div class="name">Last location</div>
+                            <div id="lastTimeLocationData" class="number" style="font-weight: 300; font-size: 12px;">{{ time.Now | time.Format "Jan/02/2006 3:04:00" }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="page-title">
+    Dashboard
+</h1>
+<div class="row">
+    {{ range .Page.Params.menu_1.demo }}
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 {{.color}} btn" href="{{.url}}">
+            <div class="visual">
+                <i class="{{.pre}}"></i>
+            </div>
+            <div class="details">
+                <div class="number"><span id="{{.identifier}}v2data">{{.number}}</span></div>
+                <div class="desc">{{.name}}</div>
+            </div>
+        </a>
+    </div>
+    {{ end }}
+</div>
+
+
+
+<h2 class="page-title">
+    Others features
+</h2>
+<div class="row">
+    {{ range .Page.Params.menu_2.demo }}
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 {{.color}} btn" href="{{.url}}">
+            <div class="visual">
+                <i class="{{.pre}}"></i>
+            </div>
+            <div class="details">
+                <div class="number"><span></span></div>
+                <div class="desc">{{.name}}</div>
+            </div>
+        </a>
+    </div>
+    {{ end }}
+    <div class="clearfix"></div>
+</div>
+
+<div id="checkSetting" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <strong class="modal-title">Settings check</strong>
+            </div>
+            <div class="modal-body text-center">
+                    <p>No data for the moment</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary closebtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

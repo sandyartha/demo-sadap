@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pricing-content-1 margin-top-20">
+                            <div class="row">
+
+                                {{ range .Page.Params.package_price}}
+                                <div class="col-md-6">
+                                    <div class="price-column-container border-active">
+                                        <div class="price-table-head bg-green">
+                                            <h2 class="no-margin">{{.name}}</h2>
+                                        </div>
+                                        <div class="arrow-down border-top-green"></div>
+                                        <div class="price-table-pricing">
+                                            <h3 id="pricePremium">{{.harga}}</h3>
+                                            <p>per month</p>
+                                            {{ with .popular}}
+                                            <div class="price-ribbon">Popular</div>
+                                            {{ end }}
+                                        </div>
+                                        <div class="price-table-content">
+                                            <div class="row mobile-padding">
+                                                <div class="col-xs-3 text-right mobile-padding">
+                                                    <i class="icon-screen-smartphone"></i>
+                                                </div>
+                                                <div class="col-xs-9 text-left mobile-padding">
+                                                    {{.total}}
+                                                </div>
+                                            </div>
+                                            <div class="row mobile-padding">
+                                                <div class="col-xs-3 text-right mobile-padding">
+                                                    <i class="fa fa-sign-in"></i>
+                                                </div>
+                                                <div class="col-xs-9 text-left mobile-padding">Weekly login not required <sup> 1</sup></div>
+                                            </div>
+
+
+                                            {{ range .data }}
+                                            <div class="row mobile-padding">
+                                                <div class="col-xs-3 text-right mobile-padding">
+                                                    {{ with .pre }}<i class="{{.}}"></i>{{ end }}
+                                                </div>
+                                                <div class="col-xs-9 text-left mobile-padding">
+                                                    {{.name}} {{ with .sup }}<sup>{{.}}</sup>{{ end }}
+                                                    <ul>
+                                                        {{ range .list }}
+                                                        <li>{{.}}</li>
+                                                        {{ end }}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            {{ end }}
+                                        </div>
+                                        <div class="arrow-down arrow-grey"></div>
+                                        <div class="price-table-footer">
+                                            <div class="icheck-inline">
+                                                <a href="/download/" class="btn btn-lg green btn-outline margin-bottom info action"><i class="fa fa-shopping-cart"></i> BELI <sup>1</sup></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ end }}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 margin-top-10">
+                                    <sup>1) <a target="_blank" href="/">Why do we need to login regularly?</a></sup>
+                                    <br />
+                                    <sup>2) SMS, MMS, Calls, Locations, Pictures, Calendar, Contacts, Site Web, Clipboard, Notifications, Facebook, WhatsApp, Hangouts, LINE, Kik, Viber, Gmail, Snapchat, Remote Control, Screenshot</sup>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

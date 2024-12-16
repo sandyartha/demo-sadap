@@ -1,0 +1,164 @@
+{{ $date := time.Now | time.Format "2006/1/02 3:04:00" }}
+<style>
+    .page-footer .page-footer-inner {
+        float: none;
+        display: block;
+    }
+
+    .page-footer .page-footer-inner a {
+        color: #FAFAFA;
+    }
+</style>
+
+
+
+<div class="page-footer" style="height: 110px;">
+    <div class="page-footer-inner">
+        <center>
+            <div style="margin-bottom: 15px;">
+                <a class="socicon-btn socicon-btn-circle socicon-sm socicon-solid bg-blue bg-hover-grey-salsa font-white bg-hover-white socicon-twitter tooltips"
+                    data-original-title="Tweet"
+                    href="https://twitter.com/"
+                    target="_blank"></a>
+                <a class="socicon-btn socicon-btn-circle socicon-sm socicon-solid bg-red font-white bg-hover-grey-salsa font-white bg-hover-white socicon-youtube tooltips"
+                    href="https://www.youtube.com/"
+                    target="_blank"
+                    data-original-title="Youtube"></a>
+
+                <a class="socicon-btn socicon-btn-circle socicon-sm socicon-solid bg-blue-steel bg-hover-grey-salsa font-white bg-hover-white socicon-facebook tooltips" href="https://www.facebook.com/" target="_blank">
+                </a>
+            </div>
+
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.footer }}
+                <a href="{{.URL}}">{{ .Name }}</a> |
+            {{ end }}
+
+            <br />
+            <span>Copyright &copy; {{ time.Now.Year }} {{.Site.Title}}. <a href="https://www.penyadap.web.id/disclaimer/">Terms</a></span>
+        </center>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+
+
+{{ $respond_js := resources.Get "demo/_respond.js" }}
+{{ $excanvas_js := resources.Get "demo/_excanvas.js" }}
+{{ $jquery_js := resources.Get "demo/_jquery.js" }}
+{{ $bootstrap_js := resources.Get "demo/_bootstrap.js" }}
+{{ $app_js := resources.Get "demo/_app.js" }}
+{{ $layout_js := resources.Get "demo/_layout.js" }}
+
+
+{{ $respond_js := slice $respond_js | resources.Concat "respond.js" | resources.Minify | resources.Fingerprint }}
+{{ $excanvas_js := slice $excanvas_js | resources.Concat "excanvas.js" | resources.Minify | resources.Fingerprint }}
+{{ $jquery_js := slice $jquery_js | resources.Concat "jquery.js" | resources.Minify | resources.Fingerprint }}
+{{ $bootstrap_js := slice $bootstrap_js | resources.Concat "bootstrap.js" | resources.Minify | resources.Fingerprint }}
+{{ $app_js := slice $app_js | resources.Concat "appx.js" | resources.Minify | resources.Fingerprint }}
+{{ $layout_js := slice $layout_js | resources.Concat "layoutx.js" | resources.Minify | resources.Fingerprint }}
+
+
+<!--[if lt IE 9]>
+<script src="{{ $respond_js.RelPermalink }}" type="text/javascript"></script>
+<script src="{{ $excanvas_js.RelPermalink }}" type="text/javascript"></script>
+<![endif]-->
+
+
+<script src="{{ $jquery_js.RelPermalink }}" type="text/javascript"></script>
+<script src="{{ $bootstrap_js.RelPermalink }}" type="text/javascript"></script>
+<script src="{{ $app_js.RelPermalink }}" type="text/javascript"></script>
+<script src="{{ $layout_js.RelPermalink }}" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+<!-- block apliaction -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+
+
+
+{{ partial "demo/javascript" . }}
+
+
+
+
+
+ <script type="text/javascript">
+  // Default Configuration
+  // Toast Notifikasi
+    $(document).ready(function() {
+      toastr.options = {
+        'closeButton': true,
+        'debug': false,
+        'newestOnTop': false,
+        'progressBar': true,
+        'positionClass': 'toast-bottom-right',
+        'preventDuplicates': false,
+        'showDuration': '1000',
+        'hideDuration': '1000',
+        'timeOut': '5000',
+        'extendedTimeOut': '1000',
+        'showEasing': 'swing',
+        'hideEasing': 'linear',
+        'showMethod': 'fadeIn',
+        'hideMethod': 'fadeOut',
+      }
+    });
+
+  // Toast Type
+    $('.success').click(function(event) {
+      toastr.success('You clicked Success');
+    });
+    $('.info').click(function(event) {
+      toastr.info('Maaf, Proses tidak dapat diteruskan ke server')
+    });
+    $('.error').click(function(event) {
+      toastr.error('You clicked Error')
+    });
+    $('.warning').click(function(event) {
+      toastr.warning('You clicked Warning')
+    });
+
+  // Toast Image and Progress Bar
+    $('.image').click(function(event) {
+      toastr.options.progressBar = true,
+      toastr.info('<img src="/logo.svg" style="width:150px;">', 'Info Dengan Image')
+    });
+
+
+  // Toast Position
+    $('.position').click(function(event) {
+      var pos = $('input[name=position]:checked', '#positionForm').val();
+      toastr.options.positionClass = "toast-" + pos;
+      toastr.options.preventDuplicates = false;
+      toastr.info('This sample position', 'Position')
+    });
+</script>
+
+
+<script>
+      $('.action').on('click', function() {
+          var $this = $(this);
+        $this.button('loading');
+          setTimeout(function() {
+             $this.button('reset');
+         }, 3000);
+      });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

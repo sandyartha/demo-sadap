@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "id"}}">
+
+<head>
+    <title>{{.Title}} - {{ .Site.Title }}</title>
+
+    {{ partial "component/meta/data" . }}
+    {{ partial "component/meta/schema/article.json" . }}
+
+   
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    
+    {{ with .Site.Params.googlefonts }}
+    <link href="{{ . }}" rel="stylesheet">
+    {{ end }}
+    <link rel="stylesheet" href="/css/default.css">
+
+    {{- block "meta" . -}}{{- end -}}
+    
+    <style>
+        {{ partial "css/global.css" . | safeCSS }}
+        {{ partial "css/form.css" . | safeCSS }}
+        {{ partial "css/styles.css" . | safeCSS }}
+        {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
+        {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
+      
+        .success{display:none;}
+        .w-form-fail{display:none;margin-top:10px;padding:10px;background-color:#ffdede}
+        .form-page {
+            width: 100%;
+            max-width: 520px;
+            padding: 25px;
+            margin: 0 auto;
+        }
+    </style>
+
+    {{ template "_internal/google_analytics.html" . }}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8751263644994394",
+              enable_page_level_ads: true
+         });
+    </script>
+</head>
+
+<body>
+    {{ partial "navigation" . }}
+    <header class="bg-grey page-section text-white">
+        <div class="container text-center text-dark">
+            <h1>{{ .Title }}</h1>
+        </div>
+    </header>
+    <section class="form-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Article main content -->
+                    {{ .Content }}
+                    <a href="https://api.whatsapp.com/send?phone={{ .Site.Params.nomer_url }}&text=TanyaAlatPenyadapweb" class="btn btn-success btn-action"> PESAN WHATSAPP (klik)</a>
+                    <form id="email-form" name="email-form" data-name="Email Form" action="https://usebasin.com/f/97d0a2179e1b" method="post" data-sitekey="6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy">
+                        <div class="form-group mb-5 mt-5">
+                            <label for="nama_pemesanan">Nama (anda)</label>
+                            <input type="text" class="form-control" id="nama_pemesanan" placeholder="Masukan Nama">
+                        </div>
+                        <div class="form-group mb-5 mt-5">
+                            <label for="email_pemesanan">E-mail (anda)</label>
+                            <input type="email" class="form-control" id="email_pemesanan" placeholder="Masukan E-mail">
+                        </div>
+                        <div class="form-group mb-5 mt-5">
+                            <label for="nomer_hp">NO HP (anda)</label>
+                            <input type="number" class="form-control" id="nomer_hp" aria-describedby="nomer_hp1" placeholder="+628123.....">
+                            <small id="nomer_hp1" class="form-text text-muted">Pastikan nomer masih aktif, dapat kami dihubungi</small>
+                        </div>
+                        <div class="mt-5 mb-5">
+                            <p>Ponsel target</p>
+                            <hr>
+                            <div class="radio">
+                                <label><input type="radio" name="hp_target" value="iPhone" /> iPhone</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="hp_target" value="Android" /> Android</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="hp_target" value="Blackberry" disabled="" /> Blackberry </label>
+                            </div>
+                            <div class="radio disabled">
+                                <label><input type="radio" name="hp_target" /> Nokia</label>
+                            </div>
+                        </div>
+                        <div class="form-group mt-5 mb-5">
+                            <label for="pesan_detail">Pesan detail:</label>
+                            <textarea id="pesan_detail" class="form-control" name="pesan_detail" placeholder="Masukan detail pesan" rows="5" style="height:100%;"></textarea>
+                        </div>
+                        <div class="form-check mb-5 mt-5">
+                            <input type="checkbox" class="form-check-input" id="ketentuanCheck1" value="Setuju dengan ketentuan penggunaan">
+                            <label class="form-check-label" for="ketentuanCheck1">Saya setuju dengan Ketentuan</label>
+                        </div>
+                        <button type="submit" class="btn btn-success mb-5 mt-5">KIRIM DATA</button>
+                    </form>
+                    <!-- /Article -->
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ partial "footer" . }}
+</body>
+
+</html>

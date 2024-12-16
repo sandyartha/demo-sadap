@@ -1,0 +1,239 @@
+{{ $date := time.Now | time.Format "2006/1/02 3:04:00" }}
+
+<div class="row" style="height: auto !important;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10" style="height: auto !important;">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body">
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    <strong>WARNING!</strong> All files expire after 24 hours. Download them before they are deleted automatically!<br />
+                    The downloaded files are located in the "My files" tab of this page.
+                </div>
+                <div class="tabbable-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#fileExplorerMain" data-toggle="tab" aria-expanded="true"><i class="icon-folder font-red-thunderbird margin-right-10 bold"></i>Explorer</a>
+                        </li>
+                        <li class="">
+                            <a href="#myFilesMain" id="myFilesDownload" data-toggle="tab" aria-expanded="false"><i class="fa fa-files-o font-red-thunderbird margin-right-10 bold"></i>My files</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="text-center tab-pane fade active in" id="fileExplorerMain">
+                            <p id="errorLoad" class="text-center" style="display: none;">
+                                <span id="errorLoadMessage"></span>
+                            </p>
+                            <p id="infoLoad" class="text-center" style="display: none; margin-top: 20px; margin-bottom: 20px;">
+                                <i class="fa fa-spin fa-spinner" style="font-size: 4em;" aria-hidden="true"></i>
+                            </p>
+                            <div id="myIframeFileExplorer" class="scroll-wrapper" style="display: none;"></div>
+                            <div id="selectTypePath" class="margin-top-20">
+                                <center>
+                                    <select id="typePath" class="form-control input-medium">
+                                        <option value="0">/</option>
+                                        <option value="1">WhatsApp Audio</option>
+                                        <option value="2">WhatsApp Documents</option>
+                                        <option value="3">WhatsApp Images</option>
+                                        <option value="4">WhatsApp Videos</option>
+                                        <option value="5">WhatsApp Voice Notes</option>
+                                        <option value="6">Snapchat</option>
+                                        <option value="7">DCIM</option>
+                                        <option value="8">Facebook Messenger Pictures</option>
+                                        <option value="9">Instagram Pictures</option>
+                                        <option value="10">Download</option>
+                                    </select>
+                                </center>
+                            </div>
+                            <button id="btnStartFileExplorer" class="btn btn-primary margin-top-20 margin-bottom-20 action info">
+                                <i class="fa fa-play"></i>
+                                Open file explorer
+                            </button>
+                        </div>
+                        <div class="tab-pane fade" id="myFilesMain">
+                            <div class="table-responsive">
+                                <div id="tabData_wrapper" class="dataTables_wrapper">
+                                    <div class="clear"></div>
+                                    <div class="dataTables_length" id="tabData_length">
+                                        <label>
+                                            <select name="state" id="maxRows" class="form-control input-sm input-xsmall input-inline">
+                                                {{ if .Page.Params.showdata20 }}
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="150">150</option>
+                                                <option value="-1">All</option>
+                                                {{ else }}
+                                                <option value="5">5</option>
+                                                <option value="10">10</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="150">150</option>
+                                                <option value="-1">All</option>
+                                                {{ end }}
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div id="tabData_filter" class="dataTables_filter">
+                                        <label><input type="text" id="search_input_all" onkeyup="FilterkeyWord_all_table()" class="form-control input-sm input-small input-inline" placeholder="Search" /></label>
+                                    </div>
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column dataTable" id="table-id" width="100%" cellpadding="0" role="grid" aria-describedby="tabData_info" style="width: 100%;">
+                                        <thead>
+                                            <tr role="row">
+                                                <th width="5%" class="all center sorting_disabled"
+                                                    rowspan="1"
+                                                    colspan="1"
+                                                    aria-label=""
+                                                    style="width: 52px;">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" id="selectAll" />
+                                                        <span></span>
+                                                    </label>
+                                                </th>
+                                                {{ range .Page.Params.thead }}
+                                                <th width="10%" class="all center sorting" tabindex="0" aria-controls="tabData" rowspan="1" colspan="1" aria-label="Type: activate to sort column ascending" style="width: {{.width}}px;">{{.name}}</th>
+                                                {{ end }}
+                                            </tr>
+                                        </thead>
+
+                                        
+                                        <tbody id="myList">
+                                            {{ range $.Page.Params.tbody.data }}
+                                            <tr role="row" class="odd">
+                                                <td class="center">
+                                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                        <input type="checkbox" class="chk1" value="{{.name}}" />
+                                                        <span></span>
+                                                    </label>
+                                                </td>
+
+                                                {{ with .date }}
+                                                <td class="sorting_1">{{$date}}</td>
+                                                {{ end }}
+
+                                                {{ with .name}}
+                                                <td>{{.}}</td>
+                                                {{ end }}
+
+                                                {{ $type := .type }}
+
+                                                {{ if eq $type "video" }}
+                                                    <td>                                                      
+                                                        <button class="action btn yellow-crusta" {{ printf `onClick="videoUrl('%s')"` .linkfile | safeHTMLAttr }} data-loading-text="Processing ..." data-toggle="modal" data-target="#modalmedia" value="{{.name}}"><i class="icon-camera"> </i>VIEW FILE</button>
+                                                    </td>
+                                                {{ end }}
+
+                                                {{ if eq $type "image" }}
+                                                    <td>                                                      
+                                                        <button class="action btn green-haze" {{ printf `onClick="imageUrl('%s')"` .linkfile | safeHTMLAttr }} data-loading-text="Processing ..." data-toggle="modal" data-target="#modalimage" value="{{.name}}"><i class="icon-picture"> </i>VIEW FILE</button>
+                                                    </td>
+                                                {{ end }}
+
+                                              
+
+                                            {{ end }}
+
+                                        </tbody>
+                                    </table>
+
+                                    
+                                    <div class="margin-top-10 margin-bottom-10 center" style="margin-left:10px;">
+                                        <button class="btn btn-circle btn-icon-only btn-danger info" id="btnRemove" disabled="disabled"><i class="icon-trash"></i></button>
+                                    </div>
+
+
+                                    <div class="rows_count">Showing 1 to 3 of 3 entries</div>
+                                    <div class="dataTables_paginate paging_bootstrap_full_number" id="tabData_paginate">
+                                        <ul class="pagination" style="visibility: visible;">
+                                            <li class="prev disabled">
+                                                <a href="#" title="First"><i class="fa fa-angle-double-left"></i></a>
+                                            </li>
+                                            <li class="prev disabled">
+                                                <a href="#" title="Prev"><i class="fa fa-angle-left"></i></a>
+                                            </li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li class="next disabled">
+                                                <a href="#" title="Next"><i class="fa fa-angle-right"></i></a>
+                                            </li>
+                                            <li class="next disabled">
+                                                <a href="#" title="Last"><i class="fa fa-angle-double-right"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    {{ if .Page.Params.block_site }}
+                                    <div class="col-md-12">
+                                        <div class="input-group" id="addWebSiteRow">
+                                            <div class="input-group input-icon right">
+                                                <span class="input-group-addon ">
+                                                    <i class="fa fa-file-word-o"></i>
+                                                </span>
+                                                <input type="text" class="form-control input-large" placeholder="indicate the site (Example: facebook.com)" id="webSiteText">
+                                                <span class="input-group-btn">
+                                                    <button type="button" id="addWebSite" class="btn btn-success blue info"><i class="fa fa-plus"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <p id="addWebSiteLimit" style="display:none; color:red;"></p>
+                                    </div>
+                                    {{ end }}
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+
+
+<div id="modalimage" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <strong class="modal-title"></strong>
+            </div>
+            <div class="modal-body text-center">
+                    <figure id="imageh">
+                      <img src="/default.png" alt="Trulli" style="width:100%">
+                    </figure>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary closebtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalmedia" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <strong class="modal-title"></strong>
+            </div>
+            <div class="modal-body text-center">
+                    <video id="video" poster="https://i.sstatic.net/9my1K.png" controls="controls" preload="true">
+                      <source type="video/webm">
+                    </video>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary closebtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

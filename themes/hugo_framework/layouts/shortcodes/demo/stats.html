@@ -1,0 +1,313 @@
+<div class="row" style="height: auto !important;">
+    <div class="col-md-6" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <h2 class="caption h6">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body">
+                <div id="pie_chart_sms" class="chart" style="padding: 0px; position: relative;text-align: -webkit-center;">
+                    <canvas id="BA-chart-sms" width="350" height="250"></canvas>
+                </div>
+                <ul id="record_sms" style="display: none;">
+                    <li>
+                        <div id="record_sms_send" class="font-blue-hoki margin-top-10"></div>
+                    </li>
+                    <li>
+                        <div id="record_sms_received" class="font-blue-hoki margin-top-10"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-pie-chart font-green-sharp" style="font-size: 14px;"></i>
+                    <span class="caption-subject font-green-sharp sbold uppercase" style="font-size: 14px;">CALL</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="pie_chart_sms" class="chart" style="padding: 0px; position: relative;text-align: -webkit-center;">
+                    <canvas id="BA-chart-call" width="350" height="250"></canvas>
+                </div>
+                <ul id="record_sms" style="display: none;">
+                    <li>
+                        <div id="record_sms_send" class="font-blue-hoki margin-top-10"></div>
+                    </li>
+                    <li>
+                        <div id="record_sms_received" class="font-blue-hoki margin-top-10"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-pie-chart font-green-sharp" style="font-size: 14px;"></i>
+                    <span class="caption-subject font-green-sharp sbold uppercase" style="font-size: 14px;">SITE WEB</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="pie_chart_sms" class="chart" style="padding: 0px; position: relative;text-align: -webkit-center;">
+                    <canvas id="BA-chart-web" width="350" height="250"></canvas>
+                </div>
+                <ul id="record_sms" style="display: none;">
+                    <li>
+                        <div id="record_sms_send" class="font-blue-hoki margin-top-10"></div>
+                    </li>
+                    <li>
+                        <div id="record_sms_received" class="font-blue-hoki margin-top-10"></div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-doughnutlabel/2.0.3/chartjs-plugin-doughnutlabel.js" type="text/javascript"></script>
+
+
+<script>
+  //chart
+var BAChartDataValueSMS = [
+  5, 
+  17, 
+  9, 
+  12, 
+  2, 
+]; 
+var BAChartDataLabelSMS = [
+  'Ayam Bakar', 
+  'Ali', 
+  'Evi', 
+  'Budi', 
+  'Citra', 
+]; /* warna latar */
+var BAChartSMSColors = [
+  'rgba(26, 176, 169, 1)',
+  'rgba(119, 209, 190, 1)',
+  'rgba(127, 188, 212, 1)',
+  'rgba(28, 120, 212, 1)',
+  'rgba(3, 3, 158, 1)',
+];
+
+var BAChartCountTotalSMS = 0;
+if (BAChartDataValueSMS.length > 0) {
+  BAChartCountTotalSMS = BAChartDataValueSMS.reduce(function(acc, currentVal, currentIdx, arr){
+    return acc + currentVal;
+  }, 0);
+}
+
+window.addEventListener('load', function(){
+  var BAChartCtx = document.getElementById('BA-chart-sms').getContext('2d');
+  var BAChartSMS = new Chart(BAChartCtx, {
+    type: 'doughnut',
+    data: {
+      labels: BAChartDataLabelSMS,
+      datasets: [{
+        data: BAChartDataValueSMS,
+        backgroundColor: BAChartSMSColors,
+        borderColor: '#fff',
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        position: 'top',
+        fontSize: 12,
+        fontColor: '#000',
+        fontStyle: 'bold',
+        padding: 24,
+        text: 'SMS',
+      },
+      plugins: {
+        labels: [
+          {
+            render: 'label',
+            fontColor: '#000',
+            position: 'outside'
+          },
+          {
+            render: 'percentage',
+            fontColor: '#fff',
+          }
+        ],
+        doughnutlabel: {
+          labels: [
+            {
+              text: 'Total: ' + BAChartCountTotalSMS,
+            }
+          ]
+        }
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+});
+</script>
+
+
+<script>
+  //chart
+var BAChartDataValueCall = [
+  5, 
+  17, 
+]; 
+var BAChartDataLabelCall = [
+  'Rizki', 
+  'Panji',
+]; /* warna latar */
+var BAChartCallColors = [
+  'rgba(26, 176, 169, 1)',
+  'rgba(119, 209, 190, 1)',
+];
+
+var BAChartCountTotalCall = 0;
+if (BAChartDataValueCall.length > 0) {
+  BAChartCountTotalCall = BAChartDataValueCall.reduce(function(acc, currentVal, currentIdx, arr){
+    return acc + currentVal;
+  }, 0);
+}
+
+window.addEventListener('load', function(){
+  var BAChartCtx = document.getElementById('BA-chart-call').getContext('2d');
+  var BAChartCall = new Chart(BAChartCtx, {
+    type: 'doughnut',
+    data: {
+      labels: BAChartDataLabelCall,
+      datasets: [{
+        data: BAChartDataValueCall,
+        backgroundColor: BAChartCallColors,
+        borderColor: '#fff',
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        position: 'top',
+        fontSize: 12,
+        fontColor: '#000',
+        fontStyle: 'bold',
+        padding: 24,
+        text: 'Calls',
+      },
+      plugins: {
+        labels: [
+          {
+            render: 'label',
+            fontColor: '#000',
+            position: 'outside'
+          },
+          {
+            render: 'percentage',
+            fontColor: '#fff',
+          }
+        ],
+        doughnutlabel: {
+          labels: [
+            {
+              text: 'Total: ' + BAChartCountTotalCall,
+            }
+          ]
+        }
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+});
+</script>
+
+
+<script>
+  //chart site 
+var BAChartDataValueWeb = [
+  5, 
+  17, 
+]; 
+var BAChartDataLabelWeb = [
+  'pinterest.com', 
+  'google.com',
+]; /* warna latar */
+var BAChartWebColors = [
+  'rgba(26, 176, 169, 1)',
+  'rgba(119, 209, 190, 1)',
+];
+
+var BAChartCountTotalWeb = 0;
+if (BAChartDataValueWeb.length > 0) {
+  BAChartCountTotalWeb = BAChartDataValueWeb.reduce(function(acc, currentVal, currentIdx, arr){
+    return acc + currentVal;
+  }, 0);
+}
+
+window.addEventListener('load', function(){
+  var BAChartCtx = document.getElementById('BA-chart-web').getContext('2d');
+  var BAChartWeb = new Chart(BAChartCtx, {
+    type: 'doughnut',
+    data: {
+      labels: BAChartDataLabelWeb,
+      datasets: [{
+        data: BAChartDataValueWeb,
+        backgroundColor: BAChartWebColors,
+        borderColor: '#fff',
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      responsive: false,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        position: 'top',
+        fontSize: 12,
+        fontColor: '#000',
+        fontStyle: 'bold',
+        padding: 24,
+        text: 'SITE',
+      },
+      plugins: {
+        labels: [
+          {
+            render: 'label',
+            fontColor: '#000',
+            position: 'outside'
+          },
+          {
+            render: 'percentage',
+            fontColor: '#fff',
+          }
+        ],
+        doughnutlabel: {
+          labels: [
+            {
+              text: 'Total: ' + BAChartCountTotalWeb,
+            }
+          ]
+        }
+      },
+      legend: {
+        display: false
+      }
+    }
+  });
+});
+</script>

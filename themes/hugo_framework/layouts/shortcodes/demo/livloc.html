@@ -1,0 +1,131 @@
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10" style="height: auto !important; min-height: 0px !important;">
+    <div class="portlet light bordered margin-top-10 margin-bottom-10">
+        <div class="portlet-title">
+            <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+            </h2>
+        </div>
+        <div class="portlet-body">
+            <div id="locLiveMain">
+                <center>
+                    <div id="useGPS">
+                        Stop automatically after
+                        <select id="timeLoc" class="form-control input-medium margin-top-10">
+                            <option value="1" selected="selected">1 minute</option>
+                            <option value="2">2 minutes</option>
+                            <option value="3">3 minutes</option>
+                            <option value="5">5 minutes</option>
+                            <option value="10">10 minutes</option>
+                            <option value="15">15 minutes</option>
+                            <option value="30">30 minutes</option>
+                        </select>
+                    </div>
+                   
+                    
+                    <div id="lastPositionDiv" class="margin-top-10">
+                        <b>
+                            <u>Last known position: </u>
+                        </b>
+
+                        <span class="location"></span>
+                       
+            
+                    </div>
+
+
+
+                    
+                </center>
+                <div class="row margin-top-10" style="padding-left: 15px; padding-right: 15px;">
+                    <div class="col-md-12 margin-top-10">
+                        <center>
+                        <div id="map"></div>
+
+                        <div id="zoomAuto" class="margin-top-40">
+                            <p>Auto zoom:</p>
+                            <div class="toggle-btn">
+                                <input type="checkbox" checked="" class="cb-value">
+                                <span class="round-btn"></span>
+                            </div>
+                        </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="mapshow" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4>{.name}}</h4>
+            <h4>{date}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="responsive-map-container">
+                <iframe src="//maps.google.com/maps?q={latitude}},{longitude}}&z=15&output=embed" width="500" height="600"></iframe>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- ref: https://www.cloudzilla.ai/dev-education/how-to-build-a-real-time-location-tracker-using-leaflet-js/ -->
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        var map_init = L.map('map', {
+            center: [9.0820, 8.6753],
+            zoom: 8
+        });
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map_init);
+        L.Control.geocoder().addTo(map_init);
+        if (!navigator.geolocation) {
+            console.log("Your browser doesn't support geolocation feature!")
+        } else {
+            setInterval(() => {
+                navigator.geolocation.getCurrentPosition(getPosition)
+            }, 5000);
+        };
+        var marker, circle, lat, long, accuracy;
+
+        function getPosition(position) {
+            // console.log(position)
+            lat = position.coords.latitude
+            long = position.coords.longitude
+            accuracy = position.coords.accuracy
+
+            if (marker) {
+                map_init.removeLayer(marker)
+            }
+
+            if (circle) {
+                map_init.removeLayer(circle)
+            }
+
+            marker = L.marker([lat, long])
+            circle = L.circle([lat, long], { radius: accuracy })
+
+            var featureGroup = L.featureGroup([marker, circle]).addTo(map_init)
+
+            map_init.fitBounds(featureGroup.getBounds())
+
+            console.log("Your coordinate is: Lat: " + lat + " Long: " + long + " Accuracy: " + accuracy)
+        }
+    </script>

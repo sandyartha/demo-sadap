@@ -1,0 +1,41 @@
+
+a {
+    color:#23629f;
+    text-decoration: none;
+    background-color: transparent
+}
+
+a, li  {
+    word-wrap: break-word;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+.d-block {
+    display: block!important;
+}
+
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300
+}
+
+.collapse:not(.show) {
+    display: none
+}
+
+
+.shadow-none {
+    box-shadow: none !important
+}
+
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #000;
+}

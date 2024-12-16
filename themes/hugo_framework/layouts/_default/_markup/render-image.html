@@ -1,0 +1,9 @@
+{{- $src := .Destination | safeURL -}}
+
+{{- if strings.HasPrefix .Destination "http" -}}
+<img class="img-fluid d-block mx-auto rounded mb-5 mt-5" src="{{ .Destination | safeURL }}" alt="{{ .Text }}" loading="lazy" />
+{{- else -}}
+<!-- Load image data with imageConfig and insert it with `<img>` -->       
+{{- $config := imageConfig (printf "/static/%s" $src) -}}
+<img class="img-fluid d-block mx-auto rounded mb-5 mt-5" src="{{ .Destination | safeURL }}" alt="{{ .Text | safeHTML }}" loading="lazy" height="{{$config.Height}}" width="{{$config.Width}}" />
+{{- end -}}

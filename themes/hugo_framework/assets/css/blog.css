@@ -1,0 +1,92 @@
+
+
+blockquote {
+    position: relative;
+    padding: 10px 15px 10px 50px;
+    margin: 50px 0 50px 0;
+    box-sizing: border-box;
+    font-style: italic;
+    font-weight: 600;
+    color:#464646;
+    background:#7cd791;
+    border: solid 3px #000;
+}
+
+blockquote:before {
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    left: 11px;
+    vertical-align: middle;
+    content: "#";
+    color: #000;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.maincontent h2, h3 {
+    margin-top: 6rem;
+    font-weight: 700;
+}
+
+details {
+  border: 3px solid #000;
+  background:#7cd791;
+  padding: 20px;
+  margin-bottom: 5px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.img, .blog-img, .user-img {
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media (min-width: 801px) {
+.thumb {
+    width: 176px!important;
+    height: 176px!important;
+}
+}
+
+.thumb {
+    object-fit: cover;
+    height: auto;
+}
+
+
+
+
+
+time {
+    font-size: clamp(0.75rem, 0.71rem + 0.18vw, 0.875rem);
+    color: #707070;
+}
+
+.icon > a:hover {
+    text-decoration: none;
+}
+
+.iconfoot {
+    fill: currentColor;
+    height: 4.2rem;
+    width: 1.5rem;
+    list-style: none;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+}
+
+.block-21 .blog-img {
+    display: block;
+    height: 100px;
+    width: 100px;
+}
+

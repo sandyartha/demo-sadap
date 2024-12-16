@@ -1,0 +1,59 @@
+<div class="row" style="height: auto !important;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-10" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body">
+                Your SMS password is: <b>passwordSMS </b>
+                <a href="/demo/features/#passwordSMS" style="padding: 6px 10px;" class="btn btn-sm green btn-outline">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <br />
+                <br />
+                <ul>
+                    <li>
+                        <i class="icon-hand-right"></i>&nbsp;<b><u>Ringing the phone:</u></b> passwordSMS--ring--TIME
+                    </li>
+                    <br />
+                    <li>
+                        <i class="icon-hand-right"></i>&nbsp;<b><u>Retrieve location information:</u></b> passwordSMS--getlocation
+                    </li>
+                    <br />
+                    <li>
+                        <i class="icon-hand-right"></i>&nbsp;<b><u>Enable mobile data:</u></b><sup>1</sup> passwordSMS--datamobile
+                    </li>
+                    <br />
+                    <li>
+                        <i class="icon-hand-right"></i>
+                        <b>
+                            <u>Disable mobile data:</u>
+                        </b>
+                        <sup>1</sup>
+                        passwordSMS--nodatamobile
+                    </li>
+                    <br />
+                    <li>
+                        <i class="icon-hand-right"></i>&nbsp;<b><u>Enable GPS :</u></b><sup>1</sup> passwordSMS--gps
+                    </li>
+                    <br />
+                    <li>
+                        <i class="icon-hand-right"></i>&nbsp;<b><u>Restart the phone:</u></b><sup>1</sup> passwordSMS--restart
+                    </li>
+                </ul>
+                <br />
+                <br />
+                <b>Example</b> to make the phone ring for 5 seconds, send this SMS to the phone: <b>passwordSMS--ring--5</b> <br />
+                <br />
+                <i style="font-style: normal; color: red;">Warning, the SMS will be seen in the phone</i><br />
+                <br />
+                <br />
+                <span style="font-size: 12px;" class="font-black"><sup>1</sup>The phone must be <a target="_blank" href="/">rooted</a> to use these features.</span>
+            </div>
+        </div>
+
+    </div>
+</div>

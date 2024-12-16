@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "id"}}">
+  <head>
+    {{ partial "component/meta/data" . }}
+
+    {{ with .OutputFormats.Get "RSS" }}
+     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+    {{ end }}
+
+    {{ with .OutputFormats.Get "AMP" }}
+     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+    {{ end }}
+    
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    
+    {{ with $.Site.Params.googlefonts }}
+    <link href="{{ . }}" rel="stylesheet">
+    {{ end }}
+
+
+    {{ $css := resources.Get "css/styles.css" }}
+    {{ $nav := resources.Get "css/nav.css" }}
+    {{ $grid := resources.Get "css/grid.css" }}
+    {{ $card := resources.Get "css/card.css" }}
+    {{ $btn := resources.Get "css/btn.css" }}
+    {{ $spacing := resources.Get "css/spacing.css" }}
+    {{ $jumbotron := resources.Get "css/jumbotron.css" }}
+
+
+    {{ $style := slice $css $nav $grid $card $btn $spacing $jumbotron | resources.Concat "main.css" | resources.Minify | resources.Fingerprint }}
+    
+
+
+    <link href="{{ $style.RelPermalink }}" rel="stylesheet" type="text/css"/>
+    
+
+    {{ $inline := resources.Get "css/index.css" }}
+
+    <style>
+
+      {{ $inline.Content | safeCSS }}
+
+      
+    </style>
+    
+	
+	  {{ partial "component/meta/schema/WebSite.json" . }}
+
+    {{- if not .Site.IsServer -}}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E8C7RL0ZM8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-E8C7RL0ZM8');
+    </script>
+    {{ end }}
+	
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4919400654126330"
+     crossorigin="anonymous"></script>
+  </head>
+
+  <body class="ht-body">
+  
+	 {{ partial "navigation" . | safeHTML }}
+	 
+	   {{ .Content | safeHTML }}
+
+	 {{ partial "footer" . | safeHTML }}
+    
+
+  </body>
+</html>

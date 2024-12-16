@@ -1,0 +1,93 @@
+p {
+    line-height: 27px;
+    margin: 20px 0;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    object-fit: contain;
+}
+
+.articleso h2 {
+    margin-top: 100px;
+    font-weight: 600;
+}
+
+.articleso h3 {
+    margin-top: 80px;
+}
+
+.no-underline {
+    text-decoration: none !important;
+}
+
+#hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/penyadap-hp-landing.webp");
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.page-section {
+    padding: 100px 0 100px 0;
+}
+
+.bg-grey {
+    background: #e2e2e28c;
+}
+
+.badge-secondary {
+    margin: 6px;
+    padding: .45rem .5rem;
+}
+
+.badge-success {
+    margin: 6px;
+    padding: .45rem .5rem;
+    color: #000;
+}
+
+.iconfoot {
+    fill: currentColor;
+    height: 4.2rem;
+    width: 1.5rem;
+    list-style: none;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+}
+
+.iconfoot,
+a,
+svg {
+    text-decoration: none;
+}
+
+blockquote {
+    position: relative;
+    padding: 10px 15px 10px 50px;
+    box-sizing: border-box;
+    font-style: italic;
+    font-weight: bold;
+    color: #464646;
+    background: #c2e8ed;
+    border: solid 3px #77c0c9;
+}
+
+blockquote:before {
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    left: 11px;
+    vertical-align: middle;
+    content: "#";
+    color: #77c0c9;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 900;
+}

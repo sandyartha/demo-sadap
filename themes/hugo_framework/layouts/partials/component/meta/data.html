@@ -1,0 +1,32 @@
+<title>{{ safeHTML .Title }}</title>
+<meta charset="utf-8" />
+<link rel="canonical" href="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="description" content="{{ if .Params.description }}{{ .Params.description | safeHTML }}{{else}}Tutorial terbaru {{.Title}} {{ now.Format "2006"}} - {{.Site.Title}}{{end}}" />
+<meta name="news_keywords" content="Tutorial, Teknologi, Aplikasi, Software" />
+<meta name="original-source" content="{{ with .OutputFormats.Get "HTML" }}{{ .Permalink }}{{ end }}" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title | safeHTML }} - {{ .Site.Title }}"/>
+<meta property="og:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}"/>
+<meta property="og:site_name" content="{{ .Site.Title }}"/>
+<meta property="og:description" content="{{ if .Params.description }}{{ .Params.description | safeHTML }}{{else}}Tutorial terbaru {{.Title}} {{ now.Format "2006"}} - {{.Site.Title}}{{end}}"/>
+<meta property="og:locale" content="{{ .Site.LanguageCode | default "id"}}">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
+<meta name="twitter:title" content="{{ .Title | safeHTML }} - {{ .Site.Title }}" />
+<meta name="twitter:description" content="{{ if .Params.description | safeHTML }}{{ .Params.description | safeHTML }}{{else}}Tutorial terbaru {{.Title}} {{ now.Format "2006"}} - {{.Site.Title}}{{end}}" />
+<meta name="twitter:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}" />
+
+<!-- favicon generator: visit: https://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32x32.png" | absURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "/favicon-16x16.png" | absURL }}">
+<link rel="manifest" href="{{ "/manifest.json" | absURL }}">
+<link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">

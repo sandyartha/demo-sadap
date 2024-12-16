@@ -1,0 +1,279 @@
+<div class="row" style="height: auto !important;">
+    <div class="col-md-12" style="height: auto !important; min-height: 0px !important;">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10" style="height: auto !important;">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div> 
+            <div class="portlet-body">
+                <div class="m-heading-1 border-green m-bordered">
+                    <div id="displayInfo" style="">
+                        <p>You have <b id="nbSessionText">5</b> sessions out of the 5 daily.</p>
+                        <p>The sessions will be reset in: <b id="timeSessionText">24 hours</b></p>
+                        <p style="padding-bottom: 16px; border-bottom: 1px solid #efefef;">A session lasts 1 minute.</p>
+                        <p class="text-center" id="sessionPremiumText">
+                            You currently have no other sessions available.<br />
+                            <br />
+                            <a href="/download/" class="btn green btn-xs">BUY OTHER SESSIONS</a>
+                        </p>
+                    </div>
+                    <center id="loadInfo" class="margin-top-10" style="display: none;">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+                    </center>
+                </div>
+
+                <a id="moreSessionPremium" href="offers.php" class="btn btn-block btn-sm green btn-outline filter-submit margin-bottom" style="display: none; margin-top: 16px;"> Switch to the premium offer for 100 daily sessions. </a>
+                <br />
+                <div id="actionLive" style="text-align: -webkit-center;" class="margin-top-10">
+
+                    <div class="margin-bottom-10">
+                        {{ range .Page.Params.tbody.data}}
+                        <label class="radio-card">
+                            <span class="radio-card__label">
+                                <span class="radio-card__title">{{.name}}</span>
+                                <i class="fa {{.pre}} font-yellow-casablanca" style="font-size: 36px; padding-bottom: 3rem; padding-top: 5px;"></i>
+                            </span>
+                            <input type="radio" id="{{ .name | urlize }}" name="showHideTextbox" value="{{ .name | urlize }}" class="radio-card__input" {{ if .checked }} checked{{ end }}/>
+                        </label>
+                        {{ end }}
+                    </div>
+
+                    <div class="video box-live" style="display: block;">
+                        {{ range (where .Page.Params.tbody.data "name" "Video" ) }} 
+
+                        {{ with .list_camera }}
+                        <select id="chooseCameraVideo" class="form-control input-medium margin-bottom-20">
+                            {{ range . }}
+                            {{ $name_list_camera := (index . "name") }}
+                            {{ $data_target := (index . "data_target_modal") }}
+                            {{ $data_file := (index . "file") }}
+                            <option 
+                                {{ if $name_list_camera }}
+                                value="{{ $name_list_camera | humanize }}" 
+                                {{ end }}
+                                {{ if $name_list_camera }}
+                                id="{{ $name_list_camera | urlize }}" 
+                                {{ end }}
+                                {{ if $data_target }}
+                                data-target="#{{ $data_target }}" 
+                                {{ end }}
+                                {{ if $data_file }}
+                                data-url="{{$data_file | relURL }}"
+                                {{ end }}
+
+                                >
+                                {{- $name_list_camera | humanize -}}
+                            </option>
+                            {{ end }}
+                        </select>
+                        {{ end }}
+
+                        {{ if .list_sound }}
+                        <select id="chooseSoundVideo" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_sound }}
+                            <option value="cam-{{ . | urlize }}">{{.}}</option>
+                            {{ end }}
+                        </select>
+                        {{ end }} {{ if .list_mode }}
+                        <select id="chooseModeVideo" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_mode }}
+                            <option value="cam-{{. | urlize }}">{{.}}</option>
+                            {{ end }}
+                        </select>
+                        <span id="infoTurnScreenOFF" class="font-blue-oleo" style="font-size: 11px;">
+                            The phone screen will not be lit.<br />
+                            If the visualization does not start you can try the visible mode.
+                        </span>
+
+                        <hr width="50%">
+                        {{ end }} {{ if .list_session }}
+                        <select id="chooseSessionVideo" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_session }}
+                            <option value="cam-{{. | urlize }}">{{.}} minute ({{.}} session)</option>
+                            {{ end }}
+                        </select>
+                        {{ end }}
+
+                        <hr width="50%">
+                        <button class="btn btn-primary margin-top-20 margin-bottom-30 playcam" data-loading-text="Processing ..." data-toggle="modal" data-target="#modalmedia" value="Rear Camera" onclick="videoUrl('https://res.cloudinary.com/dh6y6mugt/video/upload/c_fit,h_430,e_volume:-80/v1722867768/907408051847_rear.webm')"><i class="fa fa-play"></i>
+                            Start
+                        </button>
+
+                        {{ end }}
+                    </div>
+
+
+                    <div class="audio box-live">
+                        {{ range (where .Page.Params.tbody.data "name" "Audio" ) }} {{ if .list_sound }}
+
+                        {{ with .list_sound }}
+                        <select id="chooseSoundAudio" class="form-control input-medium margin-bottom-20">
+                            {{ range . }}
+                            {{ $name_list_camera := (index . "name") }}
+                            {{ $data_target := (index . "data_target_modal") }}
+                            {{ $data_file := (index . "file") }}
+                            <option 
+                                {{ if $name_list_camera }}
+                                value="{{ $name_list_camera | humanize }}" 
+                                {{ end }}
+                                {{ if $name_list_camera }}
+                                id="{{ $name_list_camera | urlize }}" 
+                                {{ end }}
+                                {{ if $data_target }}
+                                data-target="#{{ $data_target }}" 
+                                {{ end }}
+                                {{ if $data_file }}
+                                data-url="{{$data_file | relURL }}"
+                                {{ end }}
+
+                                >
+                                {{- $name_list_camera | humanize -}}
+                            </option>
+                            {{ end }}
+                        </select>
+                        {{ end }}
+
+                 
+                        {{ end }} {{ if .list_mode }}
+                        <select id="chooseModeAudio" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_mode }}
+                            <option value="audio-{{. | urlize }}">{{.}}</option>
+                            {{ end }}
+                        </select>
+                        <span id="infoTurnScreenOFF" class="font-blue-oleo" style="font-size: 11px;">
+                            The phone screen will not be lit.<br />
+                            If the visualization does not start you can try the visible mode.
+                        </span>
+
+                        <hr width="50%">
+                        {{ end }} {{ if .list_session }}
+                        <select id="chooseSessionAudio" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_session }}
+                            <option value="audio-{{. | urlize }}">{{.}} minute ({{.}} session)</option>
+                            {{ end }}
+                        </select>
+                        {{ end }}
+                        
+                        <hr width="50%">
+                        <button class="btn btn-primary margin-top-20 margin-bottom-30 playaudio" data-loading-text="Processing ..." data-toggle="modal" data-target="#modalmedia" value="With sound (default mode)" onclick="videoUrl('https://res.cloudinary.com/dh6y6mugt/video/upload/c_fit,h_200,e_volume:-90/v1722867768/202408051836_audio_1.webm')"><i class="fa fa-play"></i>
+                            Start
+                        </button>
+                        {{ end }}
+                    </div>
+
+
+                    <div class="screen box-live">
+                        {{ range (where .Page.Params.tbody.data "name" "Screen" ) }} 
+                        {{ with .list_sound }}
+                        <select id="chooseSoundScreen" class="form-control input-medium margin-bottom-20">
+                            {{ range . }}
+                            {{ $name_list_camera := (index . "name") }}
+                            {{ $data_target := (index . "data_target_modal") }}
+                            {{ $data_file := (index . "file") }}
+                            {{ $data_meta := (index . "meta") }}
+                            <option 
+                                {{ if $name_list_camera }}
+                                value="{{ $name_list_camera | humanize }}" 
+                                {{ end }}
+                                {{ if $data_target }}
+                                id="{{ $data_target }}" 
+                                {{ end }}
+                                {{ if $data_target }}
+                                data-target="#{{ $data_target }}" 
+                                {{ end }}
+                                {{ if $data_file }}
+                                data-url="{{$data_file | relURL }}"
+                                {{ end }}
+                                {{ if $data_meta }}
+                                data-warning="{{$data_meta }}"
+                                {{ end }}
+
+                                >
+                                {{- $name_list_camera | humanize -}}
+                            </option>
+                            {{ end }}
+                        </select>
+                     
+
+                        {{ end }} {{ if .list_mode }}
+                        <select id="chooseModeScreen" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_mode }}
+                            <option value="screen-{{. | urlize }}">{{.}}</option>
+                            {{ end }}
+                        </select>
+
+                        
+
+                        <span id="infoTurnScreenOFF" class="font-blue-oleo" style="font-size: 11px;">
+                            The phone screen will not be lit.<br />
+                            If the visualization does not start you can try the visible mode.
+                        </span>
+                        <span id="infoTurnScreenAndroid10" style="font-size: 11px; color: red; display: inline;">
+                            <br />
+                            <br />
+                            If the screenshot permission is disabled, a message will be displayed in the foreground to ask the user for permission to take screenshots of his phone.
+                        </span>
+
+                        <hr width="50%">
+                        {{ end }} {{ if .list_session }}
+                        <select id="chooseSessionVideoScreen" class="form-control input-medium margin-bottom-20">
+                            {{ range .list_session }}
+                            <option value="{{. | urlize }}">{{.}} minute ({{.}} session)</option>
+                            {{ end }}
+                        </select>
+                        {{ end }}
+
+                        <button class="btn btn-primary margin-top-20 margin-bottom-30 playscreen" data-loading-text="Processing ..." data-toggle="modal" data-target="#modalmedia" value="No Sound" onclick="videoUrl('https://res.cloudinary.com/dh6y6mugt/video/upload/c_fit,h_430,e_volume:-100/v1722867768/202408051836_screen_1.webm')"><i class="fa fa-play"></i>
+                            Start
+                        </button>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+
+<div id="modalmedia" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <strong class="modal-title"></strong>
+            </div>
+            <div class="modal-body text-center">
+                    <video id="videoh" poster="https://i.sstatic.net/9my1K.png" controls="controls" preload="true">
+                      <source type="video/webm">
+                    </video>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-primary closebtn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+
+video {
+   height: 500px;
+   width: 300;
+
+}
+
+/* The video */
+video {
+   height: 100%;
+   max-width: -webkit-fill-available;
+   max-width: fill-available;
+}
+
+</style>

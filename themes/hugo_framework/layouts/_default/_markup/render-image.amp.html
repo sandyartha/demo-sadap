@@ -1,0 +1,27 @@
+{{- $src := .Destination | safeURL -}}
+
+{{- if strings.HasPrefix .Destination "http" -}}
+    <!-- Load image data without imageConfig and insert it with `<img>` -->
+    <div class="text-center">
+    	<pre>Halaman mobile tidak mendukung untuk menampilkan Image, cek versi Desktop</pre>
+    </div>
+    <!--<figure class="mb-5 mt-5">
+	  <amp-img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" layout="responsive"></amp-img>
+	  {{ if .Text }}
+	  <figcaption class="text-center">
+	    {{ .Text }} 123
+	  </figcaption>
+	  {{ end }}
+	</figure>-->
+{{- else -}}
+    <!-- Load image data with imageConfig and insert it with `<img>` -->       
+	{{- $config := imageConfig (printf "/static/%s" $src) -}}
+    <figure class="mb-5 mt-5">
+	  <amp-img src="{{ .Destination | safeURL }}" alt="{{ .Text | safeHTML }}" height="{{$config.Height}}" width="{{$config.Width}}" layout="responsive"></amp-img>
+	  {{ if .Text }}
+	  <figcaption class="text-center">
+	    {{ .Text | safeHTML }}
+	  </figcaption>
+	  {{ end }}
+	</figure>
+{{- end -}}

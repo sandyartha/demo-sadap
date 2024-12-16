@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-12 margin-top-10">
+        <div class="portlet light bordered margin-top-10 margin-bottom-10">
+            <div class="portlet-title">
+                <h2 class="caption h4">
+                    {{ with .Page.Params.pre }}<i class="{{.}} font-green"></i>{{ end }}
+                    <span class="caption-subject font-green sbold uppercase">{{.Page.Params.name}}</span>
+                </h2>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    {{ range .Page.Params.menu_1.demo }}
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="margin-bottom:13px;">
+                        <a class="dashboard-stat dashboard-stat-v2 {{.color}} btn" href="{{.url}}">
+                            <div class="visual">
+                                <i class="{{.pre}}"></i>
+                            </div>
+                            <div class="details">
+                                <div class="number"><span id="{{.identifier}}v2data">{{.number}}</span></div>
+                                <div class="desc">{{.name}}</div>
+                            </div>
+                        </a>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

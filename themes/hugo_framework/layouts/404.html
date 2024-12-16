@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "id"}}">
+
+<head>
+    <title>{{.Title}}</title>
+    
+
+    {{ partial "component/meta/data" . }} 
+
+    {{ with .OutputFormats.Get "RSS" }}
+     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+    {{ end }}
+
+    {{ with .OutputFormats.Get "AMP" }}
+     <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+    {{ end }}
+     
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="//cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+   
+    {{ with .Site.Params.googlefonts }}
+    <link href="{{ . }}" rel="stylesheet">
+    {{ end }}
+
+
+    {{ $css := resources.Get "css/styles.css" }}
+    {{ $nav := resources.Get "css/nav.css" }}
+    {{ $grid := resources.Get "css/grid.css" }}
+    {{ $card := resources.Get "css/card.css" }}
+    {{ $btn := resources.Get "css/btn.css" }}
+    {{ $spacing := resources.Get "css/spacing.css" }}
+    {{ $badge := resources.Get "css/badge.css" }}
+
+
+    {{ $style := slice $css $nav $grid $card $btn $spacing $badge | resources.Concat "main.css" | resources.Minify | resources.Fingerprint }}
+
+
+
+    <link href="{{ $style.RelPermalink }}" rel="stylesheet" type="text/css"/>
+
+
+    {{ $inline := resources.Get "css/blog.css" }}
+
+
+    <style>
+     {{ $inline.Content | safeCSS }}
+    </style>
+    
+    {{ template "_internal/google_analytics.html" . }}
+    
+</head>
+
+<body>
+
+    {{ partial "navigation" . }}
+
+
+    <section class="page-section" id="body-page">
+     <div class="container">
+      <div class="row justify-content-around">
+            <section class="col-lg-7">
+                <header class="page-header">
+                    <h1>{{ .Title }}</h1>
+                </header>
+
+                <hr class="rgba-white-light" style="padding: 5% 0;">
+                <section class="diagonal">
+                    <div class="text-container text-center">
+                     <div class="mt-5">
+                        <p>Astagaaaaaa!!! Mohon maaf, Halaman tidak ditemukan atau dirubah dengan alamat baru.</p>
+                        <a href="/" class="btn btn-success btn-lg"><span class="fa fa-home"></span> Beranda </a>
+                    </div>     
+
+                    </div>
+                </section>
+            </section>            
+            {{ partial "sidebar" . }}
+      </div>
+     </div>
+    </section>
+
+    {{ partial "footer" . }}
+
+
+</body>
+
+</html>
