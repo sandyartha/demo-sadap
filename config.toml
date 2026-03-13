@@ -16,7 +16,8 @@ theme = "hugo_framework"
 enableEmoji = true
 disableHugoGeneratorInject= true
 canonifyurls = true
-paginate = 5
+[pagination]
+  pagerSize = 5
 
 [markup]
   [markup.goldmark]
@@ -101,7 +102,7 @@ baseName = "index"
     name = "Demo Aplikasi"
     pre = " |"
     weight = -201
-    url = "/demo/"
+    url = "/"
 [[menu.footer]]
     name = "Jasa Hack"
     pre = " |"
@@ -129,124 +130,124 @@ baseName = "index"
     url = "/hubungi-kami/"
 
 
-[[menu.demo]]
+[[menu.home]]
   identifier = "dashboard"
   name = "Dashboard"
-  url = "/demo/"
+  url = "/"
   weight = 1
   pre = "icon-home"
-[[menu.demo]]
+[[menu.home]]
   identifier = "sms"
   name = "SMS"
-  url = "/demo/sms/"
+  url = "/sms/"
   weight = 2
   pre = "icon-envelope"
-[[menu.demo]]
+[[menu.home]]
   identifier = "mms"
   name = "MMS"
-  url = "/demo/mms/"
+  url = "/mms/"
   weight = 3
   pre = "fa fa-file-image-o"
-[[menu.demo]]
+[[menu.home]]
   identifier = "calls"
   name = "Calls"
   url = "/#sasdasd"
   weight = 4
   pre = "fa fa-phone"
-[[menu.demo]]
+[[menu.home]]
   identifier = "location"
   name = "Location"
   url = "#"
   weight = 5
   pre = "icon-map"
-[[menu.demo]]
+[[menu.home]]
   identifier = "pictures"
   name = "Pictures"
-  url = "/demo/pictures/"
+  url = "/pictures/"
   weight = 6
   pre = "icon-picture"
-[[menu.demo]]
+[[menu.home]]
   identifier = "apps"
   name = "Applications"
-  url = "/demo/applications/"
+  url = "/applications/"
   weight = 7
   pre = "icon-game-controller"
-[[menu.demo]]
+[[menu.home]]
   identifier = "calendar"
   name = "Calendar"
-  url = "/demo/calendar/"
+  url = "/calendar/"
   weight = 8
   pre = "fa fa-calendar"
-[[menu.demo]]
+[[menu.home]]
   identifier = "contacts"
   name = "Contacts"
-  url = "/demo/contact/"
+  url = "/contact/"
   weight = 9
   pre = "icon-notebook"
-[[menu.demo]]
+[[menu.home]]
   identifier = "sites"
   name = "Site Web"
   url = "/#"
   weight = 10
   pre = "i fa fa-chrome"
-[[menu.demo]]
+[[menu.home]]
   identifier = "screenshot"
   name = "Screenshot"
-  url = "/demo/screenshot/"
+  url = "/screenshot/"
   weight = 11
   pre = "fa fa-binoculars"
-[[menu.demo]]
+[[menu.home]]
   identifier = "chatroot"
   name = "Instan Messaging (ROOT)"
   url = "#"
   weight = 12
   pre = "fi icon-eye"
-[[menu.demo]]
+[[menu.home]]
   identifier = "chat"
   name = "Instan Messaging"
   url = "#"
   weight = 13
   pre = "i icon-eye"
-[[menu.demo]]
+[[menu.home]]
   identifier = "remote"
   name = "Remote Control"
-  url = "/demo/remote/"
+  url = "/remote/"
   weight = 14
   pre = "fa fa-cloud"
-[[menu.demo]]
+[[menu.home]]
   identifier = "live"
   name = "Live Viewing"
-  url = "/demo/live/"
+  url = "/live/"
   weight = 15
   pre = "fa fa-video-camera"
-[[menu.demo]]
+[[menu.home]]
   identifier = "fileexplorer"
   name = "File Explorer"
-  url = "/demo/file-explorer/"
+  url = "/file-explorer/"
   weight = 16
   pre = "icon-folder-alt"
-[[menu.demo]]
+[[menu.home]]
   identifier = "restriction"
   name = "Schedule restriction"
-  url = "/demo/schedule-restriction/"
+  url = "/schedule-restriction/"
   weight = 17
   pre = "fa fa-lock"
-[[menu.demo]]
+[[menu.home]]
   identifier = "smscmd"
   name = "SMS Commands"
-  url = "/demo/sms-command/"
+  url = "/sms-command/"
   weight = 18
   pre = "fa fa-send"
-[[menu.demo]]
+[[menu.home]]
   identifier = "stats"
   name = "Statistics"
-  url = "/demo/stats/"
+  url = "/stats/"
   weight = 19
   pre = "fa fa-pie-chart"
-[[menu.demo]]
+[[menu.home]]
   identifier = "account"
   name = "My Account"
-  url = "/demo/account/"
+  url = "/account/"
   weight = 20
   pre = "i icon-user"
 

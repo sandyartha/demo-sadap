@@ -54,26 +54,26 @@
                 </li>
 
                 <li class="dropdown dropdown-user">
-                    <a href="/demo/features/" class="dropdown-toggle" style="padding-right: 6px; padding-left: 6px;">
+                    <a href="/features/" class="dropdown-toggle" style="padding-right: 6px; padding-left: 6px;">
                         <i class="icon-screen-smartphone"></i> &nbsp;
                         <span class="username">Device Target &nbsp; </span>
                     </a>
                 </li>
 
                 <li class="dropdown">
-                    <a href="/demo/account/" class="dropdown-toggle myMenu">
+                    <a href="/account/" class="dropdown-toggle myMenu">
                         <i class="icon-user"></i>
                     </a>
                 </li>
 
                 <li class="dropdown">
-                    <a href="/demo/features/" class="dropdown-toggle myMenu">
+                    <a href="/features/" class="dropdown-toggle myMenu">
                         <i class="fa fa-cogs"></i>
                     </a>
                 </li>
 
                 <li class="dropdown">
-                    <a href="/demo/plans/" class="dropdown-toggle myMenu">
+                    <a href="/plans/" class="dropdown-toggle myMenu">
                         <i class="fa fa-shopping-basket"></i>
                     </a>
                 </li>
@@ -107,8 +107,8 @@
             </div>
          </li>
          {{ $current := . }}
-         {{ range .Site.Menus.demo }}
-         {{ $active := or (eq $.RelPermalink .URL) (or ($current.HasMenuCurrent "demo" .) ($current.IsMenuCurrent "demo" .)) }}
+         {{ range .Site.Menus.home }}
+         {{ $active := or (eq $.RelPermalink .URL) (or ($current.HasMenuCurrent "home" .) ($current.IsMenuCurrent "home" .)) }}
          {{if .HasChildren }}
          <li class="nav-item {{ if $active }}active open {{ end }}">
             <a class="nav-link nav-toggle" href="javascript:;">

@@ -23,7 +23,7 @@
                                 <ul class="dropdown-menu pull-right" id="tabData_tools">
                                     <li>
                                         <center><h4 class="block">Disable quick navigation if you want to access these features.</h4></center>
-                                        <a class="btn btn-xs red" href="/demo/features/" role="button">MY ACCOUNT</a>
+                                        <a class="btn btn-xs red" href="/features/" role="button">MY ACCOUNT</a>
                                     </li>
                                 </ul>
                             </div>                            
@@ -121,7 +121,7 @@
                                     </td>
                                     {{ end }}
                                     {{ if .file_name}}
-                                    {{ $replace_file := replaceRE `/demo/image/` "" .file }}
+                                    {{ $replace_file := replaceRE `/image/` "" .file }}
                                     <td>{{ $replace_file }}</td>
                                     {{ end }}
 
