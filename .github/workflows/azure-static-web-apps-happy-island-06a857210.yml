@@ -31,7 +31,10 @@ jobs:
           app_location: "/" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "public" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          app_build_command: |
+            wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_0.111.3_Linux-64bit.tar.gz
+            tar -xzf hugo_0.111.3_Linux-64bit.tar.gz
+            ./hugo --gc --minify
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
