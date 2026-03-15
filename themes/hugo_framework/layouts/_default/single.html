@@ -1,463 +1,508 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="id" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="id">
+
 <head>
 
-{{ partial "component/meta/data" . }}
+    {{ partial "component/meta/data" . }}
 
 
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-
-
-
-{{ $bootstrap := resources.Get "demo/bootstrap.css" }}
-{{ $bootstrap := slice $bootstrap | resources.Concat "bootstrap.css" | resources.Minify | resources.Fingerprint }}
-
-<link href="{{ $bootstrap.RelPermalink }}" rel="stylesheet" type="text/css"/>
-
-{{ $datatable := resources.Get "demo/datatable_bootstrap.css" }}
-{{ $datatable := slice $datatable | resources.Concat "datatable.css" | resources.Minify | resources.Fingerprint }}
-
-<link href="{{ $datatable.RelPermalink }}" rel="stylesheet" type="text/css"/>
-
-{{ $button := resources.Get "demo/button_bootstrap.css" }}
-{{ $button := slice $button | resources.Concat "buttons.css" | resources.Minify | resources.Fingerprint }}
-
-<link href="{{ $button.RelPermalink }}" rel="stylesheet" type="text/css"/>
-
-
-{{ $toastr := resources.Get "demo/toastr.css" }}
-{{ $toastr := slice $toastr | resources.Concat "toastrx.css" | resources.Minify | resources.Fingerprint }}
-
-<link href="{{ $toastr.RelPermalink }}" rel="stylesheet" type="text/css"/>
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+        type="text/css" />
 
 
 
-{{ $components_md := resources.Get "demo/components-md.css" }}
-{{ $components_md := slice $components_md | resources.Concat "components-md.css" | resources.Minify | resources.Fingerprint }}
+    {{ $bootstrap := resources.Get "demo/bootstrap.css" }}
+    {{ $bootstrap := slice $bootstrap | resources.Concat "bootstrap.css" | resources.Minify | resources.Fingerprint }}
 
-<link href="{{ $components_md.RelPermalink }}" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="{{ $bootstrap.RelPermalink }}" rel="stylesheet" type="text/css" />
 
-{{ $plugins_md := resources.Get "demo/plugins-md.css" }}
-{{ $plugins_md := slice $plugins_md | resources.Concat "plugins-mdx.css" | resources.Minify | resources.Fingerprint }}
+    {{ $datatable := resources.Get "demo/datatable_bootstrap.css" }}
+    {{ $datatable := slice $datatable | resources.Concat "datatable.css" | resources.Minify | resources.Fingerprint }}
 
-<link href="{{ $plugins_md.RelPermalink }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ $datatable.RelPermalink }}" rel="stylesheet" type="text/css" />
 
-{{ $socicon := resources.Get "demo/socicon.css" }}
-{{ $socicon := slice $socicon | resources.Concat "sociconx.css" | resources.Minify | resources.Fingerprint }}
+    {{ $button := resources.Get "demo/button_bootstrap.css" }}
+    {{ $button := slice $button | resources.Concat "buttons.css" | resources.Minify | resources.Fingerprint }}
 
-<link href="{{ $socicon.RelPermalink }}" rel="stylesheet" type="text/css"/>
-
-
+    <link href="{{ $button.RelPermalink }}" rel="stylesheet" type="text/css" />
 
 
-{{ $layout := resources.Get "demo/layout.css" }}
-{{ $layout := slice $layout | resources.Concat "layout.css" | resources.Minify | resources.Fingerprint }}
+    {{ $toastr := resources.Get "demo/toastr.css" }}
+    {{ $toastr := slice $toastr | resources.Concat "toastrx.css" | resources.Minify | resources.Fingerprint }}
 
-<link href="{{ $layout.RelPermalink }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ $toastr.RelPermalink }}" rel="stylesheet" type="text/css" />
 
-{{ $darkblue := resources.Get "demo/darkblue.css" }}
-{{ $darkblue := slice $darkblue | resources.Concat "darkblue.css" | resources.Minify | resources.Fingerprint }}
 
-<link href="{{ $darkblue.RelPermalink }}" rel="stylesheet" type="text/css" id="style_color" />
-
-{{ $myStyle_3 := resources.Get "demo/myStyle_3.css" }}
-{{ $myStyle_3 := slice $myStyle_3 | resources.Concat "myStyle_3x.css" | resources.Minify | resources.Fingerprint }}
-
-<link href="{{ $myStyle_3.RelPermalink }}" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+        rel="stylesheet" type="text/css" />
 
 
 
-<style>
-    button.menu-toggler, .dorpdown-toggler { background:transparent;border: 0px;}
-</style>
+    {{ $components_md := resources.Get "demo/components-md.css" }}
+    {{ $components_md := slice $components_md | resources.Concat "components-md.css" | resources.Minify |
+    resources.Fingerprint }}
 
-<!-- DASHBOARD CSS -->
-{{ if .Params.dashboard }}
-<style>
+    <link href="{{ $components_md.RelPermalink }}" rel="stylesheet" id="style_components" type="text/css" />
+
+    {{ $plugins_md := resources.Get "demo/plugins-md.css" }}
+    {{ $plugins_md := slice $plugins_md | resources.Concat "plugins-mdx.css" | resources.Minify | resources.Fingerprint
+    }}
+
+    <link href="{{ $plugins_md.RelPermalink }}" rel="stylesheet" type="text/css" />
+
+    {{ $socicon := resources.Get "demo/socicon.css" }}
+    {{ $socicon := slice $socicon | resources.Concat "sociconx.css" | resources.Minify | resources.Fingerprint }}
+
+    <link href="{{ $socicon.RelPermalink }}" rel="stylesheet" type="text/css" />
+
+
+
+
+    {{ $layout := resources.Get "demo/layout.css" }}
+    {{ $layout := slice $layout | resources.Concat "layout.css" | resources.Minify | resources.Fingerprint }}
+
+    <link href="{{ $layout.RelPermalink }}" rel="stylesheet" type="text/css" />
+
+    {{ $darkblue := resources.Get "demo/darkblue.css" }}
+    {{ $darkblue := slice $darkblue | resources.Concat "darkblue.css" | resources.Minify | resources.Fingerprint }}
+
+    <link href="{{ $darkblue.RelPermalink }}" rel="stylesheet" type="text/css" id="style_color" />
+
+    {{ $myStyle_3 := resources.Get "demo/myStyle_3.css" }}
+    {{ $myStyle_3 := slice $myStyle_3 | resources.Concat "myStyle_3x.css" | resources.Minify | resources.Fingerprint }}
+
+    <link href="{{ $myStyle_3.RelPermalink }}" rel="stylesheet" type="text/css" />
+
+
+
+    <style>
+        button.menu-toggler,
+        .dorpdown-toggler {
+            background: transparent;
+            border: 0px;
+        }
+    </style>
+
+    <!-- DASHBOARD CSS -->
+    {{ if .Params.dashboard }}
+    <style>
         .dashboard-stat.dashboard-stat-v2 .visual {
             padding-top: 0px;
             margin-bottom: 25px;
             margin-left: 15px;
         }
-</style>
-{{ end }}
-<!-- DASHBOARD CSS -->
+    </style>
+    {{ end }}
+    <!-- DASHBOARD CSS -->
 
 
 
-<!-- LIVE CSS -->
-{{ if .Params.fitur_live }}
-<style>
-    .radio-card {
-    width: 130px;
-    align-items: stretch;
-    display: inline-block;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    border: 2px solid #d5d5d5;
-    padding: 1rem;
-    background: #f1f1f1;
-    text-align: center;
+    <!-- LIVE CSS -->
+    {{ if .Params.fitur_live }}
+    <style>
+        .radio-card {
+            width: 130px;
+            align-items: stretch;
+            display: inline-block;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            border: 2px solid #d5d5d5;
+            padding: 1rem;
+            background: #f1f1f1;
+            text-align: center;
 
-    // all children
-    * {
-        display: flex;
-        width: 100%;
-    }
+            // all children
+            * {
+                display: flex;
+                width: 100%;
+            }
 
-    &:hover {
-        cursor: pointer;
-    }
+            &:hover {
+                cursor: pointer;
+            }
 
-    &:focus-within {
-        border-color: blue;
-    }
+            &:focus-within {
+                border-color: blue;
+            }
 
-    .radio-card__label {
-        display: flex;
-        flex-flow: row wrap;
-        flex: 0 0 200px; // idk if this is right though
-        .radio-card__title {
-            padding: 5px 30px;
-            margin: 0 auto;
+            .radio-card__label {
+                display: flex;
+                flex-flow: row wrap;
+                flex: 0 0 200px; // idk if this is right though
+
+                .radio-card__title {
+                    padding: 5px 30px;
+                    margin: 0 auto;
+                    width: 100%;
+                    font-weight: bold;
+                    font-size: 1.25rem;
+                }
+
+                .radio-card__text {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        input[type="radio"].radio-card__input {
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus {
+                border-color: transparent;
+            }
+
+            &:focus-visible {
+                outline-color: transparent;
+            }
+        }
+
+        .box-live,
+        .config {
+            display: none;
+        }
+    </style>
+    {{ end }}
+    <!-- LIVE CSS -->
+
+
+
+
+    <!-- TOMBOL ON OFF TOGGLE CHECKBOX -->
+    {{ if .Params.btn_onoff }}
+    <style>
+        .toggle-btn {
+            width: 60px;
+            height: 30px;
+            margin: -10px;
+            border-radius: 50px;
+            display: inline-block;
+            position: relative;
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==") no-repeat 34px center #e74c3c;
+            cursor: pointer;
+            -webkit-transition: background-color 0.4s ease-in-out;
+            -moz-transition: background-color 0.4s ease-in-out;
+            -o-transition: background-color 0.4s ease-in-out;
+            transition: background-color 0.4s ease-in-out;
+            cursor: pointer;
+        }
+
+        .toggle-btn.active {
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAmUlEQVQ4T6WT0RWDMAhFeZs4ipu0mawZpaO4yevBc6hUIWLNd+4NeQDk5sE/PMkZwFvZywKSTxF5iUgH0C4JHGyF97IggFVSqyCFga0CvQSg70Mdwd8QSSr4sGBMcgavAgdvwQCtApvA2uKr1x7Pu++06ItrF5LXPB/CP4M0kKTwYRIDyRAOR9lJTuF0F0hOAJbKopVHOZN9ACS0UgowIx8ZAAAAAElFTkSuQmCC") no-repeat 10px center #2ecc71;
+        }
+
+        .toggle-btn.active .round-btn {
+            left: 35px;
+        }
+
+        .toggle-btn .round-btn {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            left: 5px;
+            top: 66%;
+            margin-top: -15px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .toggle-btn .cb-value {
+            position: absolute;
+            left: 0;
+            right: 0;
             width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 9;
+            cursor: pointer;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        }
+    </style>
+    {{ end }}
+    <!-- TOMBOL ON OFF TOGGLE CHECKBOX -->
+
+
+
+
+
+    <!-- PLANS HARGA -->
+    {{ if .Page.Params.plans_css }}
+    <style>
+        /* Cubic Bezier Transition */
+        /*** Pricing Table 1 ***/
+        .pricing-content-1 {
+            background-color: #fff;
+        }
+
+        .pricing-content-1:before,
+        .pricing-content-1:after {
+            content: " ";
+            display: table;
+        }
+
+        .pricing-content-1:after {
+            clear: both;
+        }
+
+        .pricing-content-1 .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid;
+            margin: auto;
+        }
+
+        .pricing-content-1 .arrow-down.arrow-blue {
+            border-top-color: #3598dc;
+        }
+
+        .pricing-content-1 .arrow-down.arrow-green {
+            border-top-color: #32c5d2;
+        }
+
+        .pricing-content-1 .arrow-down.arrow-dark {
+            border-top-color: #2f353b;
+        }
+
+        .pricing-content-1 .arrow-down.arrow-grey {
+            border-top-color: #f7f9fb;
+        }
+
+        .pricing-content-1 .price-ribbon {
+            position: absolute;
+            top: 75px;
+            right: -4px;
+            width: 90px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 300;
+            padding: 6px 20px 6px 15px;
+            color: #fff;
+            background-color: #d91e18;
+            text-shadow: 0px 1px 2px #bbb;
+            -webkit-box-shadow: 0px 2px 4px #888;
+            -moz-box-shadow: 0px 2px 4px #888;
+            box-shadow: 0px 2px 4px #888;
+        }
+
+        .pricing-content-1 .price-ribbon:after {
+            content: " ";
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: 0px;
+            top: 100%;
+            border-width: 5px 10px;
+            border-style: solid;
+            border-color: #64120f transparent transparent #64120f;
+        }
+
+        .pricing-content-1 .pricing-title {
+            border-bottom: 1px solid;
+            border-color: #fff;
+        }
+
+        .pricing-content-1 .pricing-title>h1 {
+            margin: 20px 0;
+        }
+
+        .pricing-content-1 .price-column-container {
+            text-align: center;
+            margin: 0;
+            background-color: #fff;
+        }
+
+        .pricing-content-1 .price-column-container.border-active {
+            border: 1px solid #e5e9ee;
+        }
+
+        .pricing-content-1 .price-column-container:first-child {
+            margin-left: 0;
+        }
+
+        .pricing-content-1 .price-column-container:last-child {
+            margin-right: 0;
+        }
+
+        .pricing-content-1 .price-table-head {
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .pricing-content-1 .price-table-head h2 {
+            font-size: 26px;
+        }
+
+        .pricing-content-1 .price-table-head.price-1 {
+            background-color: #3598dc;
+        }
+
+        .pricing-content-1 .price-table-head.price-2 {
+            background-color: #32c5d2;
+        }
+
+        .pricing-content-1 .price-table-head.price-3 {
+            background-color: #2f353b;
+        }
+
+        .pricing-content-1 .price-table-pricing>h3 {
+            font-size: 60px;
+            position: relative;
+        }
+
+        .pricing-content-1 .price-table-pricing>h3>.price-sign {
+            font-size: 24px;
+            margin-left: -15px;
+            vertical-align: top;
+            top: 15px;
+        }
+
+        .pricing-content-1 .price-table-pricing>p {
+            margin-top: 0;
+        }
+
+        .pricing-content-1 .price-table-content {
+            background-color: #f7f9fb;
+            color: #5c6d7e;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .pricing-content-1 .price-table-content .row {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .pricing-content-1 .price-table-content .row i {
+            color: #6cade6;
+        }
+
+        .pricing-content-1 .price-table-content .row:first-child {
+            padding-top: 20px;
+        }
+
+        .pricing-content-1 .price-table-content .row:last-child {
+            padding-bottom: 20px;
+        }
+
+        .pricing-content-1 .price-table-footer {
+            padding: 20px 0;
+        }
+
+        .pricing-content-1 .price-table-footer>.price-button {
             font-weight: bold;
-            font-size: 1.25rem;
+            padding: 10px 20px;
         }
-        .radio-card__text {
-            margin-bottom: 1rem;
+
+        @media (max-width: 1024px) {
+            .pricing-content-1 .mobile-padding {
+                padding: 0;
+                margin: 0;
+            }
+
+            .pricing-content-1 .mobile-padding>i {
+                margin-right: 5px;
+            }
+
+            .pricing-content-1 .price-table-content {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
         }
-    }
-}
 
-input[type="radio"].radio-card__input {
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus {
-        border-color: transparent;
-    }
-    &:focus-visible {
-        outline-color: transparent;
-    }
-}
+        @media (max-width: 1024px) {
+            .pricing-content-1 .mobile-padding {
+                padding: 0 15px;
+                margin: 0 -15px;
+            }
 
-.box-live,
-.config {
-    display: none;
-}
+            .pricing-content-1 .mobile-padding>i {
+                margin-right: 20px;
+            }
 
-</style>
-{{ end }}
-<!-- LIVE CSS -->
+            .pricing-content-1 .price-table-content {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
 
-
-
-
-<!-- TOMBOL ON OFF TOGGLE CHECKBOX -->
-{{ if .Params.btn_onoff }}
-<style>
-.toggle-btn {
-  width: 60px;
-  height: 30px;
-  margin: -10px;
-  border-radius: 50px;
-  display: inline-block;
-  position: relative;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==") no-repeat 34px center #e74c3c;
-  cursor: pointer;
-  -webkit-transition: background-color 0.4s ease-in-out;
-  -moz-transition: background-color 0.4s ease-in-out;
-  -o-transition: background-color 0.4s ease-in-out;
-  transition: background-color 0.4s ease-in-out;
-  cursor: pointer;
-}
-.toggle-btn.active {
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAmUlEQVQ4T6WT0RWDMAhFeZs4ipu0mawZpaO4yevBc6hUIWLNd+4NeQDk5sE/PMkZwFvZywKSTxF5iUgH0C4JHGyF97IggFVSqyCFga0CvQSg70Mdwd8QSSr4sGBMcgavAgdvwQCtApvA2uKr1x7Pu++06ItrF5LXPB/CP4M0kKTwYRIDyRAOR9lJTuF0F0hOAJbKopVHOZN9ACS0UgowIx8ZAAAAAElFTkSuQmCC") no-repeat 10px center #2ecc71;
-}
-.toggle-btn.active .round-btn {
-  left: 35px;
-}
-.toggle-btn .round-btn {
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  display: inline-block;
-  position: absolute;
-  left: 5px;
-  top: 66%;
-  margin-top: -15px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.toggle-btn .cb-value {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 9;
-  cursor: pointer;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-}
-</style>
-{{ end }}
-<!-- TOMBOL ON OFF TOGGLE CHECKBOX -->
+        .pac-container {
+            z-index: 100000 !important;
+            top: 32px !important;
+            left: 0 !important;
+        }
+    </style>
+    {{ end}}
+    <!-- PLANS HARGA -->
 
 
 
 
 
-<!-- PLANS HARGA -->
-{{ if .Page.Params.plans_css }}
-<style>
-/* Cubic Bezier Transition */
-/*** Pricing Table 1 ***/
-.pricing-content-1 {
-    background-color: #fff;
-}
-.pricing-content-1:before,
-.pricing-content-1:after {
-    content: " ";
-    display: table;
-}
-.pricing-content-1:after {
-    clear: both;
-}
-.pricing-content-1 .arrow-down {
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 15px solid;
-    margin: auto;
-}
-.pricing-content-1 .arrow-down.arrow-blue {
-    border-top-color: #3598dc;
-}
-.pricing-content-1 .arrow-down.arrow-green {
-    border-top-color: #32c5d2;
-}
-.pricing-content-1 .arrow-down.arrow-dark {
-    border-top-color: #2f353b;
-}
-.pricing-content-1 .arrow-down.arrow-grey {
-    border-top-color: #f7f9fb;
-}
-.pricing-content-1 .price-ribbon {
-    position: absolute;
-    top: 75px;
-    right: -4px;
-    width: 90px;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 300;
-    padding: 6px 20px 6px 15px;
-    color: #fff;
-    background-color: #d91e18;
-    text-shadow: 0px 1px 2px #bbb;
-    -webkit-box-shadow: 0px 2px 4px #888;
-    -moz-box-shadow: 0px 2px 4px #888;
-    box-shadow: 0px 2px 4px #888;
-}
-.pricing-content-1 .price-ribbon:after {
-    content: " ";
-    position: absolute;
-    width: 0;
-    height: 0;
-    right: 0px;
-    top: 100%;
-    border-width: 5px 10px;
-    border-style: solid;
-    border-color: #64120f transparent transparent #64120f;
-}
-.pricing-content-1 .pricing-title {
-    border-bottom: 1px solid;
-    border-color: #fff;
-}
-.pricing-content-1 .pricing-title > h1 {
-    margin: 20px 0;
-}
-.pricing-content-1 .price-column-container {
-    text-align: center;
-    margin: 0;
-    background-color: #fff;
-}
-.pricing-content-1 .price-column-container.border-active {
-    border: 1px solid #e5e9ee;
-}
-.pricing-content-1 .price-column-container:first-child {
-    margin-left: 0;
-}
-.pricing-content-1 .price-column-container:last-child {
-    margin-right: 0;
-}
-.pricing-content-1 .price-table-head {
-    color: #fff;
-    padding: 20px 0;
-}
-.pricing-content-1 .price-table-head h2 {
-    font-size: 26px;
-}
-.pricing-content-1 .price-table-head.price-1 {
-    background-color: #3598dc;
-}
-.pricing-content-1 .price-table-head.price-2 {
-    background-color: #32c5d2;
-}
-.pricing-content-1 .price-table-head.price-3 {
-    background-color: #2f353b;
-}
-.pricing-content-1 .price-table-pricing > h3 {
-    font-size: 60px;
-    position: relative;
-}
-.pricing-content-1 .price-table-pricing > h3 > .price-sign {
-    font-size: 24px;
-    margin-left: -15px;
-    vertical-align: top;
-    top: 15px;
-}
-.pricing-content-1 .price-table-pricing > p {
-    margin-top: 0;
-}
-.pricing-content-1 .price-table-content {
-    background-color: #f7f9fb;
-    color: #5c6d7e;
-    font-weight: 600;
-    font-size: 16px;
-}
-.pricing-content-1 .price-table-content .row {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.pricing-content-1 .price-table-content .row i {
-    color: #6cade6;
-}
-.pricing-content-1 .price-table-content .row:first-child {
-    padding-top: 20px;
-}
-.pricing-content-1 .price-table-content .row:last-child {
-    padding-bottom: 20px;
-}
-.pricing-content-1 .price-table-footer {
-    padding: 20px 0;
-}
-.pricing-content-1 .price-table-footer > .price-button {
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-@media (max-width: 1024px) {
-    .pricing-content-1 .mobile-padding {
-        padding: 0;
-        margin: 0;
-    }
-    .pricing-content-1 .mobile-padding > i {
-        margin-right: 5px;
-    }
-    .pricing-content-1 .price-table-content {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .pricing-content-1 .mobile-padding {
-        padding: 0 15px;
-        margin: 0 -15px;
-    }
-    .pricing-content-1 .mobile-padding > i {
-        margin-right: 20px;
-    }
-    .pricing-content-1 .price-table-content {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
-.pac-container {
-    z-index: 100000 !important;
-    top: 32px !important;
-    left: 0 !important;
-}
-</style>
-{{ end}}
-<!-- PLANS HARGA -->
+    <!-- APP BLOCK -->
+    {{ if .Params.app_block }}
+    <style>
+        @media (max-width: 680px) {
+            .tabmobile {
+                display: none;
+            }
+        }
+    </style>
+    {{ end }}
+    <!-- APP BLOCK -->
 
 
 
 
 
-<!-- APP BLOCK -->
-{{ if .Params.app_block }}
-<style>
-    @media (max-width: 680px) {
-    .tabmobile {
-        display: none;
-    }
-}
-</style>
-{{ end }}
-<!-- APP BLOCK -->
-
-
-
-
-
-<!-- LIVE LOCATION -->
-{{ if .Params.liveloc }}
-<link   rel="stylesheet" 
-        href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    <!-- LIVE LOCATION -->
+    {{ if .Params.liveloc }}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
 
-<link   rel="stylesheet" 
-        href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 
 
-<style>
-#map {
-        width: 100%;
-        height: 100vh;
-}
-</style>
-{{ end }}
-<!-- LIVE LOCATION -->
-
-
+    <style>
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+    {{ end }}
+    <!-- LIVE LOCATION -->
 
 
 
-<!-- FANCYBOX -->
-{{ if .Params.fancybox }}
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-/>
+
+
+    <!-- FANCYBOX -->
+    {{ if .Params.fancybox }}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
 </head>
 <style>
-.fancybox__container {
-    z-index: 1000000 !important;
-}
-.imgPic {
-    width: 75px;
-}
+    .fancybox__container {
+        z-index: 1000000 !important;
+    }
+
+    .imgPic {
+        width: 75px;
+    }
 </style>
 {{ end }}
 <!-- FANCYBOX -->
@@ -465,49 +510,50 @@ input[type="radio"].radio-card__input {
 
 
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
-<div class="page-wrapper">
+    <div class="page-wrapper">
 
-<!-- NAV -->
-{{ partial "demo/navigation" . }}
-<!-- NAV -->
-
-
-<div class="page-content-wrapper">
-
-<div class="page-content">
+        <!-- NAV -->
+        {{ partial "demo/navigation" . }}
+        <!-- NAV -->
 
 
-{{ if eq (string .RelPermalink) "/" }}
-    <!--- (tidak ada sama sekali) -->
-{{ else }}
-    <div class="page-bar">
-        <ul class="page-breadcrumb">
-            <li>
-                <a href="/">Dashboard</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <h1 class="h5">{{.Title}}</h1>
-            </li>
-        </ul>
+        <div class="page-content-wrapper">
+
+            <div class="page-content">
+
+
+                {{ if eq (string .RelPermalink) "/" }}
+                <!--- (tidak ada sama sekali) -->
+                {{ else }}
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <a href="/">Dashboard</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <h1 class="h5">{{.Title}}</h1>
+                        </li>
+                    </ul>
+                </div>
+                {{ end }}
+
+
+                {{ .Content }}
+
+
+            </div>
+
+        </div>
     </div>
-{{ end }}
 
-
-{{ .Content }}
-
-
-</div>
-
-</div>
-</div>
-
-<!-- FOOTER -->
-{{ partial "demo/footer" . }}
-{{ partial "demo/javascript" . }}
-<!-- FOOTER -->
+    <!-- FOOTER -->
+    {{ partial "demo/footer" . }}
+    {{ partial "demo/javascript" . }}
+    <!-- FOOTER -->
 
 
 
 </body>
+
 </html>
