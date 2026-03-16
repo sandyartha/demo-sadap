@@ -1,23 +1,155 @@
-<!--- Navigation --->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-    <div class="container">
-        <a class="navbar-brand" href="/"><img src="/logo.svg" alt="{{ .Title }}" height="50" width="50"></a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+<!-- TOP NAV -->
+<div class="page-header navbar navbar-fixed-top compensate-for-scrollbar">
+    <div class="page-header-inner">
+        <div class="page-logo">
+            <a href="/">
+                <img src="/logo.svg" alt="{{.Title}}" id="logo" width="50" height="50" />
+            </a>
+            <div class="menu-toggler sidebar-toggler">
+                <span></span>
+            </div>
+        </div>
+
+        <button class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"><span></span>
         </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                {{ range .Site.Data.navigation.links }}
-                <li class="nav-item {{ if .highlight }}highlight{{ end }}">
-                    <a class="nav-link" href="{{ .link }}">{{ .name }}</a>
+
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <i class="icon-bell"></i>
+                        <span class="badge badge-default" style="display: none;" id="badgeBell"> </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li id="bellDefault" class="external">
+                            <h3>
+                                No notifications
+                            </h3>
+                        </li>
+                        <li>
+                            <ul class="dropdown-menu-list scroller" style="height: 220px;" data-handle-color="#637283">
+                                <li id="infoNewVersion" style="display: none;">
+                                    <a href="javascript:;">
+                                        <span class="details">
+                                            <span class="label label-sm label-icon label-info">
+                                                <i class="fa fa-warning"></i>
+                                            </span>
+                                            New version: Removed the 'Password of the application' popup on the Wi-Fi settings & Fixed minor bugs.
+                                        </span>
+                                    </a>
+                                </li>
+                                <li id="infoAndroid10" style="display: none;">
+                                    <a href="javascript:;">
+                                        <span class="details">
+                                            <span class="label label-sm label-icon label-info">
+                                                <i class="fa fa-warning"></i>
+                                            </span>
+                                            Limitations Android 10!
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
-                {{ end }}
+
+                <li class="dropdown dropdown-user">
+                    <a href="/features/" class="dropdown-toggle" style="padding-right: 6px; padding-left: 6px;">
+                        <i class="icon-screen-smartphone"></i> &nbsp;
+                        <span class="username">Device Target &nbsp; </span>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/account/" class="dropdown-toggle myMenu">
+                        <i class="icon-user"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/features/" class="dropdown-toggle myMenu">
+                        <i class="fa fa-cogs"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/plans/" class="dropdown-toggle myMenu">
+                        <i class="fa fa-shopping-basket"></i>
+                    </a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="/" class="dropdown-toggle myMenu">
+                        <i class="icon-logout"></i>
+                    </a>
+                </li>
             </ul>
         </div>
-  
-        <a class="btn btn-success" href="/download/">DOWNLOAD APK</a>
-       
     </div>
-</nav>
+</div>
+
+
+<!-- TOP NAV -->
+
+
+
+
+<!-- SIDE NAV -->
+
+<div class="clearfix"> </div>
+<div class="page-container">
+<div class="page-sidebar-wrapper">
+   <div class="page-sidebar navbar-collapse collapse">
+      <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+         <li class="sidebar-toggler-wrapper hide">
+            <div class="sidebar-toggler">
+               <span></span>
+            </div>
+         </li>
+         {{ $current := . }}
+         <li class="nav-item active">
+            <a class="nav-link" href="/">
+              <i class="icon-home"></i>
+              <span class="title">Dashboard</span>
+              <span class="selected"></span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/calls/">
+              <i class="fa fa-phone"></i>
+              <span class="title">Calls</span>
+              <span class="selected"></span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/locations/">
+              <i class="icon-map"></i>
+              <span class="title">Location</span>
+              <span class="selected"></span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/sites/">
+              <i class="fa fa-chrome"></i>
+              <span class="title">Site Web</span>
+              <span class="selected"></span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/instan-messaging-root/">
+              <i class="icon-eye"></i>
+              <span class="title">Instan Messaging (ROOT)</span>
+              <span class="selected"></span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/instan-messaging/">
+              <i class="icon-eye"></i>
+              <span class="title">Instan Messaging</span>
+              <span class="selected"></span>
+            </a>
+         </li>
+      </ul>
+   </div>
+</div>
+<!-- SIDE NAV -->
