@@ -117,9 +117,10 @@
             background: #f1f1f1;
             text-align: center;
 
-            // all children
-            * {
-                display: flex;
+            /* all children */
+            /* If you want all children to have these styles, use: */
+            .radio-card * {
+                /* display: flex; */
                 width: 100%;
             }
 
@@ -134,7 +135,8 @@
             .radio-card__label {
                 display: flex;
                 flex-flow: row wrap;
-                flex: 0 0 200px; // idk if this is right though
+                flex: 0 0 200px; 
+                /** idk if this is right though **/
 
                 .radio-card__title {
                     padding: 5px 30px;
@@ -227,6 +229,7 @@
             opacity: 0;
             z-index: 9;
             cursor: pointer;
+            filter: alpha(opacity=0);
             -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         }
     </style>
@@ -509,11 +512,11 @@
 
 
 
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
+<body class="page-header-fixed page-sidebar-fixed page-content-white page-md">
     <div class="page-wrapper">
 
         <!-- NAV -->
-        {{ partial "demo/navigation" . }}
+        {{ partial "navigation" . }}
         <!-- NAV -->
 
 
@@ -548,8 +551,8 @@
     </div>
 
     <!-- FOOTER -->
-    {{ partial "demo/footer" . }}
-    {{ partial "demo/javascript" . }}
+    {{ partial "footer" . }}
+    {{ partial "javascript" . }}
     <!-- FOOTER -->
 
 
