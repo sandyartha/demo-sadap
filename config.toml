@@ -1,10 +1,10 @@
 ## REFRENSI: https://trackingapps.org/
 ## cloudimage.io from ade.anatasia@gmail.com
 
-baseurl = "https://happy-island-06a857210.4.azurestaticapps.net/"
-title = "Penyadap.web.id"
+baseurl = "https://demo.penyadap.com"
+title = "Penyadap.com"
 description = "Aplikasi Penyadap HP iPhone, Android, Blackberry untuk pasangan selingkuh."
-copyright = "PENYADAP.WEB.ID. All rights reserved."
+copyright = "PENYADAP.COM. All rights reserved."
 
 enableRobotsTXT = true
 
