@@ -1,0 +1,574 @@
+
+<!-- TABLE JAVASCRIPT -->
+{{ if .Page.Params.table }}
+<script>
+// Sorting ascending order table
+$('.sorting').click(function(){
+    var table = $(this).parents('table').eq(0)
+    var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+    this.asc = !this.asc
+    if (!this.asc){rows = rows.reverse()}
+    for (var i = 0; i < rows.length; i++){table.append(rows[i])}
+})
+function comparer(index) {
+    return function(a, b) {
+        var valA = getCellValue(a, index), valB = getCellValue(b, index)
+        return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+    }
+}
+function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
+</script>
+
+<script type="text/javascript">
+// Untuk membuat pagination, total tabel dan menampilkan beberapa data 5, 10, 20 atau lainnya ... 
+    getPagination('#table-id');
+  $('#maxRows').trigger('change');
+  function getPagination (table){
+
+      $('#maxRows').on('change',function(){
+        $('.pagination').html('');            // reset pagination div
+        var trnum = 0 ;                 // reset tr counter 
+        var maxRows = parseInt($(this).val());      // get Max Rows from select option
+        
+        var totalRows = $(table+' tbody tr').length;    // numbers of rows 
+       $(table+' tr:gt(0)').each(function(){      // each TR in  table and not the header
+        trnum++;                  // Start Counter 
+        if (trnum > maxRows ){            // if tr number gt maxRows
+          
+          $(this).hide();             // fade it out 
+        }if (trnum <= maxRows ){$(this).show();}// else fade in Important in case if it ..
+       });                      //  was fade out to fade it in 
+       if (totalRows > maxRows){            // if tr total rows gt max rows option
+        var pagenum = Math.ceil(totalRows/maxRows); // ceil total(rows/maxrows) to get ..  
+                              //  numbers of pages 
+        for (var i = 1; i <= pagenum ;){      // for each page append pagination li 
+        $('.pagination').append('<li data-page="'+i+'">\
+                      <span>'+ i++ +'<span class="sr-only">(current)</span></span>\
+                    </li>').show();
+        }                     // end for i 
+     
+         
+      }                         // end if row count > max rows
+      $('.pagination li:first-child').addClass('active'); // add active class to the first li 
+        
+        
+        //SHOWING ROWS NUMBER OUT OF TOTAL DEFAULT
+       showig_rows_count(maxRows, 1, totalRows);
+        //SHOWING ROWS NUMBER OUT OF TOTAL DEFAULT
+
+        $('.pagination li').on('click',function(e){   // on click each page
+        e.preventDefault();
+        var pageNum = $(this).attr('data-page');  // get it's number
+        var trIndex = 0 ;             // reset tr counter
+        $('.pagination li').removeClass('active');  // remove active class from all li 
+        $(this).addClass('active');         // add active class to the clicked 
+        
+        
+        //SHOWING ROWS NUMBER OUT OF TOTAL
+       showig_rows_count(maxRows, pageNum, totalRows);
+        //SHOWING ROWS NUMBER OUT OF TOTAL
+        
+        
+        
+         $(table+' tr:gt(0)').each(function(){    // each tr in table not the header
+          trIndex++;                // tr index counter 
+          // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+          if (trIndex > (maxRows*pageNum) || trIndex <= ((maxRows*pageNum)-maxRows)){
+            $(this).hide();   
+          }else {$(this).show();}         //else fade in 
+         });                    // end of for each tr in table
+          });                   // end of on click pagination list
+    });
+                      // end of on select change 
+     
+                // END OF PAGINATION 
+    
+  } 
+
+
+// SI SETTING
+$(function(){
+  // Just to append id number for each row  
+default_index();
+          
+});
+
+//ROWS SHOWING FUNCTION
+function showig_rows_count(maxRows, pageNum, totalRows) {
+   //Default rows showing
+        var end_index = maxRows*pageNum;
+        var start_index = ((maxRows*pageNum)- maxRows) + parseFloat(1);
+        var string = 'Showing '+ start_index + ' to ' + end_index +' of ' + totalRows + ' entries';               
+        $('.rows_count').html(string);
+}
+
+// CREATING INDEX
+function default_index() {
+  $('table tr:eq(0)').prepend('<!-- <th> ID </th> -->')
+
+          var id = 0;
+
+          $('table tr:gt(0)').each(function(){  
+            id++
+            $(this).prepend('<!-- <td>'+id+'</td> -->');
+          });
+}
+
+// All Table search script
+function FilterkeyWord_all_table() {
+  
+// Count td if you want to search on all table instead of specific column
+
+  var count = $('.table').children('tbody').children('tr:first-child').children('td').length; 
+
+        // Declare variables
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("search_input_all");
+  var input_value =     document.getElementById("search_input_all").value;
+        filter = input.value.toLowerCase();
+  if(input_value !=''){
+        table = document.getElementById("table-id");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 1; i < tr.length; i++) {
+          
+          var flag = 0;
+           
+          for(j = 0; j < count; j++){
+            td = tr[i].getElementsByTagName("td")[j];
+            if (td) {
+             
+                var td_text = td.innerHTML;  
+                if (td.innerHTML.toLowerCase().indexOf(filter) > -1) {
+                //var td_text = td.innerHTML;  
+                //td.innerHTML = 'shaban';
+                  flag = 1;
+                } else {
+                  //DO NOTHING
+                }
+              }
+            }
+          if(flag==1){
+                     tr[i].style.display = "";
+          }else {
+             tr[i].style.display = "none";
+          }
+        }
+    }else {
+      //RESET TABLE
+      $('#maxRows').trigger('change');
+    }
+}
+</script>
+
+
+
+<script type="text/javascript">
+
+// Listen for click on toggle checkbox
+// Ceklis tabel dan aktifkan tombol hapus
+    
+$("#selectAll").click(function(){
+        $(".chk1").prop('checked', $(this).prop('checked'));
+});
+
+$('#selectAll').change(function () {
+    if ($("#selectAll:checked").length >= 1) {
+        $('#btnRemove').removeAttr('disabled');
+    } else {
+        $('#btnRemove').attr('disabled', 'disabled');
+    }
+});
+
+$('.chk1').change(function () {
+    if ($(".chk1:checked").length >= 1) {
+        $('#btnRemove').removeAttr('disabled');
+    } else {
+        $('#btnRemove').attr('disabled', 'disabled');
+    }
+});
+
+</script>
+
+
+{{ end }}
+<!-- TABLE JAVASCRIPT -->
+
+
+
+
+
+{{ if .Page.Params.fitur_live }}
+<!-- FITUR LIVE -->
+<script>
+// FITUR LIVE
+$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".box-live").not(targetBox).hide();
+        $(targetBox).show();
+    });
+});
+
+// close to pause video or audio etc
+$('.close').click(function(){
+  $('video').each(function(){
+    $(this).get(0).pause();
+    $('video').get(0).currentTime = 0;
+  })
+});
+$('.closebtn').click(function(){
+  $('video').each(function(){
+    $(this).get(0).pause();
+    $('video').get(0).currentTime = 0;
+  })
+});
+</script>
+
+<script>
+// FITUR LIVE
+
+$("#chooseCameraVideo").change(function () {
+  var prop = $("#chooseCameraVideo option:selected").attr("data-url");
+  $(".playcam").attr("onClick", 'videoUrl("' + prop + '")');
+});
+
+
+$("#chooseCameraVideo").change(function () {
+  var prop = $("#chooseCameraVideo option:selected").attr("value");
+  $(".playcam").attr("value", prop);
+});
+
+$("#chooseSoundAudio").change(function () {
+  var prop = $("#chooseSoundAudio option:selected").attr("data-url");
+  $(".playaudio").attr("onClick", 'videoUrl("' + prop + '")');
+});
+
+$("#chooseSoundAudio").change(function () {
+  var prop = $("#chooseSoundAudio option:selected").attr("value");
+  $(".playaudio").attr("value", prop);
+});
+
+$("#chooseSoundScreen").change(function () {
+  var prop = $("#chooseSoundScreen option:selected").attr("data-url");
+  $(".playscreen").attr("onClick", 'videoUrl("' + prop + '")');
+});
+
+
+$("#chooseSoundScreen").change(function () {
+  var prop = $("#chooseSoundScreen option:selected").attr("value");
+  $(".playscreen").attr("value", prop);
+});
+
+
+$("#modalmedia").on("show.bs.modal", function(e) {
+  var $modal = $(this),
+    modalTitle = e.relatedTarget.value;
+    $modal.find(".modal-title").html(modalTitle);
+});
+
+$("#modalimage").on("show.bs.modal", function(e) {
+  var $modal = $(this),
+    modalTitle = e.relatedTarget.value;
+    $modal.find(".modal-title").html(modalTitle);
+});
+
+// FITUR LIVE
+
+var video = document.getElementById('videoh');
+
+function videoUrl(url){
+    video.pause();
+    const source = video.querySelector("source");
+    source.setAttribute('src', url); 
+    video.load();
+    setTimeout(function() {
+    video.play();
+  }, 10000);
+}
+
+</script>
+<!-- FITUR LIVE -->
+{{ end }}
+
+
+
+{{ if .Page.Params.fitur_file_explorer }}
+<!-- FITUR FILE EXPLORER -->
+<script>
+// FITUR FILE EXPLORER
+var image = document.getElementById('imageh');
+
+function imageUrl(url){
+    const img = image.querySelector("img");
+    img.setAttribute('src', url); 
+    image.load();
+}
+
+var video = document.getElementById('video');
+
+function videoUrl(url){
+    video.pause();
+    const source = video.querySelector("source");
+    source.setAttribute('src', url); 
+    video.load();
+    setTimeout(function() {
+    video.play();
+  }, 2000);
+}
+
+$('.close').click(function(){
+  $('video').each(function(){
+    $(this).get(0).pause();
+    $('video').get(0).currentTime = 0;
+  })
+});
+$('.closebtn').click(function(){
+  $('video').each(function(){
+    $(this).get(0).pause();
+    $('video').get(0).currentTime = 0;
+  })
+});
+</script>
+<!-- FITUR FILE EXPLORER -->
+{{ end }}
+
+
+
+
+{{ if .Page.Params.fitur_remote }}
+<!-- FITUR REMOTE -->
+<script>
+// FITUR REMOTE
+
+var image = document.getElementById('imageh');
+
+function imageUrl(url){
+    const img = image.querySelector("img");
+    img.setAttribute('src', url); 
+    image.load();
+}
+
+var video = document.getElementById('video');
+
+function videoUrl(url){
+    video.pause();
+    const source = video.querySelector("source");
+    source.setAttribute('src', url); 
+    video.load();
+    setTimeout(function() {
+    video.play();
+  }, 2000);
+}
+
+// close to pause video or audio etc
+$('.closebtn').click(function(){
+  $('video').each(function(){
+    $(this).get(0).pause();
+    $('video').get(0).currentTime = 0;
+  })
+});
+
+
+</script>
+<!-- FITUR REMOTE -->
+{{ end }}
+
+
+{{ if .Params.fancybox }}
+<!-- FITUR FANCYBOX -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script type="text/javascript">
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+  margin: [120, 60, 50, 60] // top, right, bottom, left
+});
+</script>
+{{ end }}
+
+
+{{ if .Page.Params.app_block }}
+<!-- FITUR APPLICATIONS -->
+<script>
+// APP BLOCK
+$(document).ready(function() {
+  $('#modal').on('show.bs.modal', function(e) {
+    var btn = $(e.relatedTarget);
+    var title = btn.data('title');
+    $(this).find('.modal-title').text(title);
+  });
+});
+
+document.getElementById("end-time")
+.onchange = function() {
+  var time = this
+  , value = time.value
+  , match = value.match(re)[0];
+  this.nextElementSibling.innerHTML =
+  (match && match >= 13 ? value.replace(re, times[match]) : value)
+  + (time.valueAsDate.getTime() < 43200000 ? " AM" : " PM")
+}
+</script>
+<!-- FITUR FITUR APPLICATIONS -->
+{{ end }}
+
+
+
+{{ if .Page.Params.features}}
+<!-- FEATURES -->
+<script>
+// Fitur Features
+$(function() {
+  $('#configselector').change(function(){
+    $('.config').hide();
+    $('.' + $(this).val()).show();
+    if($(this).val() == 'all') {
+      $('.config').show();
+    }
+  });
+});
+</script>
+<!-- FEATURES -->
+{{ end }}
+
+
+
+{{ if .Page.Params.btn_onoff }}
+<!-- TOMBOL ON OFF -->
+<script>
+// script on off
+//$('input.cb-value').prop("checked", true);
+$('.cb-value').click(function() {
+  var mainParent = $(this).parent('.toggle-btn');
+  if($(mainParent).find('input.cb-value').is(':checked')) {
+    $(mainParent).addClass('active');
+  } else {
+    $(mainParent).removeClass('active');
+  }
+
+})
+</script>
+<!-- TOMBOL ON OFF -->
+{{ end }}
+
+
+
+{{ if .Page.Params.schedule_restriction }}
+<!-- FITUR -->
+<script>
+// Schedule Restriction
+function fillstrike(title,message,startdate,enddate)
+{
+    document.getElementById("title_fill").value = title;
+    document.getElementById("message_fill").placeholder = message;
+    document.getElementById("startdate_fill").value = startdate;
+    document.getElementById("enddate_fill").value = enddate;
+    
+}
+
+$(document).ready(function(){
+  $("#addRestriction").click(function(){
+    $("label").removeClass("active");
+  });
+});
+
+$(document).ready(function(){
+  $(".clearRestriction").click(function(){
+    $(".check_button").addClass("active");
+  });
+});
+</script>
+<!-- FITUR -->
+{{ end }}
+
+
+
+{{ if .Page.Params.fitur_call }}
+<!-- FITUR CALL -->
+<script>
+// close to pause video or audio etc
+$('.closebtn').click(function(){
+  $('audio').each(function(){
+    $(this).get(0).pause();
+    $('audio').get(0).currentTime = 0;
+  })
+});
+</script>
+<!-- FITUR CALL -->
+{{ end }}
+
+
+
+
+
+
+{{ if .Page.Params.liveloc }}
+<!-- FITUR LIVE LOCATION -->
+<script>
+  var $locationText = $(".location");
+
+// Check for geolocation browser support and execute success method
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    geoLocationSuccess,
+    geoLocationError,
+    { timeout: 10000 }
+  );
+} else {
+  alert("your browser doesn't support geolocation");
+}
+function geoLocationSuccess(pos) {
+  // get user lat,long
+  var myLat = pos.coords.latitude,
+    myLng = pos.coords.longitude,
+    loadingTimeout;
+
+  var loading = function () {
+    $locationText.text("fetching...");
+  };
+
+  loadingTimeout = setTimeout(loading, 600);
+
+  var request = $.get(
+    "https://nominatim.openstreetmap.org/reverse?format=json&lat=" +
+      myLat +
+      "&lon=" +
+      myLng
+  )
+    .done(function (data) {
+      if (loadingTimeout) {
+        clearTimeout(loadingTimeout);
+        loadingTimeout = null;
+        $locationText.text(data.display_name);
+      }
+    })
+    .fail(function () {
+      // handle error
+    });
+}
+
+function geoLocationError(error) {
+  var errors = {
+    1: "Permission denied",
+    2: "Position unavailable",
+    3: "Request timeout"
+  };
+  alert("Error: " + errors[error.code]);
+}
+</script>
+<!-- FITUR LIVE LOCATION -->
+{{ end }}
+
+
+{{ if .Page.Params.account }}
+<!-- FITUR ACCOUNT -->
+<script>
+// FAKE SUBMIT CHANGE PASSWORD IN ACCOUNT PAGE
+$("form").on("submit", function (e) {
+      e.preventDefault();
+});
+</script>
+<!-- FITUR ACCOUNT -->
+{{ end }}
