@@ -152,13 +152,13 @@ baseName = "index"
 [[menu.home]]
   identifier = "calls"
   name = "Calls"
-  url = "/#sasdasd"
+  url = "/calls/"
   weight = 4
   pre = "fa fa-phone"
 [[menu.home]]
   identifier = "location"
   name = "Location"
-  url = "#"
+  url = "/locations/"
   weight = 5
   pre = "icon-map"
 [[menu.home]]
@@ -188,7 +188,7 @@ baseName = "index"
 [[menu.home]]
   identifier = "sites"
   name = "Site Web"
-  url = "/#"
+  url = "/sites/"
   weight = 10
   pre = "i fa fa-chrome"
 [[menu.home]]
@@ -200,13 +200,13 @@ baseName = "index"
 [[menu.home]]
   identifier = "chatroot"
   name = "Instan Messaging (ROOT)"
-  url = "#"
+  url = "/instan-messaging-root/"
   weight = 12
   pre = "fi icon-eye"
 [[menu.home]]
   identifier = "chat"
   name = "Instan Messaging"
-  url = "#"
+  url = "/instan-messaging/"
   weight = 13
   pre = "i icon-eye"
 [[menu.home]]
