@@ -39,6 +39,16 @@
 .page-sidebar-menu-closed {
     padding-top: 40px !important;
 }
+/* Sidebar menu height for proper scrolling on all pages */
+.page-sidebar-fixed .page-sidebar-menu {
+    overflow-y: auto !important;
+}
+.page-sidebar-wrapper {
+    height: 100% !important;
+}
+.page-sidebar {
+    bottom: 0 !important;
+}
 .dataTables_wrapper .dataTables_length {
     float: left;
 }
