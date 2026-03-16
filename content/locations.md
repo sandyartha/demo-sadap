@@ -17,6 +17,11 @@ menu:
     parent: location
     pre: icon-doc
     weight: 1
+  home:
+    name: Location
+    weight: 2
+    pre: icon-map
+    url: "/locations/"
 
 pre: icon-map
 table: true

@@ -76,35 +76,6 @@ baseName = "index"
 
 
 ## MENU
-[[menu.home]]
-    name = "Calls"
-    pre = "fa fa-phone"
-    weight = 1
-    url = "/calls/"
-    
-[[menu.home]]
-    name = "Location"
-    pre = "icon-map"
-    weight = 2
-    url = "/locations/"
-    
-[[menu.home]]
-    name = "Site Web"
-    pre = "fa fa-chrome"
-    weight = 3
-    url = "/sites/"
-    
-[[menu.home]]
-    name = "Instan Messaging (ROOT)"
-    pre = "icon-eye"
-    weight = 4
-    url = "/instan-messaging-root/"
-    
-[[menu.home]]
-    name = "Instan Messaging"
-    pre = "icon-eye"
-    weight = 5
-    url = "/instan-messaging/"
 
 [[menu.main]]
     name = "Disclaimer"

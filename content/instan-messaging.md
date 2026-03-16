@@ -10,6 +10,13 @@ thumbnail: /uploads/2022/01/25/aplikasi-sadap-terbaik.png
 type: demo
 layout: single
 
+menu:
+  home:
+    name: Instan Messaging
+    weight: 5
+    pre: icon-eye
+    url: "/instan-messaging/"
+
 menu_1:
   demo:
     - url: /whatsapp-messages/
