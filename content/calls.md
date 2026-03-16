@@ -17,11 +17,6 @@ menu:
     parent: calls
     pre: icon-doc
     weight: 1
-  home:
-    name: Calls
-    weight: 1
-    pre: fa fa-phone
-    url: "/calls/"
 
 pre: fa fa-phone
 table: true

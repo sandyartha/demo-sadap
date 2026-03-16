@@ -26,11 +26,6 @@ menu:
     parent: sites
     pre: fa fa-history
     weight: 1
-  home:
-    name: Site Web
-    weight: 3
-    pre: fa fa-chrome
-    url: "/sites/"
 
 map:
     - name: Gandaria City Jl. Sultan Iskandar Muda

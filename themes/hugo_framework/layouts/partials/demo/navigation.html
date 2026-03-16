@@ -130,7 +130,7 @@
          </li>
          {{ else }}
          <li class="nav-item {{ if $active }}active{{ end }}">
-            <a class="nav-link" href="{{.URL | absURL}}">
+            <a class="nav-link" href="{{.URL | relURL}}">
               <i class="{{ .Pre }}"></i>
               <span class="title">{{.Name}}</span>
               <span class="selected"></span>

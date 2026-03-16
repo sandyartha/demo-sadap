@@ -13,13 +13,6 @@ layout: single
 
 dashboard: true
 
-menu:
-  home:
-    name: Dashboard
-    weight: -1
-    pre: icon-home
-    url: "/"
-
 menu_1:
   demo:
     - identifier: sms

@@ -10,13 +10,6 @@ thumbnail: /uploads/2022/01/25/aplikasi-sadap-terbaik.png
 type: demo
 layout: single
 
-menu:
-  home:
-    name: Instan Messaging (ROOT)
-    weight: 4
-    pre: icon-eye
-    url: "/instan-messaging-root/"
-
 menu_1:
   demo:
     - url: /whatsapp/
