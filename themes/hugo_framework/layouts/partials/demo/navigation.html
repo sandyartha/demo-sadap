@@ -119,7 +119,7 @@
             </a>
             <ul class="sub-menu">
                {{ range .Children }}
-               <li class="nav-item {{ if or (eq $current.RelPermalink .URL) (eq $current.Parent.Name .Name) }}active open {{ end }}">
+               <li class="nav-item {{ if or (eq $current.RelPermalink .URL) (and $current.Parent (eq $current.Parent.Name .Name)) }}active open {{ end }}">
                   <a href="{{ .URL }}" class="nav-link ">
                   <i class="{{ .Pre }}"></i>
                   <span class="title">{{ .Name }}</span>

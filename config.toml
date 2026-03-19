@@ -137,120 +137,321 @@ baseName = "index"
   url = "/"
   weight = 1
   pre = "icon-home"
+
 [[menu.home]]
-  identifier = "sms"
+  identifier = "sms_parent"
   name = "SMS"
   url = "/sms/"
   weight = 2
   pre = "icon-envelope"
+[[menu.home]]
+  identifier = "sms_alert"
+  name = "SMS Alert"
+  url = "/sms-alert/"
+  weight = 201
+  parent = "sms_parent"
+  pre = "fa fa-bell"
+[[menu.home]]
+  identifier = "sms_cmd"
+  name = "SMS Commands"
+  url = "/sms-command/"
+  weight = 202
+  parent = "sms_parent"
+  pre = "fa fa-send"
+[[menu.home]]
+  identifier = "block_calls"
+  name = "Block Calls"
+  url = "/block-calls/"
+  weight = 203
+  parent = "sms_parent"
+  pre = "fa fa-ban"
+[[menu.home]]
+  identifier = "block_site"
+  name = "Block Site"
+  url = "/block-site/"
+  weight = 204
+  parent = "sms_parent"
+  pre = "fa fa-ban"
+
 [[menu.home]]
   identifier = "mms"
   name = "MMS"
   url = "/mms/"
   weight = 3
   pre = "fa fa-file-image-o"
+
 [[menu.home]]
   identifier = "calls"
   name = "Calls"
   url = "/calls/"
   weight = 4
   pre = "fa fa-phone"
+
 [[menu.home]]
   identifier = "location"
   name = "Location"
   url = "/locations/"
   weight = 5
   pre = "icon-map"
+
 [[menu.home]]
   identifier = "pictures"
   name = "Pictures"
   url = "/pictures/"
   weight = 6
   pre = "icon-picture"
+
 [[menu.home]]
   identifier = "apps"
   name = "Applications"
   url = "/applications/"
   weight = 7
   pre = "icon-game-controller"
+
 [[menu.home]]
   identifier = "calendar"
   name = "Calendar"
   url = "/calendar/"
   weight = 8
   pre = "fa fa-calendar"
+
 [[menu.home]]
   identifier = "contacts"
   name = "Contacts"
   url = "/contact/"
   weight = 9
   pre = "icon-notebook"
+
 [[menu.home]]
-  identifier = "sites"
+  identifier = "sites_parent"
   name = "Site Web"
   url = "/sites/"
   weight = 10
-  pre = "i fa fa-chrome"
+  pre = "fa fa-chrome"
+
 [[menu.home]]
   identifier = "screenshot"
   name = "Screenshot"
   url = "/screenshot/"
   weight = 11
   pre = "fa fa-binoculars"
+
 [[menu.home]]
-  identifier = "chatroot"
-  name = "Instan Messaging (ROOT)"
-  url = "/instan-messaging-root/"
-  weight = 12
-  pre = "fi icon-eye"
-[[menu.home]]
-  identifier = "chat"
+  identifier = "chat_parent"
   name = "Instan Messaging"
   url = "/instan-messaging/"
-  weight = 13
-  pre = "i icon-eye"
+  weight = 12
+  pre = "icon-eye"
+[[menu.home]]
+  identifier = "chat_root"
+  name = "Instan Messaging (ROOT)"
+  url = "/instan-messaging-root/"
+  weight = 1201
+  parent = "chat_parent"
+  pre = "icon-eye"
+[[menu.home]]
+  identifier = "whatsapp_parent"
+  name = "WhatsApp"
+  url = "/whatsapp/"
+  weight = 1202
+  parent = "chat_parent"
+  pre = "fa fa-whatsapp"
+[[menu.home]]
+  identifier = "whatsapp_msg"
+  name = "WhatsApp Messages"
+  url = "/whatsapp-messages/"
+  weight = 12021
+  parent = "whatsapp_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "facebook_parent"
+  name = "Facebook"
+  url = "/facebook/"
+  weight = 1203
+  parent = "chat_parent"
+  pre = "fa fa-facebook"
+[[menu.home]]
+  identifier = "facebook_msg"
+  name = "Facebook Messages"
+  url = "/facebook-messages/"
+  weight = 12031
+  parent = "facebook_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "telegram"
+  name = "Telegram"
+  url = "/telegram-messages/"
+  weight = 1204
+  parent = "chat_parent"
+  pre = "fa fa-send"
+[[menu.home]]
+  identifier = "instagram_parent"
+  name = "Instagram"
+  url = "/instagram/"
+  weight = 1205
+  parent = "chat_parent"
+  pre = "fa fa-instagram"
+[[menu.home]]
+  identifier = "instagram_msg"
+  name = "Instagram Messages"
+  url = "/instagram-messages/"
+  weight = 12051
+  parent = "instagram_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "skype_parent"
+  name = "Skype"
+  url = "/skype/"
+  weight = 1206
+  parent = "chat_parent"
+  pre = "fa fa-skype"
+[[menu.home]]
+  identifier = "skype_msg"
+  name = "Skype Messages"
+  url = "/skype-messages/"
+  weight = 12061
+  parent = "skype_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "viber_parent"
+  name = "Viber"
+  url = "/viber/"
+  weight = 1207
+  parent = "chat_parent"
+  pre = "fa fa-phone"
+[[menu.home]]
+  identifier = "viber_msg"
+  name = "Viber Messages"
+  url = "/viber-messages/"
+  weight = 12071
+  parent = "viber_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "gmail_parent"
+  name = "Gmail"
+  url = "/gmail/"
+  weight = 1208
+  parent = "chat_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "gmail_msg"
+  name = "Gmail Messages"
+  url = "/gmail-messages/"
+  weight = 12081
+  parent = "gmail_parent"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "line"
+  name = "Line"
+  url = "/line/"
+  weight = 1209
+  parent = "chat_parent"
+  pre = "fa fa-comment"
+[[menu.home]]
+  identifier = "line_msg"
+  name = "Line Messages"
+  url = "/line-messages/"
+  weight = 12091
+  parent = "line"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "kik"
+  name = "Kik"
+  url = "/kik/"
+  weight = 1210
+  parent = "chat_parent"
+  pre = "fa fa-comment"
+[[menu.home]]
+  identifier = "kik_msg"
+  name = "Kik Messages"
+  url = "/kik-messages/"
+  weight = 12101
+  parent = "kik"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "tinder"
+  name = "Tinder"
+  url = "/tinder-messages/"
+  weight = 1211
+  parent = "chat_parent"
+  pre = "fa fa-heart"
+[[menu.home]]
+  identifier = "wechat"
+  name = "WeChat"
+  url = "/wechat-messages/"
+  weight = 1212
+  parent = "chat_parent"
+  pre = "fa fa-comment"
+[[menu.home]]
+  identifier = "snapchat"
+  name = "Snapchat"
+  url = "/snapchat-messages/"
+  weight = 1213
+  parent = "chat_parent"
+  pre = "fa fa-camera"
+[[menu.home]]
+  identifier = "hangouts"
+  name = "Hangouts"
+  url = "/hangouts/"
+  weight = 1214
+  parent = "chat_parent"
+  pre = "fa fa-video-camera"
+[[menu.home]]
+  identifier = "hangouts_msg"
+  name = "Hangouts Messages"
+  url = "/hangouts-messages/"
+  weight = 12141
+  parent = "hangouts"
+  pre = "fa fa-envelope"
+[[menu.home]]
+  identifier = "twitter"
+  name = "Twitter"
+  url = "/twitter-messages/"
+  weight = 1215
+  parent = "chat_parent"
+  pre = "fa fa-twitter"
+
 [[menu.home]]
   identifier = "remote"
   name = "Remote Control"
   url = "/remote/"
-  weight = 14
+  weight = 13
   pre = "fa fa-cloud"
+
 [[menu.home]]
   identifier = "live"
   name = "Live Viewing"
   url = "/live/"
-  weight = 15
+  weight = 14
   pre = "fa fa-video-camera"
+
 [[menu.home]]
   identifier = "fileexplorer"
   name = "File Explorer"
   url = "/file-explorer/"
-  weight = 16
+  weight = 15
   pre = "icon-folder-alt"
+
 [[menu.home]]
   identifier = "restriction"
   name = "Schedule restriction"
   url = "/schedule-restriction/"
-  weight = 17
+  weight = 16
   pre = "fa fa-lock"
-[[menu.home]]
-  identifier = "smscmd"
-  name = "SMS Commands"
-  url = "/sms-command/"
-  weight = 18
-  pre = "fa fa-send"
+
 [[menu.home]]
   identifier = "stats"
   name = "Statistics"
   url = "/stats/"
-  weight = 19
+  weight = 17
   pre = "fa fa-pie-chart"
+
 [[menu.home]]
   identifier = "account"
   name = "My Account"
   url = "/account/"
-  weight = 20
-  pre = "i icon-user"
+  weight = 18
+  pre = "icon-user"
 
 
 [params.features]
