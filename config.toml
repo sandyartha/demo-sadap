@@ -46,8 +46,8 @@ canonifyurls = true
     weight = 100
 
 [outputs]
-home = ["HTML", "AMP",  "RSS"]
-page = ["HTML", "AMP", "RSS"]
+home = ["HTML", "RSS"]
+page = ["HTML", "RSS"]
 
 
 [mediaTypes]

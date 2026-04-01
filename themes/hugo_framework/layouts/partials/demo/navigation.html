@@ -107,22 +107,22 @@
             </div>
          </li>
          {{ $current := . }}
-         {{ range .Site.Menus.home }}
-         {{ $active := or (eq $.RelPermalink .URL) (or ($current.HasMenuCurrent "home" .) ($current.IsMenuCurrent "home" .)) }}
-         {{if .HasChildren }}
+         {{ range .Site.Data.navigation.links }}
+         {{ $active := eq $.RelPermalink .link }}
+         {{if .children }}
          <li class="nav-item {{ if $active }}active open {{ end }}">
             <a class="nav-link nav-toggle" href="javascript:;">
-            <i class="{{ .Pre }}"></i>
-            <span class="title">{{.Name}}</span>
+            <i class="{{ .pre }}"></i>
+            <span class="title">{{.name}}</span>
             <span class="arrow"></span>
             <span class="selected"></span>
             </a>
             <ul class="sub-menu">
-               {{ range .Children }}
-               <li class="nav-item {{ if or (eq $current.RelPermalink .URL) (and $current.Parent (eq $current.Parent.Name .Name)) }}active open {{ end }}">
-                  <a href="{{ .URL }}" class="nav-link ">
-                  <i class="{{ .Pre }}"></i>
-                  <span class="title">{{ .Name }}</span>
+               {{ range .children }}
+               <li class="nav-item {{ if eq $current.RelPermalink .link }}active open {{ end }}">
+                  <a href="{{ .link }}" class="nav-link ">
+                  <i class="{{ .pre }}"></i>
+                  <span class="title">{{ .name }}</span>
                   </a>
                </li>
                {{ end }}
@@ -130,9 +130,9 @@
          </li>
          {{ else }}
          <li class="nav-item {{ if $active }}active{{ end }}">
-            <a class="nav-link" href="{{.URL | relURL}}">
-              <i class="{{ .Pre }}"></i>
-              <span class="title">{{.Name}}</span>
+            <a class="nav-link" href="{{.link | relURL}}">
+              <i class="{{ .pre }}"></i>
+              <span class="title">{{.name}}</span>
               <span class="selected"></span>
             </a>
          </li>

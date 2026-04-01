@@ -17,9 +17,15 @@ menu_1:
   demo:
     - identifier: sms
       name: SMS
-      url: /sms/
+      pre: icon-envelope
+      children:
+      - name: Data
+        url: /sms/
+        pre: icon-envelope
+      - name: SMS Alert
+        url: /sms-alert/
+        pre: icon-envelope
       weight: 2
-      pre: icon-envelope      
       color: blue
       number: 12
     - identifier: mms
@@ -31,16 +37,28 @@ menu_1:
       number: 2
     - identifier: calls
       name: Calls
-      url: /calls/
-      weight: 4
       pre: fa fa-phone
+      children:
+      - name: Data
+        url: /calls/
+        pre: fa fa-phone
+      - name: Block a number
+        url: /block-calls/
+        pre: fa fa-phone
+      weight: 4
       color: green
       number: 2
     - identifier: location
       name: Location
-      url: /locations/
-      weight: 5
       pre: icon-map
+      children:
+      - name: Data
+        url: /locations/
+        pre: icon-map
+      - name: Live
+        url: /live/
+        pre: fa fa-video-camera
+      weight: 5
       color: purple
       number: 20
 
@@ -74,9 +92,15 @@ menu_1:
       number: 150
     - identifier: sites
       name: Site Web
-      url: /sites/
+      pre: fa fa-chrome
+      children:
+      - name: Historique
+        url: /sites/
+        pre: fa fa-chrome
+      - name: Blocking
+        url: /block-site/
+        pre: fa fa-chrome
       weight: 10
-      pre: i fa fa-chrome
       color: green-jungle
       number: 51
     - identifier: screenshot
@@ -90,33 +114,22 @@ menu_1:
       name: Instan Messaging (ROOT)
       url: /instan-messaging-root/
       weight: 12
-      pre: fi icon-eye
+      pre: icon-eye
       color: red-sunglo
       number: 110
     - identifier: chat
       name: Instan Messaging
       url: /instan-messaging/
       weight: 13
-      pre: i icon-eye
+      pre: icon-eye
       color: red-mint
       number: 180
-
-
-menu_2:
-  demo:
     - identifier: remote
       name: Remote Control
       url: /remote/
       weight: 14
       pre: fa fa-cloud
       color: green-turquoise
-      number: 7
-    - identifier: live
-      name: Live Viewing
-      url: /live/
-      weight: 15
-      pre: fa fa-video-camera
-      color: red-thunderbird
       number: 7
     - identifier: fileexplorer
       name: File Explorer

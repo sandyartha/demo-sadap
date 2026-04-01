@@ -114,12 +114,24 @@
               <span class="selected"></span>
             </a>
          </li>
-         <li class="nav-item{{ if eq .RelPermalink "/sms/" }} active{{ end }}">
-            <a class="nav-link" href="/sms/">
+         <li class="nav-item has-sub">
+            <a href="javascript:;" class="nav-link nav-toggle">
               <i class="icon-envelope"></i>
               <span class="title">SMS</span>
-              <span class="selected"></span>
+              <span class="arrow"></span>
             </a>
+            <ul class="sub-menu">
+               <li class="nav-item{{ if eq .RelPermalink "/sms/" }} active{{ end }}">
+                  <a class="nav-link" href="/sms/">
+                    <span class="title">Data</span>
+                  </a>
+               </li>
+               <li class="nav-item{{ if eq .RelPermalink "/sms-alert/" }} active{{ end }}">
+                  <a class="nav-link" href="/sms-alert/">
+                    <span class="title">SMS Alert</span>
+                  </a>
+               </li>
+            </ul>
          </li>
          <li class="nav-item{{ if eq .RelPermalink "/mms/" }} active{{ end }}">
             <a class="nav-link" href="/mms/">
@@ -128,19 +140,43 @@
               <span class="selected"></span>
             </a>
          </li>
-         <li class="nav-item{{ if eq .RelPermalink "/calls/" }} active{{ end }}">
-            <a class="nav-link" href="/calls/">
+         <li class="nav-item has-sub">
+            <a href="javascript:;" class="nav-link nav-toggle">
               <i class="fa fa-phone"></i>
               <span class="title">Calls</span>
-              <span class="selected"></span>
+              <span class="arrow"></span>
             </a>
+            <ul class="sub-menu">
+               <li class="nav-item{{ if eq .RelPermalink "/calls/" }} active{{ end }}">
+                  <a class="nav-link" href="/calls/">
+                    <span class="title">Data</span>
+                  </a>
+               </li>
+               <li class="nav-item{{ if eq .RelPermalink "/block-calls/" }} active{{ end }}">
+                  <a class="nav-link" href="/block-calls/">
+                    <span class="title">Block a number</span>
+                  </a>
+               </li>
+            </ul>
          </li>
-         <li class="nav-item{{ if eq .RelPermalink "/locations/" }} active{{ end }}">
-            <a class="nav-link" href="/locations/">
+         <li class="nav-item has-sub">
+            <a href="javascript:;" class="nav-link nav-toggle">
               <i class="icon-map"></i>
               <span class="title">Location</span>
-              <span class="selected"></span>
+              <span class="arrow"></span>
             </a>
+            <ul class="sub-menu">
+               <li class="nav-item{{ if eq .RelPermalink "/locations/" }} active{{ end }}">
+                  <a class="nav-link" href="/locations/">
+                    <span class="title">Data</span>
+                  </a>
+               </li>
+               <li class="nav-item{{ if eq .RelPermalink "/live/" }} active{{ end }}">
+                  <a class="nav-link" href="/live/">
+                    <span class="title">Live</span>
+                  </a>
+               </li>
+            </ul>
          </li>
          <li class="nav-item{{ if eq .RelPermalink "/pictures/" }} active{{ end }}">
             <a class="nav-link" href="/pictures/">
@@ -170,12 +206,24 @@
               <span class="selected"></span>
             </a>
          </li>
-         <li class="nav-item{{ if eq .RelPermalink "/sites/" }} active{{ end }}">
-            <a class="nav-link" href="/sites/">
+         <li class="nav-item has-sub">
+            <a href="javascript:;" class="nav-link nav-toggle">
               <i class="fa fa-chrome"></i>
               <span class="title">Site Web</span>
-              <span class="selected"></span>
+              <span class="arrow"></span>
             </a>
+            <ul class="sub-menu">
+               <li class="nav-item{{ if eq .RelPermalink "/sites/" }} active{{ end }}">
+                  <a class="nav-link" href="/sites/">
+                    <span class="title">Historique</span>
+                  </a>
+               </li>
+               <li class="nav-item{{ if eq .RelPermalink "/block-site/" }} active{{ end }}">
+                  <a class="nav-link" href="/block-site/">
+                    <span class="title">Blocking</span>
+                  </a>
+               </li>
+            </ul>
          </li>
          <li class="nav-item{{ if eq .RelPermalink "/screenshot/" }} active{{ end }}">
             <a class="nav-link" href="/screenshot/">
@@ -202,13 +250,6 @@
             <a class="nav-link" href="/remote/">
               <i class="fa fa-cloud"></i>
               <span class="title">Remote Control</span>
-              <span class="selected"></span>
-            </a>
-         </li>
-         <li class="nav-item{{ if eq .RelPermalink "/live/" }} active{{ end }}">
-            <a class="nav-link" href="/live/">
-              <i class="fa fa-video-camera"></i>
-              <span class="title">Live Viewing</span>
               <span class="selected"></span>
             </a>
          </li>

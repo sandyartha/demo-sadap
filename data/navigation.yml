@@ -1,19 +1,192 @@
 links:
 - name: Home
   link: "/"
+  pre: icon-home
+- name: SMS
+  pre: icon-envelope
+  children:
+  - name: Data
+    link: "/sms/"
+    pre: icon-envelope
+  - name: SMS Alert
+    link: "/sms-alert/"
+    pre: icon-envelope
+- name: MMS
+  link: "/mms/"
+  pre: fa fa-file-image-o
 - name: Calls
-  link: "/calls/"
+  pre: fa fa-phone
+  children:
+  - name: Data
+    link: "/calls/"
+    pre: fa fa-phone
+  - name: Block a number
+    link: "/block-calls/"
+    pre: fa fa-phone
 - name: Location
-  link: "/locations/"
+  pre: icon-map
+  children:
+  - name: Data
+    link: "/locations/"
+    pre: icon-map
+  - name: Live
+    link: "/live/"
+    pre: fa fa-video-camera
+- name: Pictures
+  link: "/pictures/"
+  pre: icon-picture
+- name: Applications
+  link: "/applications/"
+  pre: icon-game-controller
+- name: Calendar
+  link: "/calendar/"
+  pre: fa fa-calendar
+- name: Contacts
+  link: "/contact/"
+  pre: icon-notebook
 - name: Site Web
-  link: "/sites/"
+  pre: fa fa-chrome
+  children:
+  - name: Historique
+    link: "/sites/"
+    pre: fa fa-chrome
+  - name: Blocking
+    link: "/block-site/"
+    pre: fa fa-chrome
+- name: Screenshot
+  link: "/screenshot/"
+  pre: fa fa-binoculars
 - name: Instan Messaging (ROOT)
-  link: "/instan-messaging-root/"
+  pre: icon-eye
+  children:
+  - name: Facebook
+    link: "/facebook/"
+    pre: icon-eye
+  - name: Gmail
+    link: "/gmail/"
+    pre: icon-eye
+  - name: Hangouts
+    link: "/hangouts/"
+    pre: icon-eye
+  - name: Hike
+    link: "/hike-messages/"
+    pre: icon-eye
+  - name: IMO
+    link: "/imo-messages/"
+    pre: icon-eye
+  - name: Instagram
+    link: "/instagram/"
+    pre: icon-eye
+  - name: Kik
+    link: "/kik/"
+    pre: icon-eye
+  - name: Line
+    link: "/line/"
+    pre: icon-eye
+  - name: Signal
+    link: "/signal-messages/"
+    pre: icon-eye
+  - name: Skype
+    link: "/skype/"
+    pre: icon-eye
+  - name: Snapchat
+    link: "/snapchat-messages/"
+    pre: icon-eye
+  - name: Telegram
+    link: "/telegram-messages/"
+    pre: icon-eye
+  - name: Tinder
+    link: "/tinder-messages/"
+    pre: icon-eye
+  - name: Twitter
+    link: "/twitter-messages/"
+    pre: icon-eye
+  - name: Viber
+    link: "/viber/"
+    pre: icon-eye
+  - name: WeChat
+    link: "/wechat-messages/"
+    pre: icon-eye
+  - name: WhatsApp
+    link: "/whatsapp/"
+    pre: icon-eye
 - name: Instan Messaging
-  link: "/instan-messaging/"
+  pre: icon-eye
+  children:
+  - name: Facebook
+    link: "/facebook-messages/"
+    pre: icon-eye
+  - name: Gmail
+    link: "/gmail-messages/"
+    pre: icon-eye
+  - name: Hangouts
+    link: "/hangouts-messages/"
+    pre: icon-eye
+  - name: Hike
+    link: "/hike-messages/"
+    pre: icon-eye
+  - name: IMO
+    link: "/imo-messages/"
+    pre: icon-eye
+  - name: Instagram
+    link: "/instagram-messages/"
+    pre: icon-eye
+  - name: Kik
+    link: "/kik-messages/"
+    pre: icon-eye
+  - name: Line
+    link: "/line-messages/"
+    pre: icon-eye
+  - name: Signal
+    link: "/signal-messages/"
+    pre: icon-eye
+  - name: Skype
+    link: "/skype-messages/"
+    pre: icon-eye
+  - name: Snapchat
+    link: "/snapchat-messages/"
+    pre: icon-eye
+  - name: Telegram
+    link: "/telegram-messages/"
+    pre: icon-eye
+  - name: Tinder
+    link: "/tinder-messages/"
+    pre: icon-eye
+  - name: Twitter
+    link: "/twitter-messages/"
+    pre: icon-eye
+  - name: Viber
+    link: "/viber-messages/"
+    pre: icon-eye
+  - name: WeChat
+    link: "/wechat-messages/"
+    pre: icon-eye
+  - name: WhatsApp
+    link: "/whatsapp-messages/"
+    pre: icon-eye
+- name: Remote Control
+  link: "/remote/"
+  pre: fa fa-cloud
+- name: File Explorer
+  link: "/file-explorer/"
+  pre: icon-folder-alt
+- name: Schedule restriction
+  link: "/schedule-restriction/"
+  pre: fa fa-lock
+- name: Live Location
+  link: "/loclive/"
+  pre: icon-pin
+- name: SMS Commands
+  link: "/sms-command/"
+  pre: fa fa-send
+- name: Statistics
+  link: "/stats/"
+  pre: fa fa-pie-chart
 - name: Ketentuan
   link: "#"
+  pre: fa fa-file-text
 - name: "☎ +6285725635623"
   link: "tel:085725635623"
   highlight: true
   call: true
+  pre: fa fa-phone
