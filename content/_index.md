@@ -124,6 +124,9 @@ menu_1:
       pre: icon-eye
       color: red-mint
       number: 180
+
+menu_2:
+  demo:
     - identifier: remote
       name: Remote Control
       url: /remote/

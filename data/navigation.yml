@@ -61,109 +61,109 @@ links:
   children:
   - name: Facebook
     link: "/facebook/"
-    pre: icon-eye
+    pre: fa fa-facebook
   - name: Gmail
     link: "/gmail/"
-    pre: icon-eye
+    pre: fa fa-envelope
   - name: Hangouts
     link: "/hangouts/"
-    pre: icon-eye
+    pre: fa fa-comment
   - name: Hike
     link: "/hike-messages/"
-    pre: icon-eye
+    pre: fa fa-comments
   - name: IMO
     link: "/imo-messages/"
-    pre: icon-eye
+    pre: fa fa-comment-o
   - name: Instagram
     link: "/instagram/"
-    pre: icon-eye
+    pre: fa fa-instagram
   - name: Kik
     link: "/kik/"
-    pre: icon-eye
+    pre: fa fa-comments-o
   - name: Line
     link: "/line/"
-    pre: icon-eye
+    pre: fa fa-line-chart
   - name: Signal
     link: "/signal-messages/"
-    pre: icon-eye
+    pre: fa fa-shield
   - name: Skype
     link: "/skype/"
-    pre: icon-eye
+    pre: fa fa-skype
   - name: Snapchat
     link: "/snapchat-messages/"
-    pre: icon-eye
+    pre: fa fa-snapchat
   - name: Telegram
     link: "/telegram-messages/"
-    pre: icon-eye
+    pre: fa fa-telegram
   - name: Tinder
     link: "/tinder-messages/"
-    pre: icon-eye
+    pre: fa fa-fire
   - name: Twitter
     link: "/twitter-messages/"
-    pre: icon-eye
+    pre: fa fa-twitter
   - name: Viber
     link: "/viber/"
-    pre: icon-eye
+    pre: fa fa-phone
   - name: WeChat
     link: "/wechat-messages/"
-    pre: icon-eye
+    pre: fa fa-wechat
   - name: WhatsApp
     link: "/whatsapp/"
-    pre: icon-eye
+    pre: fa fa-whatsapp
 - name: Instan Messaging
   pre: icon-eye
   children:
   - name: Facebook
     link: "/facebook-messages/"
-    pre: icon-eye
+    pre: fa fa-facebook
   - name: Gmail
     link: "/gmail-messages/"
-    pre: icon-eye
+    pre: fa fa-envelope
   - name: Hangouts
     link: "/hangouts-messages/"
-    pre: icon-eye
+    pre: fa fa-comment
   - name: Hike
     link: "/hike-messages/"
-    pre: icon-eye
+    pre: fa fa-comments
   - name: IMO
     link: "/imo-messages/"
-    pre: icon-eye
+    pre: fa fa-comment-o
   - name: Instagram
     link: "/instagram-messages/"
-    pre: icon-eye
+    pre: fa fa-instagram
   - name: Kik
     link: "/kik-messages/"
-    pre: icon-eye
+    pre: fa fa-comments-o
   - name: Line
     link: "/line-messages/"
-    pre: icon-eye
+    pre: fa fa-line-chart
   - name: Signal
     link: "/signal-messages/"
-    pre: icon-eye
+    pre: fa fa-shield
   - name: Skype
     link: "/skype-messages/"
-    pre: icon-eye
+    pre: fa fa-skype
   - name: Snapchat
     link: "/snapchat-messages/"
-    pre: icon-eye
+    pre: fa fa-snapchat
   - name: Telegram
     link: "/telegram-messages/"
-    pre: icon-eye
+    pre: fa fa-telegram
   - name: Tinder
     link: "/tinder-messages/"
-    pre: icon-eye
+    pre: fa fa-fire
   - name: Twitter
     link: "/twitter-messages/"
-    pre: icon-eye
+    pre: fa fa-twitter
   - name: Viber
     link: "/viber-messages/"
-    pre: icon-eye
+    pre: fa fa-phone
   - name: WeChat
     link: "/wechat-messages/"
-    pre: icon-eye
+    pre: fa fa-wechat
   - name: WhatsApp
     link: "/whatsapp-messages/"
-    pre: icon-eye
+    pre: fa fa-whatsapp
 - name: Remote Control
   link: "/remote/"
   pre: fa fa-cloud

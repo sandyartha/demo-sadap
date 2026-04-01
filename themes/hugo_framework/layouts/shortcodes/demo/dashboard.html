@@ -56,9 +56,9 @@
     </div>
 </div>
 
-<h1 class="page-title">
+<h2 class="page-title">
     Dashboard
-</h1>
+</h2>
 <div class="row">
     {{ range .Page.Params.menu_1.demo }}
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -75,12 +75,11 @@
     {{ end }}
 </div>
 
-
-
 <h2 class="page-title">
-    Others features
+    Other Features
 </h2>
 <div class="row">
+    {{ if .Page.Params.menu_2 }}
     {{ range .Page.Params.menu_2.demo }}
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <a class="dashboard-stat dashboard-stat-v2 {{.color}} btn" href="{{.url}}">
@@ -93,6 +92,7 @@
             </div>
         </a>
     </div>
+    {{ end }}
     {{ end }}
     <div class="clearfix"></div>
 </div>

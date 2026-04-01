@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hangouts on Penyadap.com</title>
+    <link>https://demo.penyadap.com/hangouts-messages/</link>
+    <description>Recent content in Hangouts on Penyadap.com</description>
+    <generator>Hugo</generator>
+    <language>id</language>
+    <copyright>PENYADAP.COM. All rights reserved.</copyright>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://demo.penyadap.com/hangouts-messages/index.xml" rel="self" type="application/rss" />
+  </channel>
+</rss>

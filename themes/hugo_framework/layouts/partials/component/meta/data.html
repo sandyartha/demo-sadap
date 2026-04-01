@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="{{ .Site.Params.twitter }}" />
 <meta name="twitter:title" content="{{ .Title | safeHTML }} - {{ .Site.Title }}" />
-<meta name="twitter:description" content="{{ if .Params.description | safeHTML }}{{ .Params.description | safeHTML }}{{else}}Tutorial terbaru {{.Title}} {{ now.Format "2006"}} - {{.Site.Title}}{{end}}" />
+<meta name="twitter:description" content="{{ if .Params.description }}{{ .Params.description | safeHTML }}{{else}}Tutorial terbaru {{.Title}} {{ now.Format "2006"}} - {{.Site.Title}}{{end}}" />
 <meta name="twitter:image" content="{{ .Params.thumbnail | default "/default.png" | absURL }}" />
 
 <!-- favicon generator: visit: https://realfavicongenerator.net/ -->
@@ -30,3 +30,9 @@
 <link rel="manifest" href="{{ "/manifest.json" | absURL }}">
 <link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
+<!-- Language Alternate Links -->
+{{ if .IsTranslated }}
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+{{ end }}
+{{ end }}

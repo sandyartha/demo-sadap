@@ -109,8 +109,16 @@
          {{ $current := . }}
          {{ range .Site.Data.navigation.links }}
          {{ $active := eq $.RelPermalink .link }}
+         {{ $childActive := false }}
+         {{ if .children }}
+            {{ range .children }}
+               {{ if eq $current.RelPermalink .link }}
+                  {{ $childActive = true }}
+               {{ end }}
+            {{ end }}
+         {{ end }}
          {{if .children }}
-         <li class="nav-item {{ if $active }}active open {{ end }}">
+         <li class="nav-item has-sub {{ if or $active $childActive }}active open{{ end }}">
             <a class="nav-link nav-toggle" href="javascript:;">
             <i class="{{ .pre }}"></i>
             <span class="title">{{.name}}</span>
@@ -119,7 +127,7 @@
             </a>
             <ul class="sub-menu">
                {{ range .children }}
-               <li class="nav-item {{ if eq $current.RelPermalink .link }}active open {{ end }}">
+               <li class="nav-item {{ if eq $current.RelPermalink .link }}active{{ end }}">
                   <a href="{{ .link }}" class="nav-link ">
                   <i class="{{ .pre }}"></i>
                   <span class="title">{{ .name }}</span>
